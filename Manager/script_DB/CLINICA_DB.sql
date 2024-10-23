@@ -1,9 +1,9 @@
-use master 
-go
-create database CLINICA_DB
-go
-use CLINICA_DB
-go
+USE MASTER
+GO
+CREATE DATABASE CLINICA_DB
+GO
+USE CLINICA_DB
+GO
 
 CREATE TABLE Direccion (
     id_direccion INT PRIMARY KEY,
@@ -33,14 +33,14 @@ CREATE TABLE Persona (
 GO
 CREATE TABLE Usuario (
     numero_afiliado VARCHAR(20) PRIMARY KEY,
-    dni VARCHAR(20),
+    dni CHAR(8),
     estado VARCHAR(50),
     FOREIGN KEY (dni) REFERENCES Persona(dni)
 );
 GO
 CREATE TABLE Trabajador (
     legajo INT PRIMARY KEY,
-    dni VARCHAR(20),
+    dni CHAR(8),
     turno VARCHAR(50),
     estado VARCHAR(50),
     FOREIGN KEY (dni) REFERENCES Persona(dni)
