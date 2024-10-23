@@ -51,7 +51,7 @@
       <div class="col-10">
         <div class="row">
           <div class="col-md-8 mb-4">
-            <textarea class="form-control info-box" rows="8" placeholder="Mucha Informacion"></textarea>
+              <asp:TextBox ID="txtInformacion" runat="server" CssClass="form-control flex-grow-1" TextMode="MultiLine" style="resize: none;" Rows="4">Mucha Información</asp:TextBox>
           </div>
 
           <div class="col-md-4 d-flex flex-column align-items-end">

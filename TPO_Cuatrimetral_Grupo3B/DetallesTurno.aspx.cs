@@ -13,5 +13,27 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
 
         }
+        protected void btnReprogramar_Click(object sender, EventArgs e)
+        {
+            // reprogramar el turno- update.
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            // guardar los cambios realizados en las observaciones del medico.
+            string observaciones = txtObsMedico.Text;
+            // guardar observaciones en la base de datos.
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            // cancelar el turno.
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
+
     }
 }
