@@ -116,3 +116,7 @@ C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\D
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\Debug\TPO_Cuat.ACD83D33.Up2Date
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\Debug\TPO_Cuatrimetral_Grupo3B.dll
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\Debug\TPO_Cuatrimetral_Grupo3B.pdb
+C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Dominio.dll
+C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Manager.dll
+C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Dominio.pdb
+C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Manager.pdb
