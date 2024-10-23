@@ -120,3 +120,17 @@ C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\D
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Manager.dll
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Dominio.pdb
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Manager.pdb
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\TPO_Cuatrimetral_Grupo3B.dll.config
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\TPO_Cuatrimetral_Grupo3B.dll
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\TPO_Cuatrimetral_Grupo3B.pdb
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Dominio.dll
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Manager.dll
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Dominio.pdb
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Manager.pdb
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\Debug\TPO_Cuatrimetral_Grupo3B.csproj.AssemblyReference.cache
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\Debug\TPO_Cuatrimetral_Grupo3B.csproj.CoreCompileInputs.cache
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\Debug\TPO_Cuat.ACD83D33.Up2Date
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\Debug\TPO_Cuatrimetral_Grupo3B.dll
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\TPO_Cuatrimetral_Grupo3B\obj\Debug\TPO_Cuatrimetral_Grupo3B.pdb

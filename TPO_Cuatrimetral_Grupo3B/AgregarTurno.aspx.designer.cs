@@ -13,5 +13,23 @@ namespace TPO_Cuatrimetral_Grupo3B
 
     public partial class AgregarTurno
     {
+
+        /// <summary>
+        /// Control especialidadSelect.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList especialidadSelect;
+
+        /// <summary>
+        /// Control btnVerEspecialistas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerEspecialistas;
     }
 }

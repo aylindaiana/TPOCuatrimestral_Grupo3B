@@ -4,3 +4,9 @@ C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.cspr
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.csproj.CoreCompileInputs.cache
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.dll
 C:\Users\aapan\Downloads\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.pdb
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\bin\Debug\Manager.dll
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\bin\Debug\Manager.pdb
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.csproj.AssemblyReference.cache
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.csproj.CoreCompileInputs.cache
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.dll
+C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.pdb
