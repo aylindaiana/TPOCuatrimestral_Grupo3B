@@ -11,7 +11,7 @@ namespace TPO_Cuatrimetral_Grupo3B
 {
 
 
-    public partial class MiPerfil
+    public partial class Configuracion
     {
     }
 }

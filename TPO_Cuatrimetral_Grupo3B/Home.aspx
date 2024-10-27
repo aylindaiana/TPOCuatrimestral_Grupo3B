@@ -1,102 +1,100 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="TPO_Cuatrimetral_Grupo3B.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-
-        .main-content{
+        .main-content {
             text-align: center;
             display: flex;
             align-items: center;
-            justify-content:flex-start; 
+            justify-content: flex-start;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            padding: 2%;
         }
 
-        .contenedor{
+        .pantalla-resumen {
             border: 1px solid #ced4da;
-            padding: 50px;
+            background-color: #ecfcff;
+            max-width: 80%;
+            width: 70%;
+            height: auto;
+            margin: 30px;
+            padding: 20px;
+            border-radius: 30px;
+            padding: 30px;
+        }
+
+        .pantalla-opcciones {
+            border: 1px solid #ced4da;
+            background-color: #ecfcff;
+            max-width: 20%;
+            width: 20%;
+            height: auto;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 30px;
+            padding: 30px;
+        }
+
+        #texto-info {
+            min-width: 100px;
+            min-height: 100px;
+        }
+
+        .btn-custom-turnos {
+            margin: 10px;
+            width: 120px;
+            height: 100px;
+        }
+
+        button.btn-atajos {
+            margin: 10px 10px;
+            max-width: 100%;
+            max-height: auto;
+            width: 200px;
+            height: 60px;
+            ;
+            border-radius: 30px;
+            align-items: center;
+        }
+
+        h1, p {
             text-align: center;
-            display: flex;  /* habilita la distribucion dinamica dentro del contenedor (horizontal o vertical)*/
-            border-radius:30px;
+            font-family: 'Catamaran', sans-serif;
         }
-
-        .contenedor.resumen 
-        {
-            height: 250px;  /* Altura del contenedor*/
-            width: 70vw;
-            align-items: center;
-            justify-content:flex-start; 
-            background-color:honeydew;
-        }
-
-        .configuracion 
-        {
-            margin:20px;
-        }
-
-        .info-plan {
-            height:15vw;
-            width:30vw;
-        }
-
-        .ultima-actividad 
-        {
-            margin-left:10px;
-            padding:10px;
-        }
-
-        .resumen-turnos 
-        {
-            padding: 50px;
-            display: flex;  
-            align-items: center;
-            justify-content:flex-start; 
-            margin-top:30px;
-            height:50px;
-            width:100%;
-        }
-
-        .btn-custom-turnos 
-        {
-            margin:10px;
-            width:120px;
-            height:100px;
-        }
-
-        .btn-atajos
-        {
-            margin:10px;
-            width:140px;
-            height:60px;
-        }
-
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-    <div class="container">
-        <h1>Plan Actual del contribuyente:</h1>
-        <div class="main-content">      <!-- clase al pedo -->
-            <div class="contenedor resumen">
-                
-                <div style="background-color:lightblue" class="contenedor info-plan">
-                    <h2> Detalles plan Actual</h2>
+    <h1 class="text-center">Plan Actual del contribuyente:</h1>
+
+    <div class="main-content"">
+        <div class="pantalla-resumen">      
+            <div class="row">
+                <div class="col" style="background-color:lightblue; border-radius:30px;">
+                    <h1>Detalle plan Actual</h1>
+                    <p id="texto-info">
+                        <!--Modificar dependiendo quien esta logueado-->
+                    </p>
                 </div>
-                
-                <div class="info-plan ultima-actividad">
+                <div class="col" style="text-align:center;">
                     <h2>Historial de Turnos</h2>
-                    <div class="resumen-turnos"> 
-                        <button type="button" class="btn btn-outline-primary btn-custom-turnos">Pendientes</button>
-                        <button type="button" class="btn btn-outline-success btn-custom-turnos">Asistidos</button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="contenedor resumen configuracion">
-                <div>
-                    <button style="border-radius:30px" type="button" class="btn btn-outline-danger btn-atajos">Nuevo turno</button>
-                    <button style="border-radius:30px" type="button" class="btn btn-outline-primary btn-atajos">Configuracion</button>
+                    <button type="button" class="btn btn-outline-primary btn-custom-turnos">Pendientes</button>
+                    <button type="button" class="btn btn-outline-success btn-custom-turnos">Asistidos</button>
                 </div>
             </div>
         </div>
+
+        <div class="pantalla-opcciones">
+           <div class="row justify-content-center">
+                <button type="button" class="btn btn-outline-danger btn-atajos">Nuevo turno</button>
+                <button type="button" class="btn btn-outline-primary btn-atajos">Configuracion</button>
+            </div>
+        </div>
+
     </div>
 
 </asp:Content>

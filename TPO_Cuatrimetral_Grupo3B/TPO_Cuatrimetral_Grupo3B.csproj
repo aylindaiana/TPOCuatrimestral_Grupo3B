@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgregarTurno.aspx" />
+    <Content Include="Configuracion.aspx" />
     <Content Include="DetallesTurno.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
@@ -83,6 +84,13 @@
     </Compile>
     <Compile Include="AgregarTurno.aspx.designer.cs">
       <DependentUpon>AgregarTurno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion.aspx.cs">
+      <DependentUpon>Configuracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuracion.aspx.designer.cs">
+      <DependentUpon>Configuracion.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetallesTurno.aspx.cs">
       <DependentUpon>DetallesTurno.aspx</DependentUpon>
