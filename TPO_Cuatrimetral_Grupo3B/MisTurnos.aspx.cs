@@ -13,5 +13,21 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
 
         }
+        protected void ContenidoFiltros(object sender, EventArgs e)
+        {
+            var button = (System.Web.UI.WebControls.Button)sender;
+            string turnoSuperior = button.CommandArgument;
+
+            tituloContenido.Text = turnoSuperior;
+            contenido.Text = $"Este es el filtro numero {turnoSuperior.ToLower()}.";
+        }
+        protected void ContenidoTurnos(object sender, EventArgs e)
+        {
+            var button = (System.Web.UI.WebControls.Button)sender;
+            string turno = button.CommandArgument;
+
+            tituloContenido.Text = turno;
+            contenido.Text = $"Contenido del turno para {turno.ToLower()}.";
+        }
     }
 }
