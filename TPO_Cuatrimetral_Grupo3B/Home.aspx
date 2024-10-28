@@ -50,7 +50,7 @@
             height: 100px;
         }
 
-        button.btn-atajos {
+        a.btn-atajos {
             margin: 10px 10px;
             max-width: 100%;
             max-height: auto;
@@ -89,11 +89,12 @@
         </div>
 
         <div class="pantalla-opcciones">
-           <div class="row justify-content-center">
-                <button type="button" class="btn btn-outline-danger btn-atajos">Nuevo turno</button>
-                <button type="button" class="btn btn-outline-primary btn-atajos">Configuracion</button>
+            <div class="row justify-content-center">
+                <a class="btn btn-outline-danger btn-atajos">Nuevo turno</a>
+                <a href="Configuracion.aspx" class="btn btn-outline-primary btn-atajos">Configuración</a>
             </div>
         </div>
+
 
     </div>
 
