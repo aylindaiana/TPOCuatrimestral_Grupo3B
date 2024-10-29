@@ -2,34 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
  <style>
-     body {
-      
-      background-image: url('https://img.freepik.com/vector-gratis/mynt-done_53876-119946.jpg?t=st=1730160926~exp=1730164526~hmac=8eba43850caf1a44b54a42cf32a1feceb1d4c0627a964c09f5234f1c25e0d7b4&w=360');
-      background-position: center;
-     }
-    .side-menu {
-      background-color: #005f73; 
-      height: 100%;
-    }
-    .side-menu ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .side-menu li {
-      margin: 10px 0;
-      text-align: center;
-    }
-    .side-menu .btn {
-      background-color: #0a9396; 
-      color: white;
-      border-radius: 10px;
-      width: 40px;
-      height: 40px;
-      font-size: 1.2em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+
     .content-area {
       background-color: white;
       padding: 20px;
@@ -57,7 +30,25 @@
         height: 400px; /* Puedes ajustar este valor a la altura que prefieras */
     overflow-y: scroll; 
     }
-
+    .btn-nuevo {
+        background-color: #00b4d8; 
+        color: white;
+        border-radius: 50%;
+        width: 85px;
+        height: 60px;
+        font-size: 0.80em;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s;
+    }
+    .btn-nuevo:hover {
+        background-color: #0096c7; 
+    }
   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -84,15 +75,6 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-1 side-menu">
-        <ul>
-          <li><asp:Button ID="btnTurno1" runat="server" CssClass="btn" Text="1" OnClick="ContenidoTurnos" CommandArgument="Turno 1" /></li>
-          <li><asp:Button ID="btnTurno2" runat="server" CssClass="btn" Text="2" OnClick="ContenidoTurnos" CommandArgument="Turno 2" /></li>
-          <li><asp:Button ID="btnTurno3" runat="server" CssClass="btn" Text="3" OnClick="ContenidoTurnos" CommandArgument="Turno 3" /></li>
-          <li><asp:Button ID="btnTurno4" runat="server" CssClass="btn" Text="4" OnClick="ContenidoTurnos" CommandArgument="Turno 4" /></li>
-        </ul>
-      </div>
-
  
       <div class="col-11">
                 <div class="content-area">
@@ -106,6 +88,9 @@
                         </Columns>
                     </asp:GridView>
                     <asp:Label ID="contenido" runat="server">Estos son todos tus turnos!</asp:Label>
+
+                    <asp:Button ID="btnNuevo" runat="server" CssClass="btn-nuevo" Text="Nuevo Turno" OnClick="NuevoTurno_Click" />
+
                 </div>
             <div>
         </div>

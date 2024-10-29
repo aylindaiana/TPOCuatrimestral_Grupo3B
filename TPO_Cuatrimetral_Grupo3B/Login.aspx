@@ -63,6 +63,12 @@
     .forgot-password:hover {
       text-decoration: underline;
     }
+    
+    .footer {
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 10px 0;
+    }
   </style>
 </head>
  
@@ -94,5 +100,8 @@
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="footer">
+    <p>@CopyRight Equipo 3B - 2024</p>
+</footer>
 </body>
 </html>

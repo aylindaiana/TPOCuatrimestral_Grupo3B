@@ -16,11 +16,17 @@
             height: 100%;
             margin: 0;
         }
+        body {
+      
+            background-image: url('https://img.freepik.com/vector-gratis/mynt-done_53876-119946.jpg?t=st=1730160926~exp=1730164526~hmac=8eba43850caf1a44b54a42cf32a1feceb1d4c0627a964c09f5234f1c25e0d7b4&w=360');
+            background-position: center;
+        }
 
         .wrapper {
             display: flex;
             flex-direction: column;
             min-height: 100vh; 
+            flex-direction: column;
         }
 
         .content {
