@@ -13,6 +13,7 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
 
         }
+        //Funcionalidad para cargar turnos a la GridView
         protected void ContenidoFiltros(object sender, EventArgs e)
         {
             var button = (System.Web.UI.WebControls.Button)sender;
@@ -29,5 +30,15 @@ namespace TPO_Cuatrimetral_Grupo3B
             tituloContenido.Text = turno;
             contenido.Text = $"Contenido del turno para {turno.ToLower()}.";
         }
+        protected void gvTurnos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "VerDetalle")
+            {
+                //Crear objeto y llamar al id del turno
+                int turnoId = Convert.ToInt32(e.CommandArgument); //ejemplo 
+                Response.Redirect($"DetalleTurno.aspx?turnoId={turnoId}");
+            }
+        }
+
     }
 }

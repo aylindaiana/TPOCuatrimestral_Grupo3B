@@ -28,11 +28,12 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             // cancelar el turno.
+            Response.Redirect("Home.aspx");
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Home.aspx");
+            Response.Redirect("AgregarTurno.aspx");
         }
 
     }

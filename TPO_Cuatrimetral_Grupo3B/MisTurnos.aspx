@@ -53,20 +53,20 @@
      
   <div class="container-fluid">
     <div class="row button-row mb-3 text-center">
-      <div class="col-2">
-        <asp:Button ID="btnSuperior1" runat="server" CssClass="btn w-100" Text="1" OnClick="ContenidoFiltros" CommandArgument="Superior 1" />
+      <div class="col-4">
+        <asp:Button ID="btnSuperior1" runat="server" CssClass="btn w-100" Text="Filtrar por turno" OnClick="ContenidoFiltros" CommandArgument="Superior 1" />
       </div>
-      <div class="col-2">
-        <asp:Button ID="btnSuperior2" runat="server" CssClass="btn w-100" Text="2" OnClick="ContenidoFiltros" CommandArgument="Superior 2" />
+      <div class="col-4">
+        <asp:Button ID="btnSuperior2" runat="server" CssClass="btn w-100" Text="Buscar por Estado" OnClick="ContenidoFiltros" CommandArgument="Superior 2" />
       </div>
-      <div class="col-2">
-        <asp:Button ID="btnSuperior3" runat="server" CssClass="btn w-100" Text="3" OnClick="ContenidoFiltros" CommandArgument="Superior 3" />
+      <div class="col-4">
+        <asp:Button ID="btnSuperior3" runat="server" CssClass="btn w-100" Text="Buscar por Especialidad" OnClick="ContenidoFiltros" CommandArgument="Superior 3" />
       </div>
-      <div class="col-2">
-        <asp:Button ID="btnSuperior4" runat="server" CssClass="btn w-100" Text="4" OnClick="ContenidoFiltros" CommandArgument="Superior 4" />
+      <div class="col-4">
+        <asp:Button ID="btnSuperior4" runat="server" CssClass="btn w-100" Text="Buscar por Paciente" OnClick="ContenidoFiltros" CommandArgument="Superior 4" />
       </div>
-      <div class="col-2">
-        <asp:Button ID="btnSuperior5" runat="server" CssClass="btn w-100" Text="5" OnClick="ContenidoFiltros" CommandArgument="Superior 5" />
+      <div class="col-4">
+        <asp:Button ID="btnSuperior5" runat="server" CssClass="btn w-100" Text="Buscar por Médico" OnClick="ContenidoFiltros" CommandArgument="Superior 5" />
       </div>
     </div>
   </div>
@@ -82,14 +82,22 @@
         </ul>
       </div>
 
+ 
       <div class="col-11">
-        <div class="content-area">
-        <asp:Label ID="tituloContenido" runat="server" CssClass="h5">Turnos</asp:Label>
-        
-        <asp:Label ID="contenido" runat="server">Estos son todos tus turnos!</asp:Label>
+                <div class="content-area">
+                    <asp:Label ID="tituloContenido" runat="server" CssClass="h5">Turnos</asp:Label>
+                    <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" OnRowCommand="gvTurnos_RowCommand">
+                        <Columns>
+                            <asp:BoundField DataField="TurnoId" HeaderText="ID" />
+                            <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                            <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" />
+                            <asp:ButtonField ButtonType="Button" CommandName="VerDetalle" Text="Ver Detalle" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:Label ID="contenido" runat="server">Estos son todos tus turnos!</asp:Label>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
 </asp:Content>

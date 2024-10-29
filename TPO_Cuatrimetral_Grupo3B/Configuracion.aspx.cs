@@ -13,5 +13,19 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
 
         }
+        protected void btnBuscarLegajo_Click(object sender, EventArgs e)
+        {
+            string legajo = txtLegajo.Text;
+        }
+
+        protected void btnBuscarDni_Click(object sender, EventArgs e)
+        {
+            string dni = txtDni.Text;
+        }
+
+        protected void btnBuscarApellido_Click(object sender, EventArgs e)
+        {
+            string apellido = txtApellido.Text;
+        }
     }
 }

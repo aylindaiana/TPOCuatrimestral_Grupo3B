@@ -13,5 +13,10 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
 
         }
+        protected void btnVerEspecialistas_Click(object sender, EventArgs e)
+        {
+
+            pnlInfoEspecialista.Visible = true;
+        }
     }
 }

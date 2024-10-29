@@ -21,42 +21,44 @@
             <div class="tab-pane fade show active" id="Usuarios" role="tabpanel" aria-labelledby="home-tab">
                 <!--Configuracion de Usuarios-->
 
-                 <!--Filtros-->
-                <div class="row justify-content-center" style="padding-top: 30px">
-                    <div class="container-fluid">
-                        <div class="row button-row mb-5 text-center">
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <!--filtro por legajo-->
-                                    <input type="text" class="form-control" placeholder="Legajo" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button">Buscar</button>
-                                    </div>
+            <!-- Filtros -->
+            <div class="row justify-content-center" style="padding-top: 30px">
+                <div class="container-fluid">
+                    <div class="row button-row mb-5 text-center">
+                
+                        <!-- Filtro por Legajo -->
+                        <div class="col-4">
+                            <div class="input-group mb-3">
+                                <asp:TextBox ID="txtLegajo" CssClass="form-control" runat="server" Placeholder="Legajo"></asp:TextBox>
+                                <div class="input-group-append">
+                                    <asp:Button ID="btnBuscarLegajo" CssClass="btn btn-outline-secondary" runat="server" Text="Buscar" OnClick="btnBuscarLegajo_Click" />
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <!--filtro por dni-->
-                                    <input type="text" class="form-control" placeholder="DNI" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button">Buscar</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <!--filtro por apellido-->
-                                    <input type="text" class="form-control" placeholder="Apellido" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button">Buscar</button>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+                
+                        <!-- Filtro por DNI -->
+                        <div class="col-4">
+                            <div class="input-group mb-3">
+                                <asp:TextBox ID="txtDni" CssClass="form-control" runat="server" Placeholder="DNI"></asp:TextBox>
+                                <div class="input-group-append">
+                                    <asp:Button ID="btnBuscarDni" CssClass="btn btn-outline-secondary" runat="server" Text="Buscar" OnClick="btnBuscarDni_Click" />
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Filtro por Apellido -->
+                        <div class="col-4">
+                            <div class="input-group mb-3">
+                                <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server" Placeholder="Apellido"></asp:TextBox>
+                                <div class="input-group-append">
+                                    <asp:Button ID="btnBuscarApellido" CssClass="btn btn-outline-secondary" runat="server" Text="Buscar" OnClick="btnBuscarApellido_Click" />
+                                </div>
+                            </div>
+                        </div>
+              
                     </div>
                 </div>
-
+            </div>
                 <!--Informacion usuario-->
 
                 <form>
