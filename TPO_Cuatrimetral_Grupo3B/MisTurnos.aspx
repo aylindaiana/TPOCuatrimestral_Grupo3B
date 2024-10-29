@@ -3,7 +3,9 @@
 
  <style>
      body {
-      background-color: #e0f7fa; 
+      
+      background-image: url('https://img.freepik.com/vector-gratis/mynt-done_53876-119946.jpg?t=st=1730160926~exp=1730164526~hmac=8eba43850caf1a44b54a42cf32a1feceb1d4c0627a964c09f5234f1c25e0d7b4&w=360');
+      background-position: center;
      }
     .side-menu {
       background-color: #005f73; 
@@ -47,6 +49,15 @@
     .button-row .btn:hover {
       background-color: #94d2bd; 
     }
+    .col-4 {
+      margin-bottom: 20px; /* los botones de filtar*/
+    }
+
+    .gvTurnos{
+        height: 400px; /* Puedes ajustar este valor a la altura que prefieras */
+    overflow-y: scroll; 
+    }
+
   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -96,7 +107,7 @@
                     </asp:GridView>
                     <asp:Label ID="contenido" runat="server">Estos son todos tus turnos!</asp:Label>
                 </div>
-            </div>
+            <div>
         </div>
     </div>
 
