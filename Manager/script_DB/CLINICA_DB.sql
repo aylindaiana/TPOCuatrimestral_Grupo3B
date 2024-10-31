@@ -5,7 +5,9 @@ GO
 USE CLINICA_DB
 GO
 
-CREATE TABLE Direccion (
+
+
+CREATE TABLE Direcciones (
     id_direccion INT PRIMARY KEY,
     calle VARCHAR(100),
     numero VARCHAR(10),
@@ -18,7 +20,8 @@ CREATE TABLE Niveles_acceso (
     nivel_acceso VARCHAR(50)
 );
 GO
-CREATE TABLE Persona (
+
+CREATE TABLE Personas (
     dni VARCHAR(20) PRIMARY KEY,
     nombre VARCHAR(100),
     apellido VARCHAR(100),
@@ -27,40 +30,23 @@ CREATE TABLE Persona (
     email VARCHAR(100),
     id_direccion INT,
     id_acceso INT,
-    FOREIGN KEY (id_direccion) REFERENCES Direccion(id_direccion),
+    FOREIGN KEY (id_direccion) REFERENCES Direcciones(id_direccion),
     FOREIGN KEY (id_acceso) REFERENCES Niveles_acceso(id_acceso)
 );
 GO
-CREATE TABLE Usuario (
+CREATE TABLE Pacientes (
     numero_afiliado VARCHAR(20) PRIMARY KEY,
     dni CHAR(8),
     estado VARCHAR(50),
-    FOREIGN KEY (dni) REFERENCES Persona(dni)
+    FOREIGN KEY (dni) REFERENCES Personas(dni)
 );
 GO
-CREATE TABLE Trabajador (
+CREATE TABLE Trabajadores (
     legajo INT PRIMARY KEY,
     dni CHAR(8),
     turno VARCHAR(50),
     estado VARCHAR(50),
-    FOREIGN KEY (dni) REFERENCES Persona(dni)
-);
-GO
-CREATE TABLE Recepcionista (
-    legajo INT PRIMARY KEY,
-    FOREIGN KEY (legajo) REFERENCES Trabajador(legajo)
-);
-GO
-CREATE TABLE Administrador (
-    id_administrador INT PRIMARY KEY,
-    legajo INT,
-    FOREIGN KEY (legajo) REFERENCES Trabajador(legajo)
-);
-GO
-CREATE TABLE Medico (
-    id_medico INT PRIMARY KEY,
-    legajo INT,
-    FOREIGN KEY (legajo) REFERENCES Trabajador(legajo)
+    FOREIGN KEY (dni) REFERENCES Personas(dni)
 );
 GO
 CREATE TABLE Especialidades (
@@ -72,7 +58,7 @@ CREATE TABLE Medico_x_especialidad (
     id_medico INT,
     id_especialidad INT,
     PRIMARY KEY (id_medico, id_especialidad),
-    FOREIGN KEY (id_medico) REFERENCES Medico(id_medico),
+    FOREIGN KEY (id_medico) REFERENCES Trabajadores(legajo),
     FOREIGN KEY (id_especialidad) REFERENCES Especialidades(id_especialidad)
 );
 GO
@@ -87,7 +73,7 @@ CREATE TABLE Sanatorios (
     telefono VARCHAR(20),
     email VARCHAR(100),
     estado VARCHAR(50),
-    FOREIGN KEY (id_direccion) REFERENCES Direccion(id_direccion)
+    FOREIGN KEY (id_direccion) REFERENCES Direcciones(id_direccion)
 );
 GO
 CREATE TABLE Sanatorios_x_planes (
@@ -98,7 +84,7 @@ CREATE TABLE Sanatorios_x_planes (
     FOREIGN KEY (id_plan) REFERENCES Planes(id_plan)
 );
 GO
-CREATE TABLE Turno (
+CREATE TABLE Turnos (
     id_turno INT PRIMARY KEY,
     numero_afiliado VARCHAR(20),
     id_plan INT,
@@ -112,3 +98,10 @@ CREATE TABLE Turno (
     FOREIGN KEY (id_medico) REFERENCES Medico(id_medico)
 );
 GO
+
+CREATE TABLE Usuarios(
+	Id_usuario INT PRIMARY KEY IDENTITY(1,1),
+	Usuario VARCHAR(50),
+	Pass VARCHAR(50),
+	Nivel_acceso INT
+)

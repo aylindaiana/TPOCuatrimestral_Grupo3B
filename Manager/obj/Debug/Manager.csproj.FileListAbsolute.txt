@@ -10,3 +10,9 @@ C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\obj\Debu
 C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.csproj.CoreCompileInputs.cache
 C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.dll
 C:\Users\usuario\Desktop\Nueva carpeta\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.pdb
+C:\Users\BBARRERA\Documents\GitHub\TPOCuatrimestral_Grupo3B\Manager\bin\Debug\Manager.dll
+C:\Users\BBARRERA\Documents\GitHub\TPOCuatrimestral_Grupo3B\Manager\bin\Debug\Manager.pdb
+C:\Users\BBARRERA\Documents\GitHub\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.csproj.AssemblyReference.cache
+C:\Users\BBARRERA\Documents\GitHub\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.csproj.CoreCompileInputs.cache
+C:\Users\BBARRERA\Documents\GitHub\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.dll
+C:\Users\BBARRERA\Documents\GitHub\TPOCuatrimestral_Grupo3B\Manager\obj\Debug\Manager.pdb
