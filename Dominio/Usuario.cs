@@ -8,10 +8,10 @@ namespace Dominio
 {
     public enum UserType
     {
-        PACIENTE = 0,
-        RECEPCIONISTA = 1,
-        MEDICO = 2,
-        ADMIN = 3
+        PACIENTE = 1,
+        RECEPCIONISTA = 2,
+        MEDICO = 3,
+        ADMIN = 4
     }
 
     public class Usuario
@@ -19,6 +19,23 @@ namespace Dominio
         public string User { get; set; }
         public string Password { get; set; }
         public UserType TipoAcceso { get; set; }
-    
+        public bool Estado { get; set; }
+
+        public Usuario(string User, string Password, UserType TipoAcceso, bool Estado) 
+        { 
+            this.User = User;
+            this.Password = Password;
+            this.TipoAcceso = TipoAcceso;
+            this.Estado = Estado;
+        }
+
+        public Usuario() 
+        {
+            this.User = "null";
+            this.Password = "null";
+            this.TipoAcceso = UserType.PACIENTE;
+            this.Estado = false;
+        }
+
     }
 }

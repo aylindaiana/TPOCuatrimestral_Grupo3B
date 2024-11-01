@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
      <!-- link de Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
      <style>
     body{
@@ -69,6 +69,18 @@
       text-align: center;
       padding: 10px 0;
     }
+
+    /* Estilo de borde rojo para campo incorrecto */
+    .is-invalid {
+      border-color: red !important;
+    }
+
+    /* Estilo del mensaje de error */
+    .error-message {
+      color: red;
+      display: none;
+      font-size: 0.875em;
+    }
   </style>
 </head>
  
@@ -78,28 +90,27 @@
         <div class="container">
             <div class="login-container">
               <h2 class="text-center login-title"> General Hospital Springfield</h2>
-              <form>
-                <div class="mb-3">
-                  <label for="usuario" class="form-label">Usuario</label>
-                  <input type="text" class="form-control" id="usuario" placeholder="Ingrese su usuario" required>
-                </div>
-                <div class="mb-3">
-                  <label for="password" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="rememberMe">
-                  <label class="form-check-label" for="rememberMe">Recordarme</label>
-                </div>
-                <button type="submit" class="btn btn-hospital w-100">Iniciar sesión</button>
-              </form>
+              <div class="mb-3">
+                <label for="usuario" class="form-label">Usuario</label>
+                <asp:TextBox ID="txtUsuario" CssClass="form-control" placeholder="Ingrese su usuario" runat="server" />
+                  <span id="userErrorMsg" runat="server" class="error-message">Usuario incorrecto. Intente nuevamente.</span>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <asp:TextBox ID="txtPassword" CssClass="form-control" TextMode="Password" placeholder="Ingrese su contraseña" runat="server" />
+                <span id="errorMessage" runat="server" class="error-message">Contraseña incorrecta. Intente nuevamente.</span>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe"/>
+                <label class="form-check-label" for="rememberMe">Recordarme</label>
+              </div>
+              <asp:Button ID="btnValidate" CssClass="btn btn-hospital w-100" Text="Iniciar sesión" OnClick="btnValidate_Click" runat="server" />
               <div class="mt-3 text-center">
-                <a href="#" class="forgot-password">¿Olvide mi contraseña?</a>
+                <a href="#" class="forgot-password">¿Olvidé mi contraseña?</a>
               </div>
             </div>
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
 </body>
 </html>
