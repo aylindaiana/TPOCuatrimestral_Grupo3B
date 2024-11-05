@@ -19,7 +19,7 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected void btnValidate_Click(object sender, EventArgs e)
         {
             UsuarioManager usuarioManager = new UsuarioManager();
-            Usuario nuevoUsuario = usuarioManager.Login(txtUsuario.Text,txtPassword.Text);
+            Usuario nuevoUsuario = usuarioManager.Login(txtUsuario.Text, txtPassword.Text);
 
             if (!nuevoUsuario.Estado)
             {
@@ -27,7 +27,7 @@ namespace TPO_Cuatrimetral_Grupo3B
                 userErrorMsg.Style["display"] = "block";
                 txtPassword.CssClass += " is-invalid";
                 errorMessage.Style["display"] = "block";
-                
+
             }
             else
             {
@@ -41,7 +41,8 @@ namespace TPO_Cuatrimetral_Grupo3B
                 Response.Redirect("Home.aspx");
                 //Response.Write("<script>alert('Bienvenido al sistema!');</script>");
             }
-        
+
         }
+
     }
 }

@@ -115,3 +115,28 @@ DECLARE @Pass varchar(50) = '123456'
 
 SELECT Usuario,Pass,id_acceso,estado FROM Usuarios WHERE Usuario = @Usuario AND Pass = @Pass
 
+
+
+
+CREATE FUNCTION dbo.Obtener_Empleado(@DNI VARCHAR(20))
+RETURNS TABLE
+RETURN(
+	SELECT P.dni, P.nombre, P.apellido, P.fecha_nac, P.telefono,P.email,T.legajo,T.turno,
+		   D.id_direccion,D.calle, D.numero,D.localidad,D.codigo_postal, p.id_acceso,T.estado
+	FROM Trabajadores T
+	INNER JOIN Personas P ON P.dni = T.dni
+	INNER JOIN Direcciones D ON D.id_direccion = P.id_direccion
+	WHERE P.dni = @DNI
+);
+
+CREATE FUNCTION dbo.Obtener_Paciente(@DNI VARCHAR(20))
+RETURNS TABLE
+RETURN(
+	--modificar para que traiga plan
+	SELECT P.dni, P.nombre, P.apellido, P.fecha_nac, P.telefono,P.email,Pa.numero_afiliado,
+		   D.id_direccion,D.calle, D.numero,D.localidad,D.codigo_postal, p.id_acceso,Pa.estado
+	FROM Pacientes Pa
+	INNER JOIN Personas P ON P.dni = Pa.dni
+	INNER JOIN Direcciones D ON D.id_direccion = P.id_direccion
+	WHERE P.dni = @DNI
+);
