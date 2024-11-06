@@ -18,14 +18,14 @@ namespace Dominio
     {
         public string User { get; set; }
         public string Password { get; set; }
-        public UserType TipoAcceso { get; set; }
+        public UserType Tipo { get; set; }
         public bool Estado { get; set; }
 
         public Usuario(string User, string Password, UserType TipoAcceso, bool Estado) 
         { 
             this.User = User;
             this.Password = Password;
-            this.TipoAcceso = TipoAcceso;
+            this.Tipo = TipoAcceso;
             this.Estado = Estado;
         }
 
@@ -33,7 +33,7 @@ namespace Dominio
         {
             this.User = "null";
             this.Password = "null";
-            this.TipoAcceso = UserType.PACIENTE;
+            this.Tipo = UserType.PACIENTE;
             this.Estado = false;
         }
 

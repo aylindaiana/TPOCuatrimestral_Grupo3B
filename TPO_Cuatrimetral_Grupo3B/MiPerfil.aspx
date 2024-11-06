@@ -35,40 +35,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container mt-5">
 
-        <div class="row justify-content-center" style="background-color: white;">
-            <div class="container-fluid">
-                <div class="row button-row mb-5 text-center">
-                    <div class="col-4">
-                        <div class="input-group mb-3">
-                            <!--filtro por legajo-->
-                            <input type="text" class="form-control" placeholder="Legajo" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Buscar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group mb-3">
-                            <!--filtro por dni-->
-                            <input type="text" class="form-control" placeholder="DNI" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Buscar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group mb-3">
-                            <!--filtro por apellido-->
-                            <input type="text" class="form-control" placeholder="Apellido" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Buscar</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
         <div class="row">
             <div class="col">

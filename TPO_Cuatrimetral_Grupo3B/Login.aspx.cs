@@ -11,38 +11,61 @@ namespace TPO_Cuatrimetral_Grupo3B
 {
     public partial class Login : System.Web.UI.Page
     {
+        Usuario nuevoUsuario;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnValidate_Click(object sender, EventArgs e)
         {
             UsuarioManager usuarioManager = new UsuarioManager();
-            Usuario nuevoUsuario = usuarioManager.Login(txtUsuario.Text, txtPassword.Text);
 
-            if (!nuevoUsuario.Estado)
+            try
             {
-                txtUsuario.CssClass += " is-invalid";
-                userErrorMsg.Style["display"] = "block";
-                txtPassword.CssClass += " is-invalid";
-                errorMessage.Style["display"] = "block";
+                nuevoUsuario = usuarioManager.Login(txtUsuario.Text, txtPassword.Text);
 
+                if (nuevoUsuario.Estado)
+                {
+                    ObtenerDatosUsuario();
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    InputError();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtUsuario.CssClass = txtUsuario.CssClass.Replace(" is-invalid", "");
-                userErrorMsg.Style["display"] = "none";
-                txtPassword.CssClass = txtPassword.CssClass.Replace(" is-invalid", "");
-                errorMessage.Style["display"] = "none";
-
-                //guardar datos de usuario en sesion
-
-                Response.Redirect("Home.aspx");
-                //Response.Write("<script>alert('Bienvenido al sistema!');</script>");
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
             }
+
 
         }
 
+        private void InputError()
+        {
+            txtUsuario.CssClass += " is-invalid";
+            userErrorMsg.Style["display"] = "block";
+            txtPassword.CssClass += " is-invalid";
+            errorMessage.Style["display"] = "block";
+        }
+
+        private void ObtenerDatosUsuario() 
+        {
+            Session.Add("User", nuevoUsuario);
+
+            if (nuevoUsuario.Tipo != UserType.PACIENTE)
+            {
+                EmpleadoManager empleado = new EmpleadoManager();
+                Session.Add("Empleado",empleado.Obtener(nuevoUsuario.User));
+            }
+            else
+            {
+                PacienteManager paciente = new PacienteManager();
+                Session.Add("Paciente",paciente.Obtener(nuevoUsuario.User));
+            }
+        }
     }
 }

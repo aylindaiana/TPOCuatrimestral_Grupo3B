@@ -110,14 +110,6 @@ CREATE TABLE Usuarios(
 )
 GO
 
-DECLARE @Usuario varchar(20) = '42832435'
-DECLARE @Pass varchar(50) = '123456'
-
-SELECT Usuario,Pass,id_acceso,estado FROM Usuarios WHERE Usuario = @Usuario AND Pass = @Pass
-
-
-
-
 CREATE FUNCTION dbo.Obtener_Empleado(@DNI VARCHAR(20))
 RETURNS TABLE
 RETURN(
@@ -128,6 +120,7 @@ RETURN(
 	INNER JOIN Direcciones D ON D.id_direccion = P.id_direccion
 	WHERE P.dni = @DNI
 );
+GO
 
 CREATE FUNCTION dbo.Obtener_Paciente(@DNI VARCHAR(20))
 RETURNS TABLE
@@ -140,3 +133,30 @@ RETURN(
 	INNER JOIN Direcciones D ON D.id_direccion = P.id_direccion
 	WHERE P.dni = @DNI
 );
+GO
+
+INSERT Niveles_acceso(nivel_acceso)
+VALUES ('PACIENTE'),('RECEPCIONISTA'),('MEDICO'),('ADMIN')
+GO
+
+INSERT Direcciones (calle,numero,localidad,codigo_postal)
+VALUES ('CALLE PRUEBA','1111','PRUEBA','2222')
+GO
+INSERT Personas (dni,nombre,apellido,fecha_nac,telefono,email,id_direccion,id_acceso)
+VALUES ('111','TEST','TEST','1999-01-01','1234567890','TEST@GMAIL.COM',1000,1)
+GO
+INSERT Personas (dni,nombre,apellido,fecha_nac,telefono,email,id_direccion,id_acceso)
+VALUES ('222','TEST2','TEST2','1999-01-02','1234567890','TEST2@GMAIL.COM',1000,4)
+GO
+INSERT Trabajadores (legajo,dni,turno,estado)
+VALUES ('7001','222','TARDE',1)
+GO
+INSERT Pacientes(numero_afiliado,dni,estado)
+VALUES ('1001','111',1)
+GO
+INSERT Usuarios(Usuario,Pass,id_acceso,estado)
+VALUES ('111','PACIENTE',1,1)
+GO
+INSERT Usuarios(Usuario,Pass,id_acceso,estado)
+VALUES ('222','ADMIN',4,1)
+GO

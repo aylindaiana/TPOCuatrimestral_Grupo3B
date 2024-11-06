@@ -9,7 +9,7 @@ namespace Dominio
     public class Paciente: Persona
     {
 
-        public int Numero_afiliado { get; set; }
+        public string Numero_afiliado { get; set; }
         public string Plan { get; set; }
         public bool Estado { get; set; }
 

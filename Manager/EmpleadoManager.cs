@@ -9,7 +9,7 @@ namespace Manager
 {
     public class EmpleadoManager
     {
-        public Empleado ObtenerEmpleado(string DNI)
+        public Empleado Obtener(string DNI)
         {
             AccesoDatos datos = new AccesoDatos();
             Empleado empleado= new Empleado();
@@ -31,7 +31,7 @@ namespace Manager
                     empleado.Turno = (string)datos.Lector["turno"];
                     empleado.Direccion.Id_direccion = (int)datos.Lector["id_direccion"];
                     empleado.Direccion.Calle = (string)datos.Lector["calle"];
-                    empleado.Direccion.Numero = (int)datos.Lector["numero"];
+                    empleado.Direccion.Numero = (string)datos.Lector["numero"];
                     empleado.Direccion.Localidad = (string)datos.Lector["localidad"];
                     empleado.Direccion.CodigoPostal = (string)datos.Lector["codigo_postal"];
                     empleado.Nivel_Acceso = (UserType)datos.Lector["id_acceso"];

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Manager
 {
-    internal class PacienteManager
+    public class PacienteManager
     {
-        public Paciente ObtenerPaciente(string DNI)
+        public Paciente Obtener(string DNI)
         {
             AccesoDatos datos = new AccesoDatos();
             Paciente paciente = new Paciente();
@@ -27,10 +27,10 @@ namespace Manager
                     paciente.Fecha_Nac = (DateTime)datos.Lector["fecha_nac"];
                     paciente.Telefono = (string)datos.Lector["telefono"];
                     paciente.Email = (string)datos.Lector["email"];
-                    paciente.Numero_afiliado = (int)datos.Lector["numero_afiliado"];
+                    paciente.Numero_afiliado = (string)datos.Lector["numero_afiliado"];
                     paciente.Direccion.Id_direccion = (int)datos.Lector["id_direccion"];
                     paciente.Direccion.Calle = (string)datos.Lector["calle"];
-                    paciente.Direccion.Numero = (int)datos.Lector["numero"];
+                    paciente.Direccion.Numero = (string)datos.Lector["numero"];
                     paciente.Direccion.Localidad = (string)datos.Lector["localidad"];
                     paciente.Direccion.CodigoPostal = (string)datos.Lector["codigo_postal"];
                     paciente.Nivel_Acceso = (UserType)datos.Lector["id_acceso"];

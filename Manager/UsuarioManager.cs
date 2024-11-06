@@ -25,7 +25,7 @@ namespace Manager
                 {
                     usuario.User = (string)datos.Lector["Usuario"];
                     usuario.Password = (string)datos.Lector["Pass"];
-                    usuario.TipoAcceso = (UserType)datos.Lector["id_acceso"];
+                    usuario.Tipo = (UserType)datos.Lector["id_acceso"];
                     usuario.Estado = (bool)datos.Lector["estado"];
                 }
 

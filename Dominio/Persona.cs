@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public abstract class Persona
+    public class Persona
     {
 
         public string Dni { get; set; }
@@ -18,6 +18,11 @@ namespace Dominio
         public string Email { get; set; }
         public Direccion Direccion { get; set; }
         public UserType Nivel_Acceso { get; set; }
+
+        public Persona() 
+        { 
+            this.Direccion = new Direccion();
+        }
 
     }
 }
