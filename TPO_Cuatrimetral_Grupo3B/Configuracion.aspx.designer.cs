@@ -15,13 +15,13 @@ namespace TPO_Cuatrimetral_Grupo3B
     {
 
         /// <summary>
-        /// Control txtLegajo.
+        /// Control txtLegajoFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLegajo;
+        protected global::System.Web.UI.WebControls.TextBox txtLegajoFiltro;
 
         /// <summary>
         /// Control btnBuscarLegajo.
@@ -33,13 +33,13 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected global::System.Web.UI.WebControls.Button btnBuscarLegajo;
 
         /// <summary>
-        /// Control txtDni.
+        /// Control txtDniFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDni;
+        protected global::System.Web.UI.WebControls.TextBox txtDniFiltro;
 
         /// <summary>
         /// Control btnBuscarDni.
@@ -51,13 +51,13 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected global::System.Web.UI.WebControls.Button btnBuscarDni;
 
         /// <summary>
-        /// Control txtApellido.
+        /// Control txtApellidoFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellido;
+        protected global::System.Web.UI.WebControls.TextBox txtApellidoFiltro;
 
         /// <summary>
         /// Control btnBuscarApellido.
@@ -78,31 +78,40 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
-        /// Control txtApellidoUsuario.
+        /// Control txtApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txtApellido;
 
         /// <summary>
-        /// Control txtLegajoUsuario.
+        /// Control lbl_legajo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLegajoUsuario;
+        protected global::System.Web.UI.WebControls.Label lbl_legajo;
 
         /// <summary>
-        /// Control txtDniUsuario.
+        /// Control txtLegajo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDniUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txtLegajo;
+
+        /// <summary>
+        /// Control txtDni.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDni;
 
         /// <summary>
         /// Control txtFechaNacimiento.
@@ -204,21 +213,12 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected global::System.Web.UI.WebControls.ListBox lstEspecialidadesDisponibles;
 
         /// <summary>
-        /// Control rptEspecialidades.
+        /// Control lsbxEspecialidades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptEspecialidades;
-
-        /// <summary>
-        /// Control lblDetalleEspecialidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDetalleEspecialidad;
+        protected global::System.Web.UI.WebControls.ListBox lsbxEspecialidades;
     }
 }

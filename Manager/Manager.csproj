@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
+    <Compile Include="EspecialiadadesManager.cs" />
     <Compile Include="PacienteManager.cs" />
     <Compile Include="EmpleadoManager.cs" />
+    <Compile Include="PersonaManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad.cs" />
     <Compile Include="UsuarioManager.cs" />

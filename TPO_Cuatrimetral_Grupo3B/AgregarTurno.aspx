@@ -22,14 +22,7 @@
             <div class="col-md-6">
                 <h3>Seleccione una especialidad:</h3>
                 <div class="ComboBox d-flex" style="max-width:80vh">
-                    <asp:DropDownList ID="especialidadSelect" runat="server" CssClass="form-control">
-                        <asp:ListItem Text="Seleccione una opción" Value="" />
-                        <asp:ListItem Text="Especialidad 1" Value="1" />
-                        <asp:ListItem Text="Especialidad 2" Value="2" />
-                        <asp:ListItem Text="Especialidad 3" Value="3" />
-                        <asp:ListItem Text="Especialidad 4" Value="3" />
-                        <asp:ListItem Text="Especialidad 5" Value="3" />
-                    </asp:DropDownList>
+                    <asp:DropDownList ID="especialidadSelect" runat="server" CssClass="form-control"></asp:DropDownList>
 <asp:Button ID="btnVerEspecialistas" runat="server" Text="Ver Especialistas" CssClass="btn btn-primary" style="margin-left: 10px;" OnClick="btnVerEspecialistas_Click" />                </div>
             </div>
 

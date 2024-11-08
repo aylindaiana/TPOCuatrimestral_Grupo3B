@@ -93,12 +93,12 @@
                             <div class="form-group col-md-3">
                                 <label>Localidad</label>
                                 <!--Localidad-->
-                                <input type="text" class="form-control" placeholder="Localidad">
+                                <asp:TextBox ID="txtLocalidad" runat="server" CssClass="form-control" placeholder="Localidad"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-2">
                                 <label>CP</label>
                                 <!--Codigo Postal-->
-                                <input type="text" class="form-control" placeholder="CP">
+                                <asp:TextBox ID="txtCodPostal" runat="server" CssClass="form-control" placeholder="Codigo postal"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                             <div class="form-group col-md-6">
                                 <label>Email</label>
                                 <!--Email-->
-                                <input type="te  <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email"></asp:TextBox>xt" class="form-control" placeholder="Email">
+                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                 </form>
             </div>
 
-            <div class="col-md-2 d-flex flex-column align-items-end" style="background-color: white;">
+            <div class="col-md-2 d-flex flex-column align-items-end"">
                 <button class="btn btn-success mb-2">Guardar</button>
                 <button class="btn btn-secondary mb-2">Cancelar</button>
             </div>

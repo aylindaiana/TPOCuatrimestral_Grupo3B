@@ -140,13 +140,14 @@ VALUES ('PACIENTE'),('RECEPCIONISTA'),('MEDICO'),('ADMIN')
 GO
 
 INSERT Direcciones (calle,numero,localidad,codigo_postal)
-VALUES ('CALLE PRUEBA','1111','PRUEBA','2222')
+VALUES 
+('AV Santa Fe','1234','Buenos Aires','1059'),
+('Calle 50','789','La Plata','1900')
 GO
 INSERT Personas (dni,nombre,apellido,fecha_nac,telefono,email,id_direccion,id_acceso)
-VALUES ('111','TEST','TEST','1999-01-01','1234567890','TEST@GMAIL.COM',1000,1)
-GO
-INSERT Personas (dni,nombre,apellido,fecha_nac,telefono,email,id_direccion,id_acceso)
-VALUES ('222','TEST2','TEST2','1999-01-02','1234567890','TEST2@GMAIL.COM',1000,4)
+VALUES 
+('111','Juan Carlos','Martinez','1985-03-15','1145678901','juan.martinez85@gmail.com',1000,1),
+('222','María Elena','Gomez','1990-07-22','2617891234','maria.gomez90@hotmail.com',1001,4)
 GO
 INSERT Trabajadores (legajo,dni,turno,estado)
 VALUES ('7001','222','TARDE',1)
@@ -159,4 +160,14 @@ VALUES ('111','PACIENTE',1,1)
 GO
 INSERT Usuarios(Usuario,Pass,id_acceso,estado)
 VALUES ('222','ADMIN',4,1)
+GO
+
+INSERT Especialidades (especialidad)
+VALUES 
+('Clinica'),('Pediatria'),('Dermatologia'),('Cardiologia'),
+('Oncologia'),('Neumologia')
+GO
+
+INSERT Medico_x_especialidad (legajo,id_especialidad)
+VALUES ('7001','4'),('7001','5'),('7001','2')
 GO

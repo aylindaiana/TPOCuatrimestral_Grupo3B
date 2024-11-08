@@ -76,7 +76,7 @@
         </div>
         <div class="pantalla-opcciones">
             <div class="row justify-content-center">
-                <a class="btn btn-outline-danger btn-atajos">Nuevo turno</a>
+                <a href="AgregarTurno.aspx" class="btn btn-outline-danger btn-atajos">Nuevo turno</a>
                 <a href="Configuracion.aspx" class="btn btn-outline-primary btn-atajos">Configuración</a>
             </div>
         </div>

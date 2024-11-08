@@ -43,7 +43,6 @@ namespace Manager
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -51,6 +50,37 @@ namespace Manager
                 datos.CerrarConeccion();
             }
         }
+
+        //Busqueda por Legajo
+        public string ObtenerDNI(int Legajo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string dni = "";
+            try
+            {
+                datos.SetearConsulta("SELECT dni FROM TRABAJADORES WHERE LEGAJO = @DATO");
+                datos.SetearParametro("@DATO", Legajo);
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    dni = (string)datos.Lector["dni"];
+                }
+
+                return dni;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+
+
+
         public List<Empleado> filtrar(string campo, string filtro)
         {
             List<Empleado> lista = new List<Empleado>();

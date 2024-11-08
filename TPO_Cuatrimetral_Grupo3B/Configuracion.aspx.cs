@@ -11,184 +11,136 @@ namespace TPO_Cuatrimetral_Grupo3B
 {
     public partial class Configuracion : System.Web.UI.Page
     {
+        Persona persona;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            { 
+                EspecialiadadesManager especialidades = new EspecialiadadesManager();
+                List<string> lista_especialidades = especialidades.ObtenerTodos();
 
-        }
-        /*
-        [System.Web.Services.WebMethod]
-        public static string[] GetDnis(string prefixText)
-        {
-            EmpleadoManager empleadoManager = new EmpleadoManager();
-            var dnis = empleadoManager.BuscarDnis(prefixText); 
-            return dnis;
-        }
-
-        // Método para obtener los apellidos para el autocompletar
-        [System.Web.Services.WebMethod]
-        public static string[] GetApellidos(string prefixText)
-        {
-            EmpleadoManager empleadoManager = new EmpleadoManager();
-            var apellidos = empleadoManager.BuscarApellidos(prefixText); 
-            return apellidos;
-        }
-        [System.Web.Services.WebMethod]
-        public static string[] GetLegajos(string prefixText)
-        {
-            EmpleadoManager empleadoManager = new EmpleadoManager();
-            var legajos = empleadoManager.BuscarLegajosPorPrefijo(prefixText);  
-            return legajos;
-        }
-
-        protected void btnBuscarLegajo_Click(object sender, EventArgs e)
-        {
-            string legajoStr = txtLegajo.Text;
-            if (string.IsNullOrEmpty(legajoStr))
-            {
-                Response.Write("Por favor ingresa un legajo.");
-            }
-            else
-            {
-                int legajo = int.Parse(legajoStr); 
-                mostrarUsuarioPorLegajo(legajo);   
-            }
-        }
-
-        private void mostrarUsuarioPorLegajo(string legajo)
-        {
-            EmpleadoManager empleadoManager = new EmpleadoManager();
-            string trabajador = empleadoManager.BuscarLegajos(legajo);
-            if (trabajador != null)
-            {
-                txtNombre.Text = trabajador.Nombre;
-                txtApellidoUsuario.Text = trabajador.Apellido;
-                txtLegajoUsuario.Text = trabajador.Legajo.ToString();
-                txtEmail.Text = trabajador.Email;
-            }
-            else
-            {
-                Response.Write("No se encontró un trabajador con ese legajo.");
-            }
-        }
-
-        private void mostrarUsuarioPorDni(string dni)
-        {
-            EmpleadoManager empleadoManager = new EmpleadoManager();
-            var usuario = empleadoManager.ObtenerPorDni(dni);
-            if (usuario != null)
-            {
-                txtNombre.Text = usuario.Nombre;
-                txtApellidoUsuario.Text = usuario.Apellido;
-                txtLegajoUsuario.Text = usuario.Numero_afiliado;
-                txtEmail.Text = usuario.Email;
-            }
-        }
-
-        private void mostrarUsuarioPorApellido(string apellido)
-        {
-            EmpleadoManager empleadoManager = new EmpleadoManager();
-            var usuario = empleadoManager.ObtenerPorApellido(apellido);
-            if (usuario != null)
-            {
-                txtNombre.Text = usuario.Nombre;
-                txtLegajoUsuario.Text = usuario.Numero_afiliado;
-                txtDniUsuario.Text = usuario.Dni;
-                txtEmail.Text = usuario.Email;
+                lsbxEspecialidades.DataSource = lista_especialidades;
+                lsbxEspecialidades.DataBind();
             }
         }
 
 
-        */
+        /*---------------BOTONES FILTROS---------------*/
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
-            EmpleadoManager empleadoManager2 = new EmpleadoManager();
-            string dni = txtDni.Text;
-            if (string.IsNullOrEmpty(dni))
+            
+            if (!string.IsNullOrEmpty(txtDniFiltro.Text))
             {
-                // Mostrar un mensaje de error o tomar alguna acción si el campo está vacío
-                Response.Write("Por favor ingresa un legajo.");
-            }
-            else
-            {
-                // Procede con la lógica de búsqueda o lo que sea necesario
-                Empleado empleado = empleadoManager2.Obtener(dni);
-
-
-                txtDniUsuario.Text = empleado.Dni;
+                BuscarDatosUsuario(txtDniFiltro.Text);
+                MostrarDatos();
 
             }
+
         }
-        protected void btnBuscarLegajo_Click(object sender, EventArgs e) {
-            EmpleadoManager empleadoManager1 = new EmpleadoManager();
-            string legajo = txtLegajo.Text;
-            if (string.IsNullOrEmpty(legajo))
+        protected void btnBuscarLegajo_Click(object sender, EventArgs e) 
+        {
+            if (!string.IsNullOrEmpty(txtLegajoFiltro.Text))
             {
-                // Mostrar un mensaje de error o tomar alguna acción si el campo está vacío
-                Response.Write("Por favor ingresa un legajo.");
-            }
-            else
-            {
-                // Procede con la lógica de búsqueda o lo que sea necesario
-                Response.Write("Legajo ingresado: " + legajo);
+                int legajo = Convert.ToInt32(txtLegajoFiltro.Text);
+
+                string dni = ObtenerDni(legajo);
+                BuscarDatosUsuario(dni);
+                MostrarDatos();
+
             }
         }
         protected void btnBuscarApellido_Click(object sender, EventArgs e)
         {
-            string apellido = txtApellido.Text;
-            if (string.IsNullOrEmpty(apellido))
+            if (!string.IsNullOrEmpty(txtApellidoFiltro.Text))
             {
-                Response.Write("Por favor ingresa un apellido.");
+                string dni = ObtenerDni(txtApellidoFiltro.Text);
+                BuscarDatosUsuario(dni);
+                MostrarDatos();
+            }
+        }
+        /*---------------FIN BOTONES FILTROS---------------*/
+
+
+        private string ObtenerDni(string Apellido) 
+        {
+            PersonaManager aux = new PersonaManager();
+            return aux.ObtenerDNI(Apellido);
+        }
+
+        private string ObtenerDni(int Legajo)
+        {
+            EmpleadoManager aux = new EmpleadoManager();
+            return aux.ObtenerDNI(Legajo);
+        }
+
+        private void BuscarDatosUsuario(string dni)
+        {
+            PersonaManager personamanager = new PersonaManager();
+            
+            try
+            {
+                persona = personamanager.BuscarPorDNI(dni);
+
+                if (persona.Nivel_Acceso == UserType.PACIENTE)
+                {
+                    PacienteManager paciente = new PacienteManager();
+                    persona = paciente.Obtener(dni);
+                }
+                else
+                {
+                    EmpleadoManager empleado = new EmpleadoManager();
+                    persona = empleado.Obtener(dni);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
+            
+
+        }
+
+        private void MostrarDatos() 
+        {
+            txtNombre.Text = persona.Nombre;
+            txtApellido.Text = persona.Apellido;
+            txtDni.Text = persona.Dni;
+            txtFechaNacimiento.Text = persona.Fecha_Nac.ToString("yyyy-MM-dd");
+            txtCalle.Text = persona.Direccion.Calle;
+            txtNumero.Text = persona.Direccion.Numero;
+            txtLocalidad.Text = persona.Direccion.Localidad;
+            txtCodigoPostal.Text = persona.Direccion.CodigoPostal;
+            txtTelefono.Text = persona.Telefono;
+            txtEmail.Text = persona.Email;
+
+
+            if (persona.Nivel_Acceso == UserType.PACIENTE)
+            {
+                MostrarDatosPaciente((Paciente)persona);
             }
             else
             {
-                // mostrarUsuarioPorApellido(apellido);
+                MostrarDatosEmpleado((Empleado)persona);
             }
         }
 
-
-
-        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        private void MostrarDatosPaciente(Paciente pac)
         {
-            Session.Clear();
-            Response.Redirect("Login.aspx");
-        }
-        
-        protected void btnMoverIzquierda_Click(object sender, EventArgs e)
-        {
-            // Mover elementos seleccionados de lstEspecialidadesAsignadas a lstEspecialidadesDisponibles
-            foreach (ListItem item in lstEspecialidadesAsignadas.Items)
-            {
-                if (item.Selected)
-                {
-                    lstEspecialidadesDisponibles.Items.Add(item);
-                    lstEspecialidadesAsignadas.Items.Remove(item);
-                }
-            }
-        }
-        protected void btnMoverDerecha_Click(object sender, EventArgs e)
-        {
-            // Mover elementos seleccionados de lstEspecialidadesDisponibles a lstEspecialidadesAsignadas
-            foreach (ListItem item in lstEspecialidadesDisponibles.Items)
-            {
-                if (item.Selected)
-                {
-                    lstEspecialidadesAsignadas.Items.Add(item);
-                    lstEspecialidadesDisponibles.Items.Remove(item);
-                }
-            }
+            lbl_legajo.Text = "Numero Afiliado";
+            txtLegajo.Text = pac.Numero_afiliado;
+            //agregar plan
         }
 
-        protected void Especialidad_Click(object sender, RepeaterCommandEventArgs e)
+        private void MostrarDatosEmpleado(Empleado emp)
         {
-            if (e.CommandName == "Select")
-            {
-                // Obtener el nombre de la especialidad seleccionada
-                string especialidadSeleccionada = e.CommandArgument.ToString();
 
-                // Actualizar el label con el detalle de la especialidad
-                lblDetalleEspecialidad.Text = "Detalles de " + especialidadSeleccionada;
-            }
+            lbl_legajo.Text = "Legajo";
+            txtLegajo.Text = emp.Legajo.ToString();
+            //especialidades y turnos
         }
+
     }
 
 }

@@ -31,7 +31,12 @@ namespace TPO_Cuatrimetral_Grupo3B
                 txtApellido.Text = persona.Apellido;
                 txtDNI.Text = persona.Dni;
                 txtFechaNac.Text = persona.Fecha_Nac.ToString("yyyy-MM-dd");
-                txtCalle.Text = persona.Direccion.ToString();
+                txtCalle.Text = persona.Direccion.Calle;
+                txtNumero.Text = persona.Direccion.Numero;
+                txtLocalidad.Text = persona.Direccion.Localidad;
+                txtCodPostal.Text = persona.Direccion.CodigoPostal;
+                txtTelefono.Text = persona.Telefono;
+                txtEmail.Text = persona.Email;
                 
             }
         }
