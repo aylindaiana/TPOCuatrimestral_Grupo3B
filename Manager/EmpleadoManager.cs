@@ -51,5 +51,67 @@ namespace Manager
                 datos.CerrarConeccion();
             }
         }
+        public List<Empleado> filtrar(string campo, string filtro)
+        {
+            List<Empleado> lista = new List<Empleado>();
+            AccesoDatos datos = new AccesoDatos();
+
+            string consulta = "SELECT P.dni, P.nombre, P.apellido, P.fecha_nac, P.telefono, P.email, T.legajo, T.turno, D.calle, D.numero, D.localidad, D.codigo_postal " +
+                              "FROM Trabajadores T " +
+                              "INNER JOIN Personas P ON P.dni = T.dni " +
+                              "INNER JOIN Direcciones D ON D.id_direccion = P.id_direccion";
+
+            if (!string.IsNullOrEmpty(campo) && !string.IsNullOrEmpty(filtro))
+            {
+                if (campo.ToLower() == "legajo")
+                {
+                    consulta += " WHERE T.legajo = @filtro";
+                }
+                else if (campo.ToLower() == "dni")
+                {
+                    consulta += " WHERE P.dni = @filtro";
+                }
+                else if (campo.ToLower() == "apellido")
+                {
+                    consulta += " WHERE P.apellido LIKE @filtro";
+                    filtro = "%" + filtro + "%";
+                }
+            }
+            try
+            {
+                datos.SetearConsulta(consulta);
+                datos.SetearParametro("@filtro", filtro);
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Empleado empleado = new Empleado();
+                    {
+                        empleado.Dni = datos.Lector["dni"].ToString();
+                        empleado.Nombre = datos.Lector["nombre"].ToString();
+                        empleado.Apellido = datos.Lector["apellido"].ToString();
+                        empleado.Legajo = int.Parse(datos.Lector["legajo"].ToString());
+                        empleado.Email = datos.Lector["email"].ToString();
+                        empleado.Telefono = datos.Lector["telefono"].ToString();
+                        empleado.Direccion.Calle = datos.Lector["calle"].ToString();
+                        empleado.Direccion.Numero = datos.Lector["numero"].ToString();
+                        empleado.Direccion.Localidad = datos.Lector["localidad"].ToString();
+                        empleado.Direccion.CodigoPostal = datos.Lector["codigo_postal"].ToString();
+                    };
+
+                    lista.Add(empleado);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+
+            return lista;
+        }
     }
 }
