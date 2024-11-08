@@ -44,17 +44,17 @@
                             <div class="form-group col-md-4">
                                 <label>Nombre</label>
                                 <!--Nombre-->
-                                <input type="text" class="form-control" placeholder="Nombre">
+                                <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Nombre"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Apellido</label>
                                 <!--Apellido-->
-                                <input type="text" class="form-control" placeholder="Apellido">
+                                <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" placeholder="Apellido"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Legajo</label>
                                 <!--Afiliado o Legajo-->
-                                <input type="text" class="form-control" placeholder="Legajo">
+                                <asp:TextBox ID="txtLegajo" runat="server" CssClass="form-control" placeholder="Legajo"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -66,12 +66,12 @@
                             <div class="form-group col-md-6">
                                 <label>Numero de Documento</label>
                                 <!--DNI -->
-                                <input type="text" class="form-control" placeholder="DNI">
+                               <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" placeholder="DNI"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Fecha de Nacimiento</label>
                                 <!--Fecha de Nacimiento-->
-                                <input type="text" class="form-control" placeholder="Fecha de nacimiento">
+                                 <asp:TextBox ID="txtFechaNac" runat="server" CssClass="form-control" TextMode="Date" placeholder="Fecha de nacimiento"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -83,12 +83,12 @@
                             <div class="form-group col-md-5">
                                 <label>Calle</label>
                                 <!--Calle -->
-                                <input type="text" class="form-control" placeholder="Calle">
+                                 <asp:TextBox ID="txtCalle" runat="server" CssClass="form-control" placeholder="Calle"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-2">
                                 <label>Numero</label>
                                 <!--Numero-->
-                                <input type="text" class="form-control" placeholder="Numero">
+                                <asp:TextBox ID="txtNumero" runat="server" CssClass="form-control" placeholder="Numero"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-3">
                                 <label>Localidad</label>
@@ -110,12 +110,12 @@
                             <div class="form-group col-md-6">
                                 <label>Telefono</label>
                                 <!--Telefono -->
-                                <input type="text" class="form-control" placeholder="Telefono">
+                                 <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" placeholder="Telefono"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Email</label>
                                 <!--Email-->
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="te  <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email"></asp:TextBox>xt" class="form-control" placeholder="Email">
                             </div>
                         </div>
                     </div>
