@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Manager
 {
@@ -15,20 +16,20 @@ namespace Manager
             Empleado empleado= new Empleado();
             try
             {
-                datos.SetearConsulta("SELECT dni,nombre,apellido,fecha_nac,telefono,email,legajo,turno,id_direccion,calle,numero,localidad,codigo_postal,id_acceso,estado FROM dbo.Obtener_Empleado (@DNI);");
+                datos.SetearConsulta("SELECT dni,nombre,apellido,fecha_nac,telefono,email,legajo,fecha_ing,id_direccion,calle,numero,localidad,codigo_postal,id_acceso,estado FROM dbo.Obtener_Empleado (@DNI);");
                 datos.SetearParametro("@DNI", DNI);
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
                 {
+                    empleado.Legajo = (string)datos.Lector["legajo"];
                     empleado.Dni = (string)datos.Lector["dni"];
                     empleado.Nombre = (string)datos.Lector["nombre"];
                     empleado.Apellido = (string)datos.Lector["apellido"];
                     empleado.Fecha_Nac = (DateTime)datos.Lector["fecha_nac"];
                     empleado.Telefono = (string)datos.Lector["telefono"];
                     empleado.Email = (string)datos.Lector["email"];
-                    empleado.Legajo = (int)datos.Lector["legajo"];
-                    empleado.Turno = (string)datos.Lector["turno"];
+                    empleado.Fecha_Alta = (DateTime)datos.Lector["fecha_ing"];
                     empleado.Direccion.Id_direccion = (int)datos.Lector["id_direccion"];
                     empleado.Direccion.Calle = (string)datos.Lector["calle"];
                     empleado.Direccion.Numero = (string)datos.Lector["numero"];
@@ -81,52 +82,35 @@ namespace Manager
 
 
 
-        public List<Empleado> filtrar(string campo, string filtro)
+        public List<Empleado> ObtenerTodos()
         {
             List<Empleado> lista = new List<Empleado>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "SELECT P.dni, P.nombre, P.apellido, P.fecha_nac, P.telefono, P.email, T.legajo, T.turno, D.calle, D.numero, D.localidad, D.codigo_postal " +
-                              "FROM Trabajadores T " +
-                              "INNER JOIN Personas P ON P.dni = T.dni " +
-                              "INNER JOIN Direcciones D ON D.id_direccion = P.id_direccion";
-
-            if (!string.IsNullOrEmpty(campo) && !string.IsNullOrEmpty(filtro))
-            {
-                if (campo.ToLower() == "legajo")
-                {
-                    consulta += " WHERE T.legajo = @filtro";
-                }
-                else if (campo.ToLower() == "dni")
-                {
-                    consulta += " WHERE P.dni = @filtro";
-                }
-                else if (campo.ToLower() == "apellido")
-                {
-                    consulta += " WHERE P.apellido LIKE @filtro";
-                    filtro = "%" + filtro + "%";
-                }
-            }
             try
             {
-                datos.SetearConsulta(consulta);
-                datos.SetearParametro("@filtro", filtro);
+                datos.SetearConsulta("SELECT legajo,dni,nombre,apellido,fecha_nac,telefono,email,fecha_ing,id_direccion,calle,numero,localidad,codigo_postal,id_acceso FROM vw_Lista_Empleados");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Empleado empleado = new Empleado();
                     {
-                        empleado.Dni = datos.Lector["dni"].ToString();
-                        empleado.Nombre = datos.Lector["nombre"].ToString();
-                        empleado.Apellido = datos.Lector["apellido"].ToString();
-                        empleado.Legajo = int.Parse(datos.Lector["legajo"].ToString());
-                        empleado.Email = datos.Lector["email"].ToString();
-                        empleado.Telefono = datos.Lector["telefono"].ToString();
-                        empleado.Direccion.Calle = datos.Lector["calle"].ToString();
-                        empleado.Direccion.Numero = datos.Lector["numero"].ToString();
-                        empleado.Direccion.Localidad = datos.Lector["localidad"].ToString();
-                        empleado.Direccion.CodigoPostal = datos.Lector["codigo_postal"].ToString();
+                        empleado.Legajo = (string)datos.Lector["legajo"];
+                        empleado.Dni = (string)datos.Lector["dni"];
+                        empleado.Nombre = (string)datos.Lector["nombre"];
+                        empleado.Apellido = (string)datos.Lector["apellido"];
+                        empleado.Fecha_Nac = (DateTime)datos.Lector["fecha_nac"];
+                        empleado.Telefono = (string)datos.Lector["telefono"];
+                        empleado.Email = (string)datos.Lector["email"];
+                        empleado.Fecha_Alta = (DateTime)datos.Lector["fecha_ing"];
+                        empleado.Direccion.Id_direccion = (int)datos.Lector["id_direccion"];
+                        empleado.Direccion.Calle = (string)datos.Lector["calle"];
+                        empleado.Direccion.Numero = (string)datos.Lector["numero"];
+                        empleado.Direccion.Localidad = (string)datos.Lector["localidad"];
+                        empleado.Direccion.CodigoPostal = (string)datos.Lector["codigo_postal"];
+                        empleado.Nivel_Acceso = (UserType)datos.Lector["id_acceso"];
+                        empleado.Estado = true;
                     };
 
                     lista.Add(empleado);

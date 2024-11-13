@@ -12,8 +12,10 @@ namespace Dominio
     public class Empleado: Persona
     {
 
-        public int Legajo { get; set; }
-        public string Turno { get; set; }
+        public string Legajo { get; set; }
+
+        //public string Turno { get; set; }
+        public DateTime Fecha_Alta { get; set; }
         public bool Estado { get; set; }
         
 

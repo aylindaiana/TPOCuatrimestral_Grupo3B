@@ -19,10 +19,16 @@ namespace TPO_Cuatrimetral_Grupo3B
             if (Seguridad.NivelAcceso(Session["User"]) == UserType.PACIENTE)
             {
                 persona = (Persona)Session["Paciente"];
+                Paciente pac = (Paciente)persona;
+                if(persona != null)txtLegajo.Text = pac.Numero_afiliado;
+                LblLegajo.Text = "Numero Afiliado";
             }
             else
             {
                 persona = (Persona)Session["Empleado"];
+                Empleado emp = (Empleado)persona;
+                if (persona != null) txtLegajo.Text = emp.Legajo.ToString();
+                LblLegajo.Text = "Legajo";
             }
 
             if (persona != null)

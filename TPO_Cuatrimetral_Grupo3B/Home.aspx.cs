@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,25 @@ namespace TPO_Cuatrimetral_Grupo3B
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack) 
+            {
+                Persona persona;
 
+                if (Seguridad.NivelAcceso(Session["User"]) == UserType.PACIENTE)
+                {
+                    persona = (Persona)Session["Paciente"];
+                }
+                else 
+                {
+                    persona = (Persona)Session["Empleado"];
+                }
+
+
+                if (persona != null)
+                {
+                    LblPlan.Text = persona.Nombre + " " + persona.Apellido;
+                }
+            }
         }
     }
 }

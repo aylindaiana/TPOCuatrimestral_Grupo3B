@@ -55,7 +55,7 @@
             border-radius: 30px;
             align-items: center;
         }
-        h1, p {
+        h3, p {
             text-align: center;
             font-family: 'Catamaran', sans-serif;
         }
@@ -67,9 +67,10 @@
         <div class="pantalla-resumen">      
             <div class="row">
                 <div class="col" style="background-color:lightblue; border-radius:30px;">
-                    <h1>Detalle plan Actual</h1>
+                    
                     <p id="texto-info">
-                        <!--Modificar dependiendo quien esta logueado-->
+                        <asp:Label ID="LblPlan" class="text-center" runat="server" Text=""  Style="font-size: 40px;"></asp:Label>
+                        <h3>Detalle plan Actual</h3>
                     </p>
                 </div>
             </div>
@@ -77,7 +78,7 @@
         <div class="pantalla-opcciones">
             <div class="row justify-content-center">
                 <a href="AgregarTurno.aspx" class="btn btn-outline-danger btn-atajos">Nuevo turno</a>
-                <a href="Configuracion.aspx" class="btn btn-outline-primary btn-atajos">Configuración</a>
+                <a href="#" class="btn btn-outline-primary btn-atajos">Agregar Paciente</a>
             </div>
         </div>
     </div>

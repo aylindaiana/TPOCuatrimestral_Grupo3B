@@ -52,7 +52,7 @@
                                 <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" placeholder="Apellido"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Legajo</label>
+                                <asp:Label ID="LblLegajo" runat="server" Text="Legajo"></asp:Label>
                                 <!--Afiliado o Legajo-->
                                 <asp:TextBox ID="txtLegajo" runat="server" CssClass="form-control" placeholder="Legajo"></asp:TextBox>
                             </div>
