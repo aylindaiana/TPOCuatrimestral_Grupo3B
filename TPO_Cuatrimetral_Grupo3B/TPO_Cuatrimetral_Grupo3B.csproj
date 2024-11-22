@@ -69,19 +69,22 @@
   <ItemGroup>
     <Content Include="AgregarEmpleado.aspx" />
     <Content Include="AgregarPaciente.aspx" />
+    <Content Include="AgregarPlan.aspx" />
     <Content Include="AgregarTurno.aspx" />
     <Content Include="Configuracion-Empleado.aspx" />
     <Content Include="Configuracion-Especialidades.aspx" />
     <Content Include="Configuracion-Paciente.aspx" />
     <Content Include="Configuracion-Planes.aspx" />
     <Content Include="Configuracion-Turnos.aspx" />
-    <Content Include="ModificarUsuario.aspx" />
+    <Content Include="ModificarEmpleado.aspx" />
     <Content Include="DetallesTurno.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="MisTurnos.aspx" />
+    <Content Include="ModificarPaciente.aspx" />
+    <Content Include="ModificarPlan.aspx" />
     <Content Include="NuevoTurno.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -99,6 +102,13 @@
     </Compile>
     <Compile Include="AgregarPaciente.aspx.designer.cs">
       <DependentUpon>AgregarPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarPlan.aspx.cs">
+      <DependentUpon>AgregarPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarPlan.aspx.designer.cs">
+      <DependentUpon>AgregarPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarTurno.aspx.cs">
       <DependentUpon>AgregarTurno.aspx</DependentUpon>
@@ -142,12 +152,12 @@
     <Compile Include="Configuracion-Turnos.aspx.designer.cs">
       <DependentUpon>Configuracion-Turnos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModificarUsuario.aspx.cs">
-      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
+    <Compile Include="ModificarEmpleado.aspx.cs">
+      <DependentUpon>ModificarEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ModificarUsuario.aspx.designer.cs">
-      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
+    <Compile Include="ModificarEmpleado.aspx.designer.cs">
+      <DependentUpon>ModificarEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetallesTurno.aspx.cs">
       <DependentUpon>DetallesTurno.aspx</DependentUpon>
@@ -186,6 +196,20 @@
     </Compile>
     <Compile Include="MisTurnos.aspx.designer.cs">
       <DependentUpon>MisTurnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPaciente.aspx.cs">
+      <DependentUpon>ModificarPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarPaciente.aspx.designer.cs">
+      <DependentUpon>ModificarPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPlan.aspx.cs">
+      <DependentUpon>ModificarPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarPlan.aspx.designer.cs">
+      <DependentUpon>ModificarPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuevoTurno.aspx.cs">
       <DependentUpon>NuevoTurno.aspx</DependentUpon>

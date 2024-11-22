@@ -41,5 +41,54 @@ namespace Manager
             return lista;
         }
 
+        public void Agregar(Planes plan)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("INSERT Planes (nombre) VALUES (@NOMBRE)");
+                datos.SetearParametro("@NOMBRE", plan.Nombre_Plan);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+
+        }
+
+        public int nuevoID()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            int id = -1;
+            try
+            {
+                datos.SetearConsulta("SELECT dbo.ObtenerNuevoIdPlan() AS ID");
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    id = (int)datos.Lector["ID"];
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+
+            return id;
+        }
+
     }
 }

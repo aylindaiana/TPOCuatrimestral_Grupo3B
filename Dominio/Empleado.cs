@@ -14,7 +14,6 @@ namespace Dominio
 
         public string Legajo { get; set; }
 
-        //public string Turno { get; set; }
         public DateTime Fecha_Alta { get; set; }
         public bool Estado { get; set; }
         

@@ -9,17 +9,18 @@ namespace Dominio
 {
     public class Sanatorios
     {
-        private int id_sanatorio;
-        private string nombre;
-        private string telefono;
-        private string email;
-        private bool estado;
 
         public int Id_Sanatorio { get; set; }
         public string Nombre { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
-        public bool Estado { get; }
+        public Direccion Direccion { get; set; }
+        public bool Estado { get; set; }
+
+        public Sanatorios() 
+        {
+            Direccion = new Direccion();
+        }
 
     }
 }

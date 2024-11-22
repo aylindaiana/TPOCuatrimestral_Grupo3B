@@ -24,11 +24,11 @@
                     </thead>
                     <tbody>
 
-                        <% foreach (string item in listaEspecialidades)
+                        <% foreach (Dominio.Especialidades item in listaEspecialidades)
                             {  %>
 
                         <tr>
-                            <td><%= item%></td>
+                            <td><%= item.Nombre%></td>
                             <td>
                                 <asp:Button class="btn btn-danger btn-sm" Text="Eliminar" runat="server" />
                             </td>

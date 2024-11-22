@@ -12,7 +12,7 @@ namespace TPO_Cuatrimetral_Grupo3B
 {
     public partial class Configuracion_Especialidades : System.Web.UI.Page
     {
-        public List<string> listaEspecialidades;
+        public List<Especialidades> listaEspecialidades;
 
         protected void Page_Load(object sender, EventArgs e)
         {

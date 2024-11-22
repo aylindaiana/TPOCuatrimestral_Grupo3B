@@ -1,4 +1,5 @@
-﻿using Manager;
+﻿using Dominio;
+using Manager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,13 @@ namespace TPO_Cuatrimetral_Grupo3B
             if (!IsPostBack) 
             {
                 EspecialiadadesManager especialiadades = new EspecialiadadesManager();
-                List<string> listaEspecialidades = especialiadades.ObtenerTodos();
+                List<Especialidades> listaEspecialidades = especialiadades.ObtenerTodos();
 
                 especialidadSelect.DataSource = listaEspecialidades;
+                especialidadSelect.DataTextField = "Especialidad";
+                especialidadSelect.DataValueField = "Id";
                 especialidadSelect.DataBind();
+
             }
         }
         protected void btnVerEspecialistas_Click(object sender, EventArgs e)

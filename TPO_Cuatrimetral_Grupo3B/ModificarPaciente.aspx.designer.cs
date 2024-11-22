@@ -11,17 +11,17 @@ namespace TPO_Cuatrimetral_Grupo3B
 {
 
 
-    public partial class Configuracion
+    public partial class ModificarPaciente
     {
 
         /// <summary>
-        /// Control LblTitulo.
+        /// Control LblID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTitulo;
+        protected global::System.Web.UI.WebControls.Label LblID;
 
         /// <summary>
         /// Control txtNombre.
@@ -42,22 +42,22 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected global::System.Web.UI.WebControls.TextBox txtApellido;
 
         /// <summary>
-        /// Control lbl_legajo.
+        /// Control lblLegajo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_legajo;
+        protected global::System.Web.UI.WebControls.Label lblLegajo;
 
         /// <summary>
-        /// Control txtLegajo.
+        /// Control txtAfiliado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLegajo;
+        protected global::System.Web.UI.WebControls.TextBox txtAfiliado;
 
         /// <summary>
         /// Control txtDni.
@@ -130,5 +130,50 @@ namespace TPO_Cuatrimetral_Grupo3B
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        /// <summary>
+        /// Control ddlPlanes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlanes;
+
+        /// <summary>
+        /// Control btnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
+
+        /// <summary>
+        /// Control btnVolver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVolver;
+
+        /// <summary>
+        /// Control btnEditar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditar;
+
+        /// <summary>
+        /// Control btnRestrablecerPass.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRestrablecerPass;
     }
 }

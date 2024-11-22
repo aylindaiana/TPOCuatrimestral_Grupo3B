@@ -40,16 +40,27 @@ namespace TPO_Cuatrimetral_Grupo3B
 
         protected void btnEditarPaciente_Click(object sender, EventArgs e)
         {
+            PacienteManager manager = new PacienteManager();
             Button btnEditar = (Button)sender;
             string nroAfiliado = btnEditar.CommandArgument;
+            string dni = manager.ObtenerDNI(nroAfiliado);
 
-            Response.Redirect("ModificarUsuario.aspx?id=" + nroAfiliado, false);
+            Response.Redirect("ModificarPaciente.aspx?dni=" + dni, false);
 
         }
 
         protected void btnBajaPaciente_Click(object sender, EventArgs e)
         {
+            Button btnEditar = (Button)sender;
+            string nroAfiliado = btnEditar.CommandArgument;
 
+            PacienteManager manager = new PacienteManager();
+
+            manager.Baja(nroAfiliado);
+
+            Response.Write("<script>alert('Empleado Eliminado Correctamente...." + "');</script>");
+
+            CargarLista();
         }
 
         protected void btnNuevoPaciente_Click(object sender, EventArgs e)

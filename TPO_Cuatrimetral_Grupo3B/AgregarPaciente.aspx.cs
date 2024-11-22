@@ -25,7 +25,34 @@ namespace TPO_Cuatrimetral_Grupo3B
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //guardar datos
+            PacienteManager manager = new PacienteManager();
+            Paciente nuevoPaciente = new Paciente();
+            int id_plan;
+
+            try
+            {
+                int.TryParse(ddlPlanes.SelectedValue, out id_plan);
+
+                nuevoPaciente.Nombre = txtNombre.Text;
+                nuevoPaciente.Apellido = txtApellido.Text;
+                nuevoPaciente.Numero_afiliado = numAfiliado;
+                nuevoPaciente.Dni = txtDni.Text;
+                nuevoPaciente.Fecha_Nac = DateTime.Parse(txtFechaNacimiento.Text);
+                nuevoPaciente.Direccion.Calle = txtCalle.Text;
+                nuevoPaciente.Direccion.Numero = txtNumero.Text;
+                nuevoPaciente.Direccion.Localidad = txtLocalidad.Text;
+                nuevoPaciente.Direccion.CodigoPostal = txtCodigoPostal.Text;
+                nuevoPaciente.Telefono = txtTelefono.Text;
+                nuevoPaciente.Email = txtEmail.Text;
+                nuevoPaciente.Plan.Id_Plan = id_plan;
+
+                manager.Agregar(nuevoPaciente);
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
+
         }
 
         protected void btnCacelar_Click(object sender, EventArgs e)
@@ -38,7 +65,17 @@ namespace TPO_Cuatrimetral_Grupo3B
         private void CargarDatosPlanes()
         {
             PlanesManager planes = new PlanesManager();
-            listaPlanes = planes.ObtenerTodos();
+
+            try
+            {
+                listaPlanes = planes.ObtenerTodos();
+
+            }
+            catch (Exception ex)
+            {
+
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
 
             ddlPlanes.DataSource = listaPlanes;
             ddlPlanes.DataTextField = "Nombre_Plan";
@@ -49,10 +86,21 @@ namespace TPO_Cuatrimetral_Grupo3B
         private void ObtenerNumeroAfiliado()
         {
             PacienteManager pacientes = new PacienteManager();
-            numAfiliado = pacientes.ObtenerNuevoNumAfiliado();
+
+            try
+            {
+                numAfiliado = pacientes.ObtenerNuevoNumAfiliado();
+
+            }
+            catch (Exception ex)
+            {
+
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
 
             txtNroAfiliado.Text = numAfiliado;
             txtNroAfiliado.ReadOnly = true;
         }
+
     }
 }

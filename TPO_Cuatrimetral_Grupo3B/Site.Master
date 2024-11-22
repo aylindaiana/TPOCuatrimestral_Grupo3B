@@ -79,6 +79,7 @@
                                     <li><a class="dropdown-item" href="Configuracion-Paciente.aspx">Configuracion Pacientes</a></li>
                                     <li><a class="dropdown-item" href="Configuracion-Empleado.aspx">Configuracion Empleados</a></li>
                                     <li><a class="dropdown-item" href="Configuracion-Especialidades.aspx">Agregar Especialidades</a></li>
+                                    <li><a class="dropdown-item" href="Configuracion-Planes.aspx">Agregar Planes</a></li>
                                 </ul>
                             </li>
                         </ul>

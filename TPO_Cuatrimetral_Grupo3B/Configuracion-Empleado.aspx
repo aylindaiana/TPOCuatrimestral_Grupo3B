@@ -44,7 +44,7 @@
 
                 <!--Boton de Alta Empleado-->
                 <div class="button" style="margin-bottom:20px;">
-                    <asp:Button class="btn btn-primary btn-sm" Text="+ Nuevo Empleado" runat="server" />
+                    <asp:Button ID="btnNuevoEmpleado" class="btn btn-primary btn-sm" Text="+ Nuevo Empleado" runat="server" OnClick="btnNuevoEmpleado_Click" />
                 </div>
 
                 <!--Inicio Tabla-->

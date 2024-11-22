@@ -16,7 +16,7 @@ namespace TPO_Cuatrimetral_Grupo3B
       
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Seguridad.NivelAcceso(Session["User"]) == UserType.PACIENTE)
+            if (Seguridad.NivelAcceso() == UserType.PACIENTE)
             {
                 persona = (Persona)Session["Paciente"];
                 Paciente pac = (Paciente)persona;

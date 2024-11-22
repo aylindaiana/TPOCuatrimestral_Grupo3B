@@ -10,11 +10,15 @@ namespace Dominio
     {
 
         public string Numero_afiliado { get; set; }
-        public string Plan { get; set; }
+        public Planes Plan { get; set; }
         public DateTime FechaAlta { get; set; }
         public bool Estado { get; set; }
 
 
+        public Paciente() 
+        { 
+            Plan = new Planes();
+        }
 
     }
 }

@@ -37,16 +37,34 @@ namespace TPO_Cuatrimetral_Grupo3B
 
         }
 
+        protected void btnNuevoEmpleado_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarEmpleado.aspx",false);
+        }
+
         protected void btnEditarEmpleado_Click(object sender,EventArgs e) 
         {
+            EmpleadoManager manager = new EmpleadoManager();
             Button btnEditar = (Button)sender;
             string legajo = btnEditar.CommandArgument;
+            string dni = manager.ObtenerDNI(legajo);
+            
+            Response.Redirect("ModificarEmpleado.aspx?dni=" + dni, false);
 
-            Response.Redirect("ModificarUsuario.aspx?id=" + legajo, false);
         }
 
         protected void btnBajaEmpleado_Click(object sender, EventArgs e)
         {
+            Button btnEditar = (Button)sender;
+            string legajo = btnEditar.CommandArgument;
+
+            EmpleadoManager manager = new EmpleadoManager();
+
+            manager.Baja(legajo);
+
+            Response.Write("<script>alert('Empleado Eliminado Correctamente...." + "');</script>");
+
+            CargarLista();
 
         }
 

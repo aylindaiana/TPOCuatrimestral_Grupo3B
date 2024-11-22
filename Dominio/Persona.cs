@@ -19,6 +19,14 @@ namespace Dominio
         public Direccion Direccion { get; set; }
         public UserType Nivel_Acceso { get; set; }
 
+        public string NombreCompleto 
+        { 
+            get 
+            {
+                return Nombre + ", " + Apellido;
+            } 
+        }
+
         public Persona() 
         { 
             this.Direccion = new Direccion();

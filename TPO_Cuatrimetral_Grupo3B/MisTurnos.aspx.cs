@@ -35,7 +35,7 @@ namespace TPO_Cuatrimetral_Grupo3B
         }
         protected void NuevoTurno_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AgregarTurno.aspx");
+            Response.Redirect("NuevoTurno.aspx");
         }
 
     }

@@ -16,7 +16,7 @@ namespace TPO_Cuatrimetral_Grupo3B
             {
                 Persona persona;
 
-                if (Seguridad.NivelAcceso(Session["User"]) == UserType.PACIENTE)
+                if (Seguridad.NivelAcceso() == UserType.PACIENTE)
                 {
                     persona = (Persona)Session["Paciente"];
                 }

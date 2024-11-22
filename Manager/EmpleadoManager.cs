@@ -53,7 +53,7 @@ namespace Manager
         }
 
         //Busqueda por Legajo
-        public string ObtenerDNI(int Legajo)
+        public string ObtenerDNI(string Legajo)
         {
             AccesoDatos datos = new AccesoDatos();
             string dni = "";
@@ -127,5 +127,188 @@ namespace Manager
 
             return lista;
         }
+
+        public string ObtenerNuevoLegajo()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string legajo = "";
+
+            try
+            {
+                datos.SetearConsulta("SELECT dbo.ObtenerNuevoLegajo() AS legajo;");
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    legajo = (string)datos.Lector["legajo"];
+                }
+
+                return legajo;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+
+        }
+
+        public void Agregar(Empleado nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("EXEC sp_Crear_Empleado @DNI,@NOMBRE,@APELLIDO,@FECHA_NAC,@TELEFONO,@EMAIL,@CALLE,@NUMERO,@LOCALIDAD,@COD_POSTAL,@ID_ACCESO");
+                datos.SetearParametro("@DNI", nuevo.Dni);
+                datos.SetearParametro("@NOMBRE", nuevo.Nombre);
+                datos.SetearParametro("@APELLIDO", nuevo.Apellido);
+                datos.SetearParametro("@FECHA_NAC", nuevo.Fecha_Nac);
+                datos.SetearParametro("@TELEFONO", nuevo.Telefono);
+                datos.SetearParametro("@EMAIL", nuevo.Email);
+                datos.SetearParametro("@CALLE", nuevo.Direccion.Calle);
+                datos.SetearParametro("@NUMERO", nuevo.Direccion.Numero);
+                datos.SetearParametro("@LOCALIDAD", nuevo.Direccion.Localidad);
+                datos.SetearParametro("@COD_POSTAL", nuevo.Direccion.CodigoPostal);
+                datos.SetearParametro("@ID_ACCESO", (int)nuevo.Nivel_Acceso);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+
+        public int DniRegistrado(string dni)
+        { 
+            AccesoDatos datos = new AccesoDatos();
+            int cantidad = 0;
+            try
+            {
+                datos.SetearConsulta("SELECT COUNT(*) AS CANTIDAD FROM Trabajadores WHERE dni = @DNI AND estado = '1'");
+                datos.SetearParametro("@DNI",dni);
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    cantidad = (int)datos.Lector["CANTIDAD"];
+                }
+
+                return cantidad;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+
+        }
+
+        public void Baja(string legajo)
+        {
+            string dni = ObtenerDNI(legajo);
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("EXEC sp_Baja_Trabajador @DNI");
+                datos.SetearParametro("@DNI", dni);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+
+        }
+
+        public void Modificar(Empleado empleado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("EXEC sp_MOdificar_Empleado @LEGAJO,@DNI,@NOMBRE,@APELLIDO,@FECHA_NAC,@TELEFONO,@EMAIL,@ID_DIRECCION,@CALLE,@NUMERO,@LOCALIDAD,@COD_POSTAL,@ID_ACCESO");
+                datos.SetearParametro("@LEGAJO", empleado.Legajo);
+                datos.SetearParametro("@DNI", empleado.Dni);
+                datos.SetearParametro("@NOMBRE", empleado.Nombre);
+                datos.SetearParametro("@APELLIDO", empleado.Apellido);
+                datos.SetearParametro("@FECHA_NAC", empleado.Fecha_Nac);
+                datos.SetearParametro("@TELEFONO", empleado.Telefono);
+                datos.SetearParametro("@EMAIL", empleado.Email);
+                datos.SetearParametro("@ID_DIRECCION", empleado.Direccion.Id_direccion);
+                datos.SetearParametro("@CALLE", empleado.Direccion.Calle);
+                datos.SetearParametro("@NUMERO", empleado.Direccion.Numero);
+                datos.SetearParametro("@LOCALIDAD", empleado.Direccion.Localidad);
+                datos.SetearParametro("@COD_POSTAL", empleado.Direccion.CodigoPostal);
+                datos.SetearParametro("@ID_ACCESO", (int)empleado.Nivel_Acceso);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+
+        }
+
+        public List<Empleado> listaMedicos(int id_esp)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<Empleado> lista = new List<Empleado>();
+            try
+            {
+                datos.SetearConsulta("SELECT legajo,dni,nombre,apellido FROM dbo.Buscar_Medicos(@ID_ESP);");
+                datos.SetearParametro("@ID_ESP", id_esp);
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Empleado empleado = new Empleado();
+
+                    empleado.Legajo = (string)datos.Lector["legajo"];
+                    empleado.Dni = (string)datos.Lector["dni"];
+                    empleado.Nombre = (string)datos.Lector["nombre"];
+                    empleado.Apellido = (string)datos.Lector["apellido"];
+                    empleado.Estado = true;
+
+                    lista.Add(empleado);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+
     }
 }

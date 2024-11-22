@@ -9,16 +9,18 @@ namespace Dominio
 {
     public static class Seguridad
     {
+        private static UserType Acceso;
+
         public static bool sesionActiva(object user) 
         {
             Usuario usuario = user != null ? (Usuario)user : new Usuario();
+            Acceso = usuario.Tipo;
             return usuario.Estado;
         }
 
-        public static UserType NivelAcceso(object user)
+        public static UserType NivelAcceso()
         {
-            Usuario usuario = user != null ? (Usuario)user : new Usuario();
-            return usuario.Tipo;
+            return Acceso;
         }
 
     }

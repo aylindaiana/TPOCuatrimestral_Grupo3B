@@ -16,7 +16,7 @@ namespace Manager
             Usuario usuario = new Usuario();
             try
             {
-                datos.SetearConsulta("SELECT Usuario,Pass,id_acceso,estado FROM Usuarios WHERE Usuario = @Usuario AND Pass = @Pass");
+                datos.SetearConsulta("SELECT Usuario,Pass,id_acceso,estado FROM Usuarios WHERE Usuario = @Usuario AND Pass = @Pass AND estado = '1'");
                 datos.SetearParametro("@Usuario", user);
                 datos.SetearParametro("@Pass", pass);
                 datos.EjecutarLectura();
@@ -30,6 +30,27 @@ namespace Manager
                 }
 
                 return usuario;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+
+        public void RestablecerPass(string dni)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("EXEC sp_Restablecer_Pass @DNI");
+                datos.SetearParametro("@DNI", dni);
+                datos.ejecutarAccion();
+
             }
             catch (Exception ex)
             {
