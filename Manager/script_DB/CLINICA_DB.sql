@@ -82,7 +82,7 @@ CREATE TABLE Horarios_Trabajador (
     PRIMARY KEY (legajo, dia),
     FOREIGN KEY (legajo) REFERENCES Trabajadores(legajo),
 	FOREIGN KEY (id_especialidad) REFERENCES Especialidades(id_especialidad),
-    CONSTRAINT CHK_Dia CHECK (dia IN ('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sábado', 'domingo'))
+    CONSTRAINT CHK_Dia CHECK (dia IN ('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 's?bado', 'domingo'))
 );
 GO
 
@@ -616,14 +616,14 @@ END
 GO
 
 
--- CAMBIAR CONTRASEÑA
+-- CAMBIAR CONTRASE?A
 CREATE PROCEDURE sp_Cambiar_Contrasena(
     @Usuario VARCHAR(50),
     @NuevaContrasena VARCHAR(50)
 )
 AS
 BEGIN
-    -- Actualizar la contraseña del usuario
+    -- Actualizar la contrase?a del usuario
     UPDATE Usuarios
     SET Pass = @NuevaContrasena
     WHERE Usuario = @Usuario;
@@ -631,8 +631,128 @@ END;
 GO
 
 
+--  AGREGAR UNA ESPECIALIDAD NUEVA
+CREATE PROCEDURE sp_crear_especialidad
+    @pNOMBRE_ESPECIALIDAD VARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+		BEGIN TRANSACTION;
+        IF EXISTS (
+            SELECT 1
+            FROM Especialidades
+            WHERE especialidad = @pNOMBRE_ESPECIALIDAD
+        )
+        BEGIN
+            RAISERROR ('La especialidad ya existe ', 16, 1)
+            RETURN;
+        END
+        INSERT INTO Especialidades (especialidad)
+        VALUES (@pNOMBRE_ESPECIALIDAD)
+        PRINT 'Especialidad creada exitosamente'
+		COMMIT TRANSACTION
+    END TRY
+    BEGIN CATCH
+		ROLLBACK TRANSACTION;
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        DECLARE @ErrorNumber INT = ERROR_NUMBER();
+        DECLARE @ErrorLine INT = ERROR_LINE();
+
+        RAISERROR (
+            'Error al intentar crear una especialidad. Error %d en la línea %d: %s', 
+            16, 1, @ErrorNumber, @ErrorLine, @ErrorMessage
+        )
+    END CATCH
+END
+GO
+
+--EXEC sp_crear_especialidad Clinica
 
 
+-- REALIZO LA RELACION DE LA ESPECIALIDAD CON EL MEDICO - FUNCIÓN DE ADMIN O RECEPCIONISTA
+CREATE PROCEDURE sp_asignar_especialidad_Medico(
+    @pLEG_MEDICO VARCHAR(100),
+    @pID_ESPECIALIDAD INT
+	)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION
+        IF NOT EXISTS (
+            SELECT 1
+            FROM Especialidades
+            WHERE id_especialidad = @pID_ESPECIALIDAD
+        )
+        BEGIN
+            RAISERROR ('La especialidad especificada no existe', 16, 1);
+            ROLLBACK TRANSACTION
+            RETURN;
+        END
+        IF EXISTS (
+            SELECT 1
+            FROM Medico_x_especialidad
+            WHERE legajo = @pLEG_MEDICO
+              AND id_especialidad = @pID_ESPECIALIDAD
+        )
+        BEGIN
+            RAISERROR ('Ya existe una relación entre el médico y esta especialidad', 16, 1);
+            ROLLBACK TRANSACTION
+            RETURN;
+        END
+        INSERT INTO Medico_x_especialidad (legajo, id_especialidad)
+        VALUES (@pLEG_MEDICO, @pID_ESPECIALIDAD)
+        COMMIT TRANSACTION
+        PRINT 'Relación médico-especialidad creada exitosamente.'
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        DECLARE @ErrorNumber INT = ERROR_NUMBER();
+        DECLARE @ErrorLine INT = ERROR_LINE();
+        RAISERROR (
+            'Error al intentar asignar una especialidad al médico. Error %d en la línea %d: %s', 
+            16, 1, @ErrorNumber, @ErrorLine, @ErrorMessage
+        );
+    END CATCH
+END
+GO
+-- ELIMINAR ESPECIALIDAD
+CREATE PROCEDURE sp_eliminar_especialidad(
+    @pID_ESPECIALIDAD INT,
+    @pResultado INT OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION
+        IF EXISTS (
+            SELECT 1 
+            FROM Medico_x_especialidad
+            WHERE id_especialidad = @pID_ESPECIALIDAD
+        )
+        BEGIN
+            SET @pResultado = 0
+            PRINT 'No se puede eliminar la especialidad porque está asignada a un médico.'
+            ROLLBACK TRANSACTION
+            RETURN
+        END
+
+        -- Eliminar la especialidad
+        DELETE FROM Especialidades
+        WHERE id_especialidad = @pID_ESPECIALIDAD
+        SET @pResultado = 1
+        PRINT 'La especialidad fue eliminada correctamente'
+        
+        COMMIT TRANSACTION
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION
+        SET @pResultado = -1
+        PRINT 'Error al intentar eliminar la especialidad.'
+    END CATCH
+END
+GO
 --------------------------------------------------------- INSERT DATOS ----------------------------------
 
 
@@ -652,7 +772,7 @@ VALUES ('STANDARD'),('BRONCE'),('PLATINUM'),('GOLD')
 EXEC sp_Crear_Paciente '11111111', 'Juan Carlos','Martinez','1985-03-15','1145678901','juan.martinez85@gmail.com','AV Santa Fe','1234','Buenos Aires','1059',1
 
 --Creo Recepcionista
-EXEC sp_Crear_Empleado '22222222','María Elena','Gomez','1990-07-22','2617891234','maria.gomez90@hotmail.com','Calle 50','789','La Plata','1900',2
+EXEC sp_Crear_Empleado '22222222','Mar?a Elena','Gomez','1990-07-22','2617891234','maria.gomez90@hotmail.com','Calle 50','789','La Plata','1900',2
 
 --Creo Medico
 EXEC sp_Crear_Empleado '33333333','Marcos','Gomez','2000-07-22','1559381788','marcos@hotmail.com','Calle 5','7890','Mar del Plata','1100',3
