@@ -1,22 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\",
+  "WorkspaceRootPath": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\usuario\\desktop\\nueva carpeta (2)\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\miperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\miperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\manager\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\usuario\\desktop\\nueva carpeta (2)\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\miperfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\miperfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\usuario\\desktop\\nueva carpeta\\tpocuatrimestral_grupo3b\\manager\\usuariomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\usuariomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\usuario\\desktop\\nueva carpeta (2)\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\usuario\\desktop\\nueva carpeta\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\cambiocontrase\u00F1a.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\cambiocontrase\u00F1a.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\manager\\script_db\\clinica_db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\script_db\\clinica_db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\usuario\\desktop\\nueva carpeta\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\cambiocontrase\u00F1a.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\cambiocontrase\u00F1a.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\usuario\\desktop\\nueva carpeta\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\agregarturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\agregarturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\usuario\\desktop\\nueva carpeta\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\usuario\\desktop\\nueva carpeta\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\usuario\\desktop\\nueva carpeta\\tpocuatrimestral_grupo3b\\manager\\script_db\\clinica_db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\script_db\\clinica_db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +46,109 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MiPerfil.aspx",
-              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
-              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-08T03:00:58.014Z",
+              "DocumentIndex": 5,
+              "Title": "AgregarTurno.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\AgregarTurno.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\AgregarTurno.aspx.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\AgregarTurno.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\AgregarTurno.aspx.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T15:07:50.083Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MiPerfil.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs",
-              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs*",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs*",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCAAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T02:59:46.401Z",
+              "DocumentIndex": 4,
+              "Title": "CambioContrase\u00F1a.aspx",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-11-23T12:15:18.999Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Home.aspx",
-              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Home.aspx",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Home.aspx",
-              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Home.aspx",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Home.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-06T00:37:12.909Z"
+              "Title": "CLINICA_DB.sql ",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\Manager\\script_DB\\CLINICA_DB.sql",
+              "RelativeDocumentMoniker": "Manager\\script_DB\\CLINICA_DB.sql",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\Manager\\script_DB\\CLINICA_DB.sql",
+              "RelativeToolTip": "Manager\\script_DB\\CLINICA_DB.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-23T00:04:54.349Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Login.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Login.aspx.cs",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Login.aspx.cs",
-              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta (2)\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Login.aspx.cs",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Login.aspx.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBwAAAAoAAAAAAAAAA==",
+              "Title": "CambioContrase\u00F1a.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T00:34:37.874Z",
+              "WhenOpened": "2024-11-23T13:51:48.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsuarioManager.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\Manager\\UsuarioManager.cs",
+              "RelativeDocumentMoniker": "Manager\\UsuarioManager.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\Manager\\UsuarioManager.cs",
+              "RelativeToolTip": "Manager\\UsuarioManager.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAAEsAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T13:13:01.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccesoDatos.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\Manager\\AccesoDatos.cs",
+              "RelativeDocumentMoniker": "Manager\\AccesoDatos.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\Manager\\AccesoDatos.cs",
+              "RelativeToolTip": "Manager\\AccesoDatos.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T00:03:44.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Login.aspx.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Login.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Login.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T14:27:27.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.aspx",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Login.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Login.aspx",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Nueva carpeta\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Login.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Login.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-11-23T16:19:18.336Z",
               "EditorCaption": ""
             }
           ]

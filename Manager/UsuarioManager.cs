@@ -63,5 +63,29 @@ namespace Manager
             }
         }
 
+        public void CambiarPass(string usuario, string nuevaContrasena)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Cambio la consulta para pasar ambos parametros (usuario y nueva contraseña)
+                datos.SetearConsulta("EXEC sp_Cambiar_Contrasena @Usuario, @NuevaContrasena");
+
+                // Seteo los parametros para la consulta
+                datos.SetearParametro("@Usuario", usuario);
+                datos.SetearParametro("@NuevaContrasena", nuevaContrasena);
+
+               
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {               
+                throw new Exception("Error al cambiar la contraseña", ex);
+            }
+            finally
+            {       
+                datos.CerrarConeccion();
+            }
+        }
     }
 }

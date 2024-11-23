@@ -616,6 +616,23 @@ END
 GO
 
 
+-- CAMBIAR CONTRASEÑA
+CREATE PROCEDURE sp_Cambiar_Contrasena(
+    @Usuario VARCHAR(50),
+    @NuevaContrasena VARCHAR(50)
+)
+AS
+BEGIN
+    -- Actualizar la contraseña del usuario
+    UPDATE Usuarios
+    SET Pass = @NuevaContrasena
+    WHERE Usuario = @Usuario;
+END;
+GO
+
+
+
+
 --------------------------------------------------------- INSERT DATOS ----------------------------------
 
 

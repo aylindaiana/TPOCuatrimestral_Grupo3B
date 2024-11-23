@@ -70,7 +70,7 @@
                                     Configuración
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
+                                    <li><a class="dropdown-item" href="CambioContraseña.aspx">Cambiar contraseña</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="Configuracion-Planes.aspx">Info plan</a></li>
                                     <li><hr class="dropdown-divider"></li>
