@@ -18,6 +18,7 @@ namespace Dominio
         public Paciente() 
         { 
             Plan = new Planes();
+            Estado = false;
         }
 
     }

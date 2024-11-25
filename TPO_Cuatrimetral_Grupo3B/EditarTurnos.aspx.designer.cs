@@ -11,8 +11,17 @@ namespace TPO_Cuatrimetral_Grupo3B
 {
 
 
-    public partial class NuevoTurno
+    public partial class EditarTurnos
     {
+
+        /// <summary>
+        /// Control lblTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
 
         /// <summary>
         /// Control txtAfiliado.
@@ -103,6 +112,15 @@ namespace TPO_Cuatrimetral_Grupo3B
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMotivo;
+
+        /// <summary>
+        /// Control txtObservaciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
 
         /// <summary>
         /// Control btnGuardar.

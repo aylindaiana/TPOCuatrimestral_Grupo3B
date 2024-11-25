@@ -17,6 +17,8 @@ namespace TPO_Cuatrimetral_Grupo3B
         List<Sanatorios> listaSanatorios = new List<Sanatorios> ();
         List<Empleado> listaMedicos = new List<Empleado>();
         List<Horarios> listaHorarios = new List<Horarios> ();
+        static string legajo;
+        static int id_sanatorio;
 
         Paciente paciente;
 
@@ -24,11 +26,17 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
             if (!IsPostBack) 
             {
-                if (Seguridad.NivelAcceso() == UserType.PACIENTE) 
+                if (Seguridad.NivelAcceso() == UserType.PACIENTE)
                 {
                     CargarDatosPaciente();
                     CargarSanatorios();
                     CargarEspecialidades();
+                }
+                else 
+                {
+                    txtAfiliado.Enabled = true;
+                    txtApellido.Enabled = false;
+                    txtNombre.Enabled = false;
                 }
 
             }
@@ -36,12 +44,39 @@ namespace TPO_Cuatrimetral_Grupo3B
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            TurnoMedicoManager manager = new TurnoMedicoManager();
+            TurnoMedico turno = new TurnoMedico();
 
+            turno.NumAfiliado = txtAfiliado.Text;
+            turno.Motivo = txtMotivo.Text;
+            turno.Id = int.Parse(ddlHorarios.SelectedValue);
+            turno.Id_Sanatorio = id_sanatorio;
+
+            try
+            {
+                manager.AsignarTurno(turno);
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
+
+            Response.Write("<script>alert('Turno Generado con Exito!" + "');</script>");
+
+            ddlDias.Items.Clear();
+            ddlFechas.Items.Clear();
+            ddlHorarios.Items.Clear();
+            txtMotivo.Text = "";
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
+            Response.Redirect("Home.aspx",false);
+        }
 
+        protected void ddlSanatorio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            id_sanatorio = int.Parse(ddlSanatorio.SelectedValue);
         }
 
         protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,15 +85,64 @@ namespace TPO_Cuatrimetral_Grupo3B
 
             if(id != 0)
                 CargarMedicosAsignados(id);
+
+            ddlDias.Items.Clear();
+            ddlFechas.Items.Clear();
+            ddlHorarios.Items.Clear();
         }
 
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string legajo = ddlMedicos.SelectedValue;
+            legajo = ddlMedicos.SelectedValue;
 
             if (string.Compare(legajo, "0") != 0)
                 CargarDiasDisponibles(legajo);
-                
+
+            ddlFechas.Items.Clear();
+            ddlHorarios.Items.Clear();
+        }
+
+        protected void ddlDias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TurnoMedicoManager manager = new TurnoMedicoManager();
+            List<string> listaFechas = new List<string>();
+
+            string dia = ddlDias.SelectedValue;
+
+            try
+            {
+                listaFechas = manager.ObtenerFechas(legajo, dia).Select(f => f.ToString("dd-MM-yyyy")).ToList();
+                ddlFechas.DataSource = listaFechas;
+                ddlFechas.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
+
+            ddlHorarios.Items.Clear();
+        }
+
+        protected void ddlFechasSelectedIndexChanged(object sender, EventArgs e)
+        {
+            TurnoMedicoManager manager = new TurnoMedicoManager();
+            List<TurnoMedico> listaHorarios = new List<TurnoMedico>();
+
+            string legajo = ddlMedicos.SelectedValue;
+            DateTime fecha = DateTime.Parse(ddlFechas.SelectedValue);
+
+            try
+            {
+                listaHorarios = manager.ObtenerHorarios(fecha,legajo);
+                ddlHorarios.DataSource = listaHorarios;
+                ddlHorarios.DataTextField = "Hora";
+                ddlHorarios.DataValueField = "Id";
+                ddlHorarios.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
         }
 
 
@@ -81,6 +165,7 @@ namespace TPO_Cuatrimetral_Grupo3B
 
             txtApellido.Enabled = false;
             txtNombre.Enabled = false;
+            txtAfiliado.Enabled = false;
 
         }
 
@@ -175,5 +260,32 @@ namespace TPO_Cuatrimetral_Grupo3B
             }
         }
 
+        protected void txtAfiliado_TextChanged(object sender, EventArgs e)
+        {
+            PacienteManager manager = new PacienteManager();
+            Paciente aux = new Paciente();
+            string dni;
+
+            try
+            {
+                dni = manager.ObtenerDNI(txtAfiliado.Text);
+                aux = manager.Obtener(dni);
+
+                if(aux.Estado != false)
+                {
+                    txtAfiliado.Text = aux.Numero_afiliado;
+                    txtNombre.Text = aux.Nombre;
+                    txtApellido.Text = aux.Apellido;
+
+                    txtNombre.Enabled = false;
+                    txtApellido.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+
+            }
+        }
     }
 }

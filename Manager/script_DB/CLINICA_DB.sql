@@ -5,7 +5,9 @@ GO
 USE CLINICA_DB
 GO
 
-
+-- Configurar el idioma para la sesión actual
+SET LANGUAGE Spanish;
+GO
 
 
 CREATE TABLE Direcciones (
@@ -120,21 +122,23 @@ CREATE TABLE Sanatorios_x_planes (
 );
 GO
 
-CREATE TABLE Turnos (
+CREATE TABLE Turnos(
     id_turno INT PRIMARY KEY IDENTITY(1000,1),
-    numero_afiliado VARCHAR(100),
-    id_medico VARCHAR(100),
-    especialidad VARCHAR(100) NOT NULL,
-    fecha_hora DATETIME NOT NULL,
-    motivo VARCHAR(255) NOT NULL,
-    observaciones TEXT,
-    estado VARCHAR(50) NOT NULL, --PROVISORIO --> DEBE IR A UNA TABLA APARTE
+	id_sanatorio int default null,
+	legajo VARCHAR(100),
+	num_afiliado varchar(100) default null,
+	dia varchar(20) not null,
+	id_especialidad INT not null,
+	Fecha DATE NOT NULL,
+	hora TIME NOT NULL,
+	estado VARCHAR(20) DEFAULT 'sin asignar',
+	motivo VARCHAR(255) default null,
+    observaciones TEXT default null,
 
-    FOREIGN KEY (numero_afiliado) REFERENCES Pacientes(numero_afiliado),
-    FOREIGN KEY (id_medico) REFERENCES Trabajadores(legajo)
+	CONSTRAINT CHK_Estado CHECK (estado IN ('sin asignar', 'pendiente', 'cancelado','realizado'))
 );
 GO
-select* from planes
+
 CREATE TABLE Horarios_Disponibles(
 	legajo VARCHAR(100),
 	id_especialidad INT,
@@ -541,32 +545,6 @@ BEGIN
 END
 GO
 
--- ASIGNAR HORARIOS A TRABAJADOR
-CREATE PROCEDURE sp_Cargar_Horario(
-	@pLEGAJO VARCHAR(100),
-    @pDIA VARCHAR(20),
-    @pHORA_INICIO TIME,
-    @pHORA_FIN TIME,
-	@pID_ESPECIALIDAD INT
-	)AS
-BEGIN
-
-	IF (SELECT COUNT(*) 
-		FROM Medico_x_especialidad 
-		WHERE legajo = @pLEGAJO AND id_especialidad = @pID_ESPECIALIDAD) = 0
-	BEGIN
-		RETURN;		-- ESPECIALIDAD NO ASIGNADA A ESTE LEGAJO
-	END
-
-	
-	IF(@pHORA_INICIO < @pHORA_FIN)
-	BEGIN
-		INSERT Horarios_Trabajador (legajo,dia,hora_inicio,hora_fin,id_especialidad)
-		VALUES (@pLEGAJO,LOWER(@pDIA),@pHORA_INICIO,@pHORA_FIN,@pID_ESPECIALIDAD)
-	END
-END
-GO
-
 -- ELIMINAR HORARIOS A TRABAJADOR
 CREATE PROCEDURE sp_Eliminar_Horario(
 	@pLEGAJO VARCHAR(100),
@@ -667,7 +645,6 @@ BEGIN
 END
 GO
 
---EXEC sp_crear_especialidad Clinica
 
 
 -- REALIZO LA RELACION DE LA ESPECIALIDAD CON EL MEDICO - FUNCIÓN DE ADMIN O RECEPCIONISTA
@@ -753,6 +730,104 @@ BEGIN
     END CATCH
 END
 GO
+
+CREATE PROCEDURE GenerarHorariosDisponibles(
+    @legajo VARCHAR(100)
+	)AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Variables para los datos del horario del trabajador
+    DECLARE @fecha_inicio DATE = CAST(GETDATE() AS DATE);
+    DECLARE @fecha_fin DATE = DATEADD(MONTH, 2, @fecha_inicio);
+
+    DECLARE @dia VARCHAR(20);
+    DECLARE @id_especialidad INT;
+    DECLARE @hora_inicio TIME;
+    DECLARE @hora_fin TIME;
+
+    -- Cursor para recorrer los horarios del trabajador
+    DECLARE horarios_cursor CURSOR FOR
+    SELECT dia, id_especialidad, hora_inicio, hora_fin
+    FROM Horarios_Trabajador
+    WHERE legajo = @legajo;
+
+    OPEN horarios_cursor;
+    FETCH NEXT FROM horarios_cursor INTO @dia, @id_especialidad, @hora_inicio, @hora_fin;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Generar turnos para el rango de fechas
+        DECLARE @fecha_actual DATE = @fecha_inicio;
+
+        WHILE @fecha_actual <= @fecha_fin
+        BEGIN
+            -- Verificar si la fecha actual corresponde al día de la semana
+            IF UPPER(DATENAME(WEEKDAY, @fecha_actual)) = UPPER(@dia)
+            BEGIN
+                -- Generar turnos por cada hora en el rango de horario
+                DECLARE @hora_actual TIME = @hora_inicio;
+
+                WHILE @hora_actual < @hora_fin
+                BEGIN
+                    -- Verificar si el turno ya existe antes de insertarlo
+                    IF NOT EXISTS (
+                        SELECT 1
+                        FROM Turnos
+                        WHERE legajo = @legajo
+                          AND id_especialidad = @id_especialidad
+                          AND Fecha = @fecha_actual
+                          AND hora = @hora_actual
+                    )
+                    BEGIN
+                        INSERT INTO Turnos(legajo,dia, id_especialidad, Fecha, hora, estado)
+                        VALUES (@legajo,@dia, @id_especialidad,  @fecha_actual, @hora_actual, 'sin asignar');
+                    END
+
+                    -- Incrementar la hora actual en 1 hora
+                    SET @hora_actual = DATEADD(HOUR, 1, @hora_actual);
+                END
+            END
+
+            -- Avanzar al día siguiente
+            SET @fecha_actual = DATEADD(DAY, 1, @fecha_actual);
+        END
+
+        FETCH NEXT FROM horarios_cursor INTO @dia, @id_especialidad, @hora_inicio, @hora_fin;
+    END
+
+    CLOSE horarios_cursor;
+    DEALLOCATE horarios_cursor;
+END;
+GO
+
+-- ASIGNAR HORARIOS A TRABAJADOR
+CREATE PROCEDURE sp_Cargar_Horario(
+	@pLEGAJO VARCHAR(100),
+    @pDIA VARCHAR(20),
+    @pHORA_INICIO TIME,
+    @pHORA_FIN TIME,
+	@pID_ESPECIALIDAD INT
+	)AS
+BEGIN
+	IF (SELECT COUNT(*) 
+		FROM Medico_x_especialidad 
+		WHERE legajo = @pLEGAJO AND id_especialidad = @pID_ESPECIALIDAD) = 0
+	BEGIN
+		RETURN;		-- ESPECIALIDAD NO ASIGNADA A ESTE LEGAJO
+	END
+
+	
+	IF(@pHORA_INICIO < @pHORA_FIN)
+	BEGIN
+		INSERT Horarios_Trabajador (legajo,dia,hora_inicio,hora_fin,id_especialidad)
+		VALUES (@pLEGAJO,LOWER(@pDIA),@pHORA_INICIO,@pHORA_FIN,@pID_ESPECIALIDAD)
+
+		EXEC GenerarHorariosDisponibles @pLEGAJO 
+	END
+END
+GO
+
 --------------------------------------------------------- INSERT DATOS ----------------------------------
 
 
@@ -810,7 +885,62 @@ VALUES ('1','3'),('5','3')
 INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
 VALUES ('1','4'),('2','4'),('3','4'),('4','4'),('5','4')
 
-SELECT* FROM Sanatorios
-SELECT* FROM Planes
 
-select* from Sanatorios_x_planes
+
+
+CREATE FUNCTION obtenerFechasDisponibles(@LEGAJO VARCHAR(100), @DIA VARCHAR(100))
+RETURNS TABLE
+RETURN(
+	SELECT DISTINCT Fecha FROM Turnos 
+	WHERE legajo = @LEGAJO AND 
+		  UPPER(dia) = UPPER(@DIA) AND
+		  estado = 'sin asignar' AND
+		  Fecha > GETDATE()
+);
+GO
+
+-- Obtener horarios para la fecha seleccionada
+CREATE FUNCTION obtenerHorariosDisponibles(@FECHA DATE,@LEGAJO VARCHAR(100))
+RETURNS TABLE
+RETURN(
+	SELECT legajo,id_turno,hora FROM Turnos
+	WHERE Fecha = @FECHA AND estado = 'sin asignar' AND legajo = @LEGAJO
+);
+GO
+
+--aSIGNACION DE TURNO AL PACIENTE
+CREATE PROCEDURE asignarTurno(
+	@pID_TURNO INT,
+	@pNUM_AFIL VARCHAR(100),
+	@pMOTIVO VARCHAR(255),
+	@pID_SANATORIO INT
+	)AS
+BEGIN
+	UPDATE Turnos SET num_afiliado = @pNUM_AFIL, motivo = @pMOTIVO, id_sanatorio = @pID_SANATORIO
+	WHERE id_turno = @pID_TURNO
+END
+GO
+
+
+-- MEDICO ACTUALIZA ESTADO DEL TURNO
+CREATE PROCEDURE actualizarTurno(
+	@pID_TURNO INT,
+	@pOBS TEXT,
+	@pESTADO VARCHAR(100)
+	)AS
+BEGIN
+	UPDATE	Turnos SET estado = @pESTADO, observaciones = @pOBS
+	WHERE id_turno = @pID_TURNO
+END
+select* from Turnos
+
+create VIEW vwTodosTurnos
+AS
+SELECT Tu.id_turno,Tu.num_afiliado,p.apellido,Tu.id_especialidad,E.especialidad,Tu.Fecha,Tu.hora,tu.estado FROM Turnos Tu
+INNER JOIN Trabajadores T ON Tu.legajo = T.legajo
+INNER JOIN Personas P ON T.dni = P.dni
+INNER JOIN Especialidades E ON Tu.id_especialidad = E.id_especialidad
+GO
+
+SELECT id_turno,num_afiliado,apellido,id_especialidad,especialidad,Fecha,hora,estado FROM vwTodosTurnos
+SELECT*FROM vwTodosTurnos

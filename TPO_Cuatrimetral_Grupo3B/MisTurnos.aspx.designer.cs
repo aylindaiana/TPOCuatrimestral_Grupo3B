@@ -15,84 +15,57 @@ namespace TPO_Cuatrimetral_Grupo3B
     {
 
         /// <summary>
-        /// Control btnSuperior1.
+        /// Control txtIdFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSuperior1;
+        protected global::System.Web.UI.WebControls.TextBox txtIdFiltro;
 
         /// <summary>
-        /// Control btnSuperior2.
+        /// Control btnBuscarId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSuperior2;
+        protected global::System.Web.UI.WebControls.Button btnBuscarId;
 
         /// <summary>
-        /// Control btnSuperior3.
+        /// Control ddlEspecialidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSuperior3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEspecialidad;
 
         /// <summary>
-        /// Control btnSuperior4.
+        /// Control ddlEstadoTurno.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSuperior4;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstadoTurno;
 
         /// <summary>
-        /// Control btnSuperior5.
+        /// Control btnNuevoEmpleado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSuperior5;
+        protected global::System.Web.UI.WebControls.Button btnNuevoEmpleado;
 
         /// <summary>
-        /// Control tituloContenido.
+        /// Control repeaterTurnos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tituloContenido;
-
-        /// <summary>
-        /// Control gvTurnos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTurnos;
-
-        /// <summary>
-        /// Control contenido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label contenido;
-
-        /// <summary>
-        /// Control btnNuevo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNuevo;
+        protected global::System.Web.UI.WebControls.Repeater repeaterTurnos;
     }
 }

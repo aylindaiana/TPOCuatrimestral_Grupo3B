@@ -77,7 +77,7 @@
         </div>
         <div class="pantalla-opcciones">
             <div class="row justify-content-center">
-                <a href="AgregarTurno.aspx" class="btn btn-outline-danger btn-atajos">Nuevo turno</a>
+                <a href="NuevoTurno.aspx" class="btn btn-outline-danger btn-atajos">Nuevo turno</a>
                 <a href="#" class="btn btn-outline-primary btn-atajos">Agregar Paciente</a>
             </div>
         </div>

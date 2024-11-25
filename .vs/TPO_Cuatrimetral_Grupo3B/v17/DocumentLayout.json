@@ -1,10 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\",
+  "WorkspaceRootPath": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\bbarrera\\documents\\github\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\editarturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\editarturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\editarturnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\editarturnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\manager\\turnomedicomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\turnomedicomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\misturnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\misturnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\misturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\misturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,24 +30,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Home.aspx",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Home.aspx",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Home.aspx",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Home.aspx",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Home.aspx",
+              "DocumentIndex": 1,
+              "Title": "EditarTurnos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx.cs",
+              "ToolTip": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAA5wEkAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:20:35.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MisTurnos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MisTurnos.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\MisTurnos.aspx.cs",
+              "ToolTip": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MisTurnos.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\MisTurnos.aspx.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAA1wBoAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:24:02.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MisTurnos.aspx",
+              "DocumentMoniker": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MisTurnos.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\MisTurnos.aspx",
+              "ToolTip": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MisTurnos.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\MisTurnos.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-23T21:18:27.528Z",
+              "WhenOpened": "2024-11-25T20:23:58.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EditarTurnos.aspx",
+              "DocumentMoniker": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx",
+              "ToolTip": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-11-25T20:17:48.434Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TurnoMedicoManager.cs",
+              "DocumentMoniker": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\Manager\\TurnoMedicoManager.cs",
+              "RelativeDocumentMoniker": "Manager\\TurnoMedicoManager.cs",
+              "ToolTip": "C:\\Users\\BBARRERA\\Documents\\GitHub\\TPOCuatrimestral_Grupo3B\\Manager\\TurnoMedicoManager.cs",
+              "RelativeToolTip": "Manager\\TurnoMedicoManager.cs",
+              "ViewState": "AQIAANkAAAAAAAAAAAAiwOwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:35:47.549Z"
             }
           ]
         }

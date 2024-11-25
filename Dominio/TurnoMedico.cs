@@ -8,13 +8,19 @@ namespace Dominio
 {
     public class TurnoMedico
     {
-        private int id_turno;
-        private int id_cliente;
-        private int id_medico;
-        //private Especialidad especialidad;
-        private DateTime fecha_hora;
-        private string motivo;
-        private string observaciones;
-        private bool estado;
+        public int Id { get; set; }
+        public string Legajo { get; set; }
+        public string NumAfiliado { get; set; }
+        public string dia { get; set; }
+        public int Id_Especialidad { get; set; }
+        public int Id_Sanatorio { get; set; }
+        public DateTime Fecha { get; set; }
+        public TimeSpan Hora { get; set; }
+        public string Motivo { get; set; }
+        public string Observaciones { get; set; }
+        public string estado { get; set; }
+
+        public string Medico { get; set; }
+        public string Especialidad { get; set; }
     }
 }

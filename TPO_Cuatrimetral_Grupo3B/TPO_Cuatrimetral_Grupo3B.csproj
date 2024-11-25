@@ -77,6 +77,7 @@
     <Content Include="Configuracion-Paciente.aspx" />
     <Content Include="Configuracion-Planes.aspx" />
     <Content Include="Configuracion-Turnos.aspx" />
+    <Content Include="EditarTurnos.aspx" />
     <Content Include="ModificarEmpleado.aspx" />
     <Content Include="DetallesTurno.aspx" />
     <Content Include="Global.asax" />
@@ -159,6 +160,13 @@
     </Compile>
     <Compile Include="Configuracion-Turnos.aspx.designer.cs">
       <DependentUpon>Configuracion-Turnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarTurnos.aspx.cs">
+      <DependentUpon>EditarTurnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarTurnos.aspx.designer.cs">
+      <DependentUpon>EditarTurnos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarEmpleado.aspx.cs">
       <DependentUpon>ModificarEmpleado.aspx</DependentUpon>

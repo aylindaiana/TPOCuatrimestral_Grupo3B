@@ -1,98 +1,94 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MisTurnos.aspx.cs" Inherits="TPO_Cuatrimetral_Grupo3B.MisTurnos" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
- <style>
-
-    .content-area {
-      background-color: white;
-      padding: 20px;
-      border: 1px solid #ced4da;
-      border-radius: 10px;
-      height: 200px;
-      text-align: center;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .button-row .btn {
-      background-color: #0a9396; 
-      color: white;
-      border-radius: 20px;
-      font-size: 25px;
-      padding: 10px;
-    }
-    .button-row .btn:hover {
-      background-color: #94d2bd; 
-    }
-    .col-4 {
-      margin-bottom: 20px; /* los botones de filtar*/
-    }
-
-    .gvTurnos{
-        height: 400px; /* Puedes ajustar este valor a la altura que prefieras */
-    overflow-y: scroll; 
-    }
-    .btn-nuevo {
-        background-color: #00b4d8; 
-        color: white;
-        border-radius: 50%;
-        width: 85px;
-        height: 60px;
-        font-size: 0.80em;
-        position: absolute;
-        right: 20px;
-        bottom: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s;
-    }
-    .btn-nuevo:hover {
-        background-color: #0096c7; 
-    }
-  </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     
-  <div class="container-fluid">
-    <div class="row button-row mb-3 text-center">
-      <div class="col-4">
-        <asp:Button ID="btnSuperior1" runat="server" CssClass="btn w-100" Text="Filtrar por turno" OnClick="ContenidoFiltros" CommandArgument="Superior 1" />
-      </div>
-      <div class="col-4">
-        <asp:Button ID="btnSuperior2" runat="server" CssClass="btn w-100" Text="Buscar por Estado" OnClick="ContenidoFiltros" CommandArgument="Superior 2" />
-      </div>
-      <div class="col-4">
-        <asp:Button ID="btnSuperior3" runat="server" CssClass="btn w-100" Text="Buscar por Especialidad" OnClick="ContenidoFiltros" CommandArgument="Superior 3" />
-      </div>
-      <div class="col-4">
-        <asp:Button ID="btnSuperior4" runat="server" CssClass="btn w-100" Text="Buscar por Paciente" OnClick="ContenidoFiltros" CommandArgument="Superior 4" />
-      </div>
-      <div class="col-4">
-        <asp:Button ID="btnSuperior5" runat="server" CssClass="btn w-100" Text="Buscar por Médico" OnClick="ContenidoFiltros" CommandArgument="Superior 5" />
-      </div>
-    </div>
-  </div>
+    <<div class="container">
 
-  <div class="container-fluid">
-    <div class="row">
- 
-      <div class="col-11">
-                <div class="content-area">
-                    <asp:Label ID="tituloContenido" runat="server" CssClass="h5">Turnos</asp:Label>
-                    <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" OnRowCommand="gvTurnos_RowCommand">
-                        <Columns>
-                            <asp:BoundField DataField="TurnoId" HeaderText="ID" />
-                            <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
-                            <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" />
-                            <asp:ButtonField ButtonType="Button" CommandName="VerDetalle" Text="Ver Detalle" />
-                        </Columns>
-                    </asp:GridView>
-                    <asp:Label ID="contenido" runat="server">Estos son todos tus turnos!</asp:Label>
+        <div class="row justify-content-center" style="padding-top: 30px">
+            <div class="container-fluid">
+                <div class="row button-row mb-5 text-center">
+                    <!-- Filtro por ID -->
+                    <div class="col-4">
+                        <div class="input-group mb-3">
+                            <asp:TextBox ID="txtIdFiltro" CssClass="form-control" runat="server" Placeholder="ID TURNO"></asp:TextBox>
+                            <div class="input-group-append">
+                                <asp:Button ID="btnBuscarId" CssClass="btn btn-outline-secondary" runat="server" Text="Buscar" OnClick="btnBuscarId_Click" />
+                            </div>
+                        </div>
+                    </div>
 
-                    <asp:Button ID="btnNuevo" runat="server" CssClass="btn-nuevo" Text="Nuevo Turno" OnClick="NuevoTurno_Click" />
+                    <!-- Filtro especialidad -->
+                    <div class="col-3">
+                        <asp:DropDownList ID="ddlEspecialidad" runat="server" CssClass="form-select"
+                            AutoPostBack="True" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged">
+                            <asp:ListItem Text="Seleccione una opción" Value="0" Selected="True"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+
+                    <!--Filtro Estado-->
+                    <div class="col-3">
+                        <asp:DropDownList ID="ddlEstadoTurno" runat="server" CssClass="form-select"
+                            AutoPostBack="True" OnSelectedIndexChanged="ddlEstadoTurno_SelectedIndexChanged">
+                            <asp:ListItem Text="Seleccione una opccion" Value="0" Selected="True"></asp:ListItem>
+                            <asp:ListItem Text="sin asignar" Value="1" Selected="false"></asp:ListItem>
+                            <asp:ListItem Text="pendiente" Value="2" Selected="false"></asp:ListItem>
+                            <asp:ListItem Text="cancelado" Value="3" Selected="false"></asp:ListItem>
+                            <asp:ListItem Text="realizado" Value="4" Selected="false"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="button" style="margin-bottom: 20px;">
+                            <asp:Button ID="btnNuevoEmpleado" class="btn btn-primary btn-sm" Text="+ Nuevo Turno" runat="server" OnClick="btnNuevoEmpleado_Click" />
+                        </div>
+                    </div>
+                    <!--Inicio Tabla-->
+
+                    <asp:Repeater ID="repeaterTurnos" runat="server">
+                        <HeaderTemplate>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">NRO TURNO</th>
+                                        <th scope="col">NRO AFILI</th>
+                                        <th scope="col">MEDICO</th>
+                                        <th scope="col">ESPECIALIDAD</th>
+                                        <th scope="col">FECHA</th>
+                                        <th scope="col">HORA</th>
+                                        <th scope="col">Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <tr>
+                                <td><%# Eval("Id") %></td>
+                                <td><%# Eval("NumAfiliado") %></td>
+                                <td><%# Eval("Medico") %></td>
+                                <td><%# Eval("Especialidad") %></td>
+                                <td><%# Eval("Fecha", "{0:dd/MM/yyyy}") %></td>
+                                <td><%# string.Format("{0:hh\\:mm}", Eval("Hora")) %></td>
+                                <td>
+                                    <asp:Button ID="btnEditarTurno" class="btn btn-primary btn-sm" Text="Editar" runat="server"
+                                        CommandArgument='<%# Eval("Id") %>' OnClick="btnEditarTurno_Click" />
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </tbody>
+    </table>
+   
+                        </FooterTemplate>
+                    </asp:Repeater>
+
+
+                    <!--Fin tabla-->
+
 
                 </div>
-            <div>
+            </div>
         </div>
     </div>
 
