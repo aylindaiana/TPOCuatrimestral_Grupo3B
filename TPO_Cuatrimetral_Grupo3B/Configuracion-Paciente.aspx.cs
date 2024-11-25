@@ -18,24 +18,41 @@ namespace TPO_Cuatrimetral_Grupo3B
 
             if (!IsPostBack)
             {
-                CargarLista();
+                //CargarLista();
+                PacienteManager pacientes = new PacienteManager();
+                Session.Add("listarPacientes", pacientes.ObtenerTodos());
+                //listaPacientes = pacientes.ObtenerTodos();
+                repeaterPacientes.DataSource = Session["listarPacientes"];
+                repeaterPacientes.DataBind();
             }
 
         }
 
         protected void btnBuscarAfiliado_Click(object sender, EventArgs e)
         {
-
+            List<Paciente> lista = (List<Paciente>)Session["listarPacientes"];
+            List<Paciente> listaFiltroAfiliado = lista.FindAll(x => x.Numero_afiliado.ToUpper().Contains(txtLegajoFiltro.Text.ToUpper()));
+            repeaterPacientes.DataSource = listaFiltroAfiliado;
+            repeaterPacientes.DataBind();
+            txtLegajoFiltro.Text = string.Empty;
         }
 
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
-
+            List<Paciente> lista = (List<Paciente>)Session["listarPacientes"];
+            List<Paciente> listaFiltroDNI = lista.FindAll(x => x.Dni.ToUpper().Contains(txtDniFiltro.Text.ToUpper()));
+            repeaterPacientes.DataSource = listaFiltroDNI;
+            repeaterPacientes.DataBind();
+            txtDniFiltro.Text = string.Empty;
         }
 
         protected void btnBuscarApellido_Click(object sender, EventArgs e)
         {
-
+            List<Paciente> lista = (List<Paciente>)Session["listarPacientes"];
+            List<Paciente> listaFiltroApellido = lista.FindAll(x => x.Apellido.ToUpper().Contains(txtApellidoFiltro.Text.ToUpper()));
+            repeaterPacientes.DataSource = listaFiltroApellido;
+            repeaterPacientes.DataBind();
+            txtApellidoFiltro.Text = string.Empty;
         }
 
         protected void btnEditarPaciente_Click(object sender, EventArgs e)

@@ -87,5 +87,36 @@ namespace Manager
                 datos.CerrarConeccion();
             }
         }
+        public Persona BuscarGmail(string usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Persona personaRecuperado = null;
+            try
+            {
+                datos.SetearConsulta("EXEC sp_buscar_gmail @usuario");
+                datos.SetearParametro("@usuario", usuario);
+
+                datos.EjecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    personaRecuperado = new Persona
+                    {
+                        Dni = usuario,
+                        Email = datos.Lector["Email"].ToString()
+                    };
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+            return personaRecuperado;
+        }
     }
 }

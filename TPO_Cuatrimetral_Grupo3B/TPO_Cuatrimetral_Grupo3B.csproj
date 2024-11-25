@@ -77,7 +77,9 @@
     <Content Include="Configuracion-Paciente.aspx" />
     <Content Include="Configuracion-Planes.aspx" />
     <Content Include="Configuracion-Turnos.aspx" />
+    <Content Include="DenegarPermiso.aspx" />
     <Content Include="EditarTurnos.aspx" />
+    <Content Include="Exito.aspx" />
     <Content Include="ModificarEmpleado.aspx" />
     <Content Include="DetallesTurno.aspx" />
     <Content Include="Global.asax" />
@@ -161,12 +163,26 @@
     <Compile Include="Configuracion-Turnos.aspx.designer.cs">
       <DependentUpon>Configuracion-Turnos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DenegarPermiso.aspx.cs">
+      <DependentUpon>DenegarPermiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DenegarPermiso.aspx.designer.cs">
+      <DependentUpon>DenegarPermiso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditarTurnos.aspx.cs">
       <DependentUpon>EditarTurnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditarTurnos.aspx.designer.cs">
       <DependentUpon>EditarTurnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exito.aspx.cs">
+      <DependentUpon>Exito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exito.aspx.designer.cs">
+      <DependentUpon>Exito.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarEmpleado.aspx.cs">
       <DependentUpon>ModificarEmpleado.aspx</DependentUpon>

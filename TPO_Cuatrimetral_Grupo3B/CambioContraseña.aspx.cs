@@ -31,6 +31,7 @@ namespace TPO_Cuatrimetral_Grupo3B
 
                 // Llamo al metodo para cambiar la contraseña
                 usuarioM.CambiarPass(usuarioAutenticado.User, contraseñaNueva);
+                Response.Redirect("Exito.aspx");
             }
             catch (Exception ex)
             {

@@ -19,8 +19,36 @@ namespace TPO_Cuatrimetral_Grupo3B
             lblMensaje.Text = string.Empty;
             if (!IsPostBack)
             {
-                CargarEspecialidades();
+                
 
+                if (Session["User"] != null)
+                {
+                    Usuario usuario = (Usuario)Session["User"];
+
+                    if (usuario.Tipo == UserType.ADMIN)
+                    {
+                        CargarEspecialidades();
+                    }
+                    else if (usuario.Tipo == UserType.RECEPCIONISTA)
+                    {
+                        CargarEspecialidades();
+                    }
+                    else if (usuario.Tipo == UserType.MEDICO)
+                    {
+                        Response.Redirect("DenegarPermiso.aspx", false);
+                    }
+
+                    else if (usuario.Tipo == UserType.PACIENTE)
+                    {
+                        Response.Redirect("DenegarPermiso.aspx", false);
+                    }
+
+                }
+                else
+                {
+                    Session.Add("error", "Usted no tiene permiso para acceder");
+                    Response.Redirect("DenegarPermiso.aspx", false);
+                }
             }
         }
 
@@ -37,7 +65,7 @@ namespace TPO_Cuatrimetral_Grupo3B
                 return;
             }
             try
-            { 
+            {
                 especialidad.Nombre = txtNuevaEspecialidad.Value.ToString();
                 manager.AgregarNuevaEspecialidad(especialidad);
                 CargarEspecialidades();

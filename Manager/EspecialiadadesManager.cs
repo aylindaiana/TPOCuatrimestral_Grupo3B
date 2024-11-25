@@ -27,7 +27,7 @@ namespace Manager
                     Especialidades aux = new Especialidades();
 
                     aux.Id = (int)datos.Lector["id_especialidad"];
-                    aux.Nombre = (string)datos.Lector["especialidad"];
+                    aux.Nombre = datos.Lector["especialidad"].ToString();
 
                     lista.Add(aux);
                 }
@@ -44,7 +44,7 @@ namespace Manager
             }
         }
 
-        public void Agregar(Especialidades esp,string legajo)
+        public void Agregar(Especialidades esp, string legajo)
         {
             AccesoDatos datos = new AccesoDatos();
             try

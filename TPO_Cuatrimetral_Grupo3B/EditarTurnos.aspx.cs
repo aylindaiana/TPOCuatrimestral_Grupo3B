@@ -76,7 +76,7 @@ namespace TPO_Cuatrimetral_Grupo3B
 
             try
             {
-                aux = manager.
+               // aux = manager.
             }
             catch (Exception)
             {

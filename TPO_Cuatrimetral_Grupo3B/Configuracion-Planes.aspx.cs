@@ -16,7 +16,35 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
             if (!IsPostBack)
             {
-                CargarLista();
+                
+                if (Session["User"] != null)
+                {
+                    Usuario usuario = (Usuario)Session["User"];
+
+                    if (usuario.Tipo == UserType.ADMIN)
+                    {
+                        CargarLista();
+                    }
+                    else if (usuario.Tipo == UserType.RECEPCIONISTA)
+                    {
+                        CargarLista();
+                    }
+                    else if (usuario.Tipo == UserType.MEDICO)
+                    {
+                        Response.Redirect("DenegarPermiso.aspx", false);
+                    }
+
+                    else if (usuario.Tipo == UserType.PACIENTE)
+                    {
+                        Response.Redirect("DenegarPermiso.aspx", false);
+                    }
+
+                }
+                else
+                {
+                    Session.Add("error", "Usted no tiene permiso para acceder");
+                    Response.Redirect("DenegarPermiso.aspx", false);
+                }
             }
         }
 
