@@ -5,4 +5,5 @@
     <h2>----------------------------------</h2>
     <h1>LA OPERACION SE REALIZO CON EXITO</h1>
     <h2>----------------------------------</h2>
+     <asp:Button ID="btnInicio" runat="server" CssClass="btn btn-primary" Text="Volver al Inicio" OnClick="btnInicio_Click" />
 </asp:Content>

@@ -20,17 +20,23 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
             try
             {
-                // Obtengo el usuario autenticado de la sesion
+                EmailService emailService = new EmailService();
+
                 var usuarioAutenticado = (Usuario)Session["User"];
 
-                // Obtengo las contraseñas ingresadas
                 string contraseñaVieja = ContraseñaVieja.Text;
                 string contraseñaNueva = ContraseñaNueva.Text;
 
                 UsuarioManager usuarioM = new UsuarioManager();
 
-                // Llamo al metodo para cambiar la contraseña
+                string mail= usuarioM.BuscarGmail(usuarioAutenticado.User);
+
                 usuarioM.CambiarPass(usuarioAutenticado.User, contraseñaNueva);
+
+                //lblMensajeExito.Text = mail;   
+                emailService.ArmarCorreo(mail);
+                emailService.enviarmail();
+
                 Response.Redirect("Exito.aspx");
             }
             catch (Exception ex)

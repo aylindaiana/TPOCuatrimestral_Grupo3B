@@ -72,11 +72,15 @@ namespace TPO_Cuatrimetral_Grupo3B
         private void CargarDatos() 
         {
             TurnoMedicoManager manager = new TurnoMedicoManager();
-            TurnoMedico aux = new TurnoMedico();
+            //TurnoMedico aux = new TurnoMedico();
 
             try
             {
-               // aux = manager.
+                List<TurnoMedico> lista = manager.ObtenerTodos();
+                ddlMedicos.DataSource = lista;
+                ddlMedicos.DataBind();
+
+
             }
             catch (Exception)
             {

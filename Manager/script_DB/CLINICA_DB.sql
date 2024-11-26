@@ -5,7 +5,7 @@ GO
 USE CLINICA_DB
 GO
 
--- Configurar el idioma para la sesión actual
+-- Configurar el idioma para la sesiÃ³n actual
 SET LANGUAGE Spanish;
 GO
 
@@ -545,6 +545,32 @@ BEGIN
 END
 GO
 
+-- ASIGNAR HORARIOS A TRABAJADOR
+CREATE PROCEDURE sp_Cargar_Horario(
+	@pLEGAJO VARCHAR(100),
+    @pDIA VARCHAR(20),
+    @pHORA_INICIO TIME,
+    @pHORA_FIN TIME,
+	@pID_ESPECIALIDAD INT
+	)AS
+BEGIN
+
+	IF (SELECT COUNT(*) 
+		FROM Medico_x_especialidad 
+		WHERE legajo = @pLEGAJO AND id_especialidad = @pID_ESPECIALIDAD) = 0
+	BEGIN
+		RETURN;		-- ESPECIALIDAD NO ASIGNADA A ESTE LEGAJO
+	END
+
+	
+	IF(@pHORA_INICIO < @pHORA_FIN)
+	BEGIN
+		INSERT Horarios_Trabajador (legajo,dia,hora_inicio,hora_fin,id_especialidad)
+		VALUES (@pLEGAJO,LOWER(@pDIA),@pHORA_INICIO,@pHORA_FIN,@pID_ESPECIALIDAD)
+	END
+END
+GO
+
 -- ELIMINAR HORARIOS A TRABAJADOR
 CREATE PROCEDURE sp_Eliminar_Horario(
 	@pLEGAJO VARCHAR(100),
@@ -594,14 +620,14 @@ END
 GO
 
 
--- CAMBIAR CONTRASE?A
+-- CAMBIAR CONTRASEï¿½A
 CREATE PROCEDURE sp_Cambiar_Contrasena(
     @Usuario VARCHAR(50),
     @NuevaContrasena VARCHAR(50)
 )
 AS
 BEGIN
-    -- Actualizar la contrase?a del usuario
+    -- Actualizar la contraseï¿½a del usuario
     UPDATE Usuarios
     SET Pass = @NuevaContrasena
     WHERE Usuario = @Usuario;
@@ -638,16 +664,17 @@ BEGIN
         DECLARE @ErrorLine INT = ERROR_LINE();
 
         RAISERROR (
-            'Error al intentar crear una especialidad. Error %d en la línea %d: %s', 
+            'Error al intentar crear una especialidad. Error %d en la lÃ­nea %d: %s', 
             16, 1, @ErrorNumber, @ErrorLine, @ErrorMessage
         )
     END CATCH
 END
 GO
 
+--EXEC sp_crear_especialidad Clinica
 
 
--- REALIZO LA RELACION DE LA ESPECIALIDAD CON EL MEDICO - FUNCIÓN DE ADMIN O RECEPCIONISTA
+-- REALIZO LA RELACION DE LA ESPECIALIDAD CON EL MEDICO - FUNCIÃ“N DE ADMIN O RECEPCIONISTA
 CREATE PROCEDURE sp_asignar_especialidad_Medico(
     @pLEG_MEDICO VARCHAR(100),
     @pID_ESPECIALIDAD INT
@@ -673,14 +700,14 @@ BEGIN
               AND id_especialidad = @pID_ESPECIALIDAD
         )
         BEGIN
-            RAISERROR ('Ya existe una relación entre el médico y esta especialidad', 16, 1);
+            RAISERROR ('Ya existe una relaciÃ³n entre el mÃ©dico y esta especialidad', 16, 1);
             ROLLBACK TRANSACTION
             RETURN;
         END
         INSERT INTO Medico_x_especialidad (legajo, id_especialidad)
         VALUES (@pLEG_MEDICO, @pID_ESPECIALIDAD)
         COMMIT TRANSACTION
-        PRINT 'Relación médico-especialidad creada exitosamente.'
+        PRINT 'RelaciÃ³n mÃ©dico-especialidad creada exitosamente.'
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
@@ -688,7 +715,7 @@ BEGIN
         DECLARE @ErrorNumber INT = ERROR_NUMBER();
         DECLARE @ErrorLine INT = ERROR_LINE();
         RAISERROR (
-            'Error al intentar asignar una especialidad al médico. Error %d en la línea %d: %s', 
+            'Error al intentar asignar una especialidad al mÃ©dico. Error %d en la lÃ­nea %d: %s', 
             16, 1, @ErrorNumber, @ErrorLine, @ErrorMessage
         );
     END CATCH
@@ -710,7 +737,7 @@ BEGIN
         )
         BEGIN
             SET @pResultado = 0
-            PRINT 'No se puede eliminar la especialidad porque está asignada a un médico.'
+            PRINT 'No se puede eliminar la especialidad porque estÃ¡ asignada a un mÃ©dico.'
             ROLLBACK TRANSACTION
             RETURN
         END
@@ -730,6 +757,7 @@ BEGIN
     END CATCH
 END
 GO
+
 
 CREATE PROCEDURE GenerarHorariosDisponibles(
     @legajo VARCHAR(100)
@@ -762,7 +790,7 @@ BEGIN
 
         WHILE @fecha_actual <= @fecha_fin
         BEGIN
-            -- Verificar si la fecha actual corresponde al día de la semana
+            -- Verificar si la fecha actual corresponde al dÃ­a de la semana
             IF UPPER(DATENAME(WEEKDAY, @fecha_actual)) = UPPER(@dia)
             BEGIN
                 -- Generar turnos por cada hora en el rango de horario
@@ -789,7 +817,7 @@ BEGIN
                 END
             END
 
-            -- Avanzar al día siguiente
+            -- Avanzar al dÃ­a siguiente
             SET @fecha_actual = DATEADD(DAY, 1, @fecha_actual);
         END
 
@@ -828,64 +856,43 @@ BEGIN
 END
 GO
 
---------------------------------------------------------- INSERT DATOS ----------------------------------
+USE CLINICA_DB
 
-
-INSERT Niveles_acceso(nivel_acceso)
-VALUES ('PACIENTE'),('RECEPCIONISTA'),('MEDICO'),('ADMIN')
+CREATE PROCEDURE sp_buscar_gmail(
+	@pUSUARIO VARCHAR(50)
+)
+AS
+BEGIN
+	BEGIN TRY
+		SELECT p.Email 
+		FROM Personas p 
+		INNER JOIN Usuarios u 
+		ON p.Dni = u.Usuario 
+		WHERE u.Usuario = @pUSUARIO;
+	END TRY
+	BEGIN CATCH
+		RAISERROR('SE PRODUJO ESTE USUARIO NO EXISTE.', 16, 10)
+	END CATCH
+END
 GO
 
-INSERT Especialidades (especialidad)
-VALUES 
-('Clinica'),('Pediatria'),('Dermatologia'),('Cardiologia'),
-('Oncologia'),('Neumologia')
+
+--exec sp_buscar_gmail 66666666
+
+
+  -- traer todos los turnos del usuario
+CREATE PROCEDURE sp_ObtenerTurnosUsuario
+    @Usuario VARCHAR(50)
+AS
+BEGIN
+    -- Seleccionar todos los turnos asociados al usuario proporcionado
+    SELECT id_turno, num_afiliado, Fecha as FechaTurno, Descripcion
+    FROM Turnos 
+    WHERE Usuario = @Usuario
+    ORDER BY FechaTurno; -- Ordenar por fecha de turno (opcional)
+END;
 GO
-
-INSERT Planes (nombre)
-VALUES ('STANDARD'),('BRONCE'),('PLATINUM'),('GOLD')
-
-EXEC sp_Crear_Paciente '11111111', 'Juan Carlos','Martinez','1985-03-15','1145678901','juan.martinez85@gmail.com','AV Santa Fe','1234','Buenos Aires','1059',1
-
---Creo Recepcionista
-EXEC sp_Crear_Empleado '22222222','Mar?a Elena','Gomez','1990-07-22','2617891234','maria.gomez90@hotmail.com','Calle 50','789','La Plata','1900',2
-
---Creo Medico
-EXEC sp_Crear_Empleado '33333333','Marcos','Gomez','2000-07-22','1559381788','marcos@hotmail.com','Calle 5','7890','Mar del Plata','1100',3
-
---Creo Administrador
-EXEC sp_Crear_Empleado '42832435','Brian','Barrera','2000-08-02','1167624662','barreragomezb2800@gmail.com','Calle admin','1234','loc admin','1100',4
-
-EXEC sp_Asignar_Especialidades 'E7002','101'
-EXEC sp_Asignar_Especialidades 'E7002','105'
-EXEC sp_Asignar_Especialidades 'E7002','102'
-
-EXEC sp_Cargar_Horario 'E7002','LUNES','08:00:00','13:00:00','101'
-EXEC sp_Cargar_Horario 'E7002','MARTES','10:00:00','15:00:00','105'
-EXEC sp_Cargar_Horario 'E7002','JUEVES','13:00:00','17:00:00','102'
-
-EXEC sp_Agregar_Sanatorio 'Sanatorio Finochietto', 'Av. Principal', '123', 'Ciudad A','1000','123456789', 'finochietto@sanatorio.com';
-EXEC sp_Agregar_Sanatorio 'Sanatorio Anchorena', 'Calle Norte', '45', 'Ciudad B','2000', '987654321', 'anchorena@sanatorio.com';
-EXEC sp_Agregar_Sanatorio 'Sanatorio Guemes', 'Calle Sur', '67', 'Ciudad C', '3000', '555666777', 'guemes@sanatorio.com';
-EXEC sp_Agregar_Sanatorio 'Sanatorio Trinidad', 'Calle Este', '89', 'Ciudad D', '4000', '222333444', 'trinidad@sanatorio.com';
-EXEC sp_Agregar_Sanatorio 'Clinica Zabala', 'Calle Oeste', '101', 'Ciudad E','5000', '111222333','zabala@sanatorio.com';
-
---Asignacion plan standard
-INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
-VALUES ('1','1'),('2','1'),('3','1')
-
---Asignacion plan bronce
-INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
-VALUES ('1','2'),('5','2')
-
---Asignacion plan platinum
-INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
-VALUES ('1','3'),('5','3')
-
---Asignacion plan gold
-INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
-VALUES ('1','4'),('2','4'),('3','4'),('4','4'),('5','4')
-
-
+SELECT * FROM Turnos
 
 
 CREATE FUNCTION obtenerFechasDisponibles(@LEGAJO VARCHAR(100), @DIA VARCHAR(100))
@@ -942,5 +949,73 @@ INNER JOIN Personas P ON T.dni = P.dni
 INNER JOIN Especialidades E ON Tu.id_especialidad = E.id_especialidad
 GO
 
-SELECT id_turno,num_afiliado,apellido,id_especialidad,especialidad,Fecha,hora,estado FROM vwTodosTurnos
-SELECT*FROM vwTodosTurnos
+--SELECT id_turno,num_afiliado,apellido,id_especialidad,especialidad,Fecha,hora,estado FROM vwTodosTurnos
+--SELECT*FROM vwTodosTurnos
+
+--------------------------------------------------------- INSERT DATOS ----------------------------------
+
+
+INSERT Niveles_acceso(nivel_acceso)
+VALUES ('PACIENTE'),('RECEPCIONISTA'),('MEDICO'),('ADMIN')
+GO
+
+INSERT Especialidades (especialidad)
+VALUES 
+('Clinica'),('Pediatria'),('Dermatologia'),('Cardiologia'),
+('Oncologia'),('Neumologia')
+GO
+
+--SELECT * FROM Usuarios
+INSERT Planes (nombre)
+VALUES ('STANDARD'),('BRONCE'),('PLATINUM'),('GOLD')
+
+EXEC sp_Crear_Paciente '11111111', 'Juan Carlos','Martinez','1985-03-15','1145678901','juan.martinez85@gmail.com','AV Santa Fe','1234','Buenos Aires','1059',1
+EXEC sp_Crear_Paciente '66666666', 'Aylin Daiana','Paniagua','1985-03-15','1145678901','dai83r2@gmail.com','AV Santa Fe','1234','Buenos Aires','1059',1
+
+--Creo Recepcionista
+EXEC sp_Crear_Empleado '22222222','Marï¿½a Elena','Gomez','1990-07-22','2617891234','maria.gomez90@hotmail.com','Calle 50','789','La Plata','1900',2
+
+--Creo Medico
+EXEC sp_Crear_Empleado '33333333','Marcos','Gomez','2000-07-22','1559381788','marcos@hotmail.com','Calle 5','7890','Mar del Plata','1100',3
+
+--Creo Administrador
+EXEC sp_Crear_Empleado '42832435','Brian','Barrera','2000-08-02','1167624662','barreragomezb2800@gmail.com','Calle admin','1234','loc admin','1100',4
+
+EXEC sp_Asignar_Especialidades 'E7002','101'
+EXEC sp_Asignar_Especialidades 'E7002','105'
+EXEC sp_Asignar_Especialidades 'E7002','102'
+
+EXEC sp_Cargar_Horario 'E7002','LUNES','08:00:00','13:00:00','101'
+EXEC sp_Cargar_Horario 'E7002','MARTES','10:00:00','15:00:00','105'
+EXEC sp_Cargar_Horario 'E7002','JUEVES','13:00:00','17:00:00','102'
+
+EXEC sp_Agregar_Sanatorio 'Sanatorio Finochietto', 'Av. Principal', '123', 'Ciudad A','1000','123456789', 'finochietto@sanatorio.com';
+EXEC sp_Agregar_Sanatorio 'Sanatorio Anchorena', 'Calle Norte', '45', 'Ciudad B','2000', '987654321', 'anchorena@sanatorio.com';
+EXEC sp_Agregar_Sanatorio 'Sanatorio Guemes', 'Calle Sur', '67', 'Ciudad C', '3000', '555666777', 'guemes@sanatorio.com';
+EXEC sp_Agregar_Sanatorio 'Sanatorio Trinidad', 'Calle Este', '89', 'Ciudad D', '4000', '222333444', 'trinidad@sanatorio.com';
+EXEC sp_Agregar_Sanatorio 'Clinica Zabala', 'Calle Oeste', '101', 'Ciudad E','5000', '111222333','zabala@sanatorio.com';
+
+--Asignacion plan standard
+INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
+VALUES ('1','1'),('2','1'),('3','1')
+
+--Asignacion plan bronce
+INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
+VALUES ('1','2'),('5','2')
+
+--Asignacion plan platinum
+INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
+VALUES ('1','3'),('5','3')
+
+--Asignacion plan gold
+INSERT Sanatorios_x_planes (id_sanatorio,id_plan)
+VALUES ('1','4'),('2','4'),('3','4'),('4','4'),('5','4')
+
+SELECT * FROM Usuarios
+SELECT * FROM Trabajadores
+SELECT * FROM Personas
+SELECT * FROM Pacientes
+SELECT* FROM Sanatorios
+SELECT* FROM Planes
+SELECT * FROM Turnos
+select* from Sanatorios_x_planes

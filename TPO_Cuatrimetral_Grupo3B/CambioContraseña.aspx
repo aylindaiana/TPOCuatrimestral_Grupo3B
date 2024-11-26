@@ -29,6 +29,7 @@
               <asp:TextBox ID="ContraseñaNueva" runat="server" TextMode="Password" CssClass="form-control short-field" Placeholder="Ingresa tu nueva contraseña" />
             </div>
             <asp:Button ID="btnCambiar" runat="server" CssClass="btn btn-primary" Text="Cambiar" OnClick="btnCambiar_Click" />
+            <asp:Label ID="lblMensajeExito" runat="server" ForeColor="Green"></asp:Label>
         </fieldset>
     </form>
 </asp:Content>

@@ -13,5 +13,10 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
 
         }
+
+        protected void btnInicio_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
     }
 }

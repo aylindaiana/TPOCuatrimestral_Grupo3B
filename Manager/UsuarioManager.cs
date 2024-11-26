@@ -87,10 +87,10 @@ namespace Manager
                 datos.CerrarConeccion();
             }
         }
-        public Persona BuscarGmail(string usuario)
+        public string BuscarGmail(string usuario)
         {
             AccesoDatos datos = new AccesoDatos();
-            Persona personaRecuperado = null;
+            string personaRecuperado = "";
             try
             {
                 datos.SetearConsulta("EXEC sp_buscar_gmail @usuario");
@@ -99,11 +99,7 @@ namespace Manager
                 datos.EjecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    personaRecuperado = new Persona
-                    {
-                        Dni = usuario,
-                        Email = datos.Lector["Email"].ToString()
-                    };
+                    personaRecuperado = datos.Lector["Email"].ToString();
 
                 }
             }
