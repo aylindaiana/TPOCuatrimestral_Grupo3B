@@ -77,38 +77,60 @@ namespace TPO_Cuatrimetral_Grupo3B
                 lblMensaje.Text = "Ocurrió un error al agregar la especialidad. Intenta nuevamente.";
             }
         }
-
-        protected void btnEliminar_Click(Object sender, EventArgs e)
+        protected void btnDesactivar_Click(Object sender, EventArgs e)
         {
             lblMensaje.Text = string.Empty;
-            Button btnEliminar = (Button)sender;
-            int idEspecialidad = int.Parse(btnEliminar.CommandArgument);
+
+            Button btnDesactivar= (Button)sender;
+            int idEspecialidad = int.Parse(btnDesactivar.CommandArgument);
 
             try
             {
                 EspecialiadadesManager manager = new EspecialiadadesManager();
-                Especialidades esp = new Especialidades { Id = idEspecialidad };
-                int resultado;
-                manager.EliminarEspecialidad(esp, out resultado);
-                if (resultado == 1)
-                {
-                    lblMensaje.Text = "Especialidad eliminada correctamente.";
-                }
-                else if (resultado == 0)
-                {
-                    lblMensaje.Text = "No se puede eliminar la especialidad porque está asignada a un médico.";
-                }
-                else
-                {
-                    lblMensaje.Text = "Ocurrió un error inesperado al eliminar la especialidad.";
-                }
+                Especialidades esp = new Especialidades();
+
+                esp.Id = idEspecialidad;
+                esp.Estado = false;
+
+                manager.BajaAltaEsp(esp);
+
+                lblMensaje.Text = "La especialidad fue desactivada correctamente.";
                 CargarEspecialidades();
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblMensaje.Text = "Ocurrió un error al intentar desactivar la especialidad: " + ex.Message;
             }
         }
+
+
+        protected void btnReactivar_Click(Object sender, EventArgs e)
+        {
+            lblMensaje.Text = string.Empty;
+
+            Button btnReactivar = (Button)sender;
+            int idEspecialidad = int.Parse(btnReactivar.CommandArgument);
+
+            try
+            {
+                EspecialiadadesManager manager = new EspecialiadadesManager();
+                Especialidades esp = new Especialidades();
+
+                esp.Id = idEspecialidad;
+                esp.Estado = true;
+                       
+                manager.BajaAltaEsp(esp);
+
+                lblMensaje.Text = "La especialidad fue reactivada correctamente.";
+
+                CargarEspecialidades();
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Ocurrió un error al intentar reactivar la especialidad: " + ex.Message;
+            }
+        }
+
 
         //Funciones:
 

@@ -5,7 +5,7 @@ GO
 USE CLINICA_DB
 GO
 
--- Configurar el idioma para la sesión actual
+-- Configurar el idioma para la sesiÃ³n actual
 SET LANGUAGE Spanish;
 GO
 
@@ -70,7 +70,8 @@ GO
 
 CREATE TABLE Especialidades (
     id_especialidad INT PRIMARY KEY IDENTITY(100,1),
-    especialidad VARCHAR(100) NOT NULL
+    especialidad VARCHAR(100) NOT NULL,
+	estado BIT DEFAULT 1
 );
 GO
 
@@ -545,31 +546,6 @@ BEGIN
 END
 GO
 
--- ASIGNAR HORARIOS A TRABAJADOR
-CREATE PROCEDURE sp_Cargar_Horario(
-	@pLEGAJO VARCHAR(100),
-    @pDIA VARCHAR(20),
-    @pHORA_INICIO TIME,
-    @pHORA_FIN TIME,
-	@pID_ESPECIALIDAD INT
-	)AS
-BEGIN
-
-	IF (SELECT COUNT(*) 
-		FROM Medico_x_especialidad 
-		WHERE legajo = @pLEGAJO AND id_especialidad = @pID_ESPECIALIDAD) = 0
-	BEGIN
-		RETURN;		-- ESPECIALIDAD NO ASIGNADA A ESTE LEGAJO
-	END
-
-	
-	IF(@pHORA_INICIO < @pHORA_FIN)
-	BEGIN
-		INSERT Horarios_Trabajador (legajo,dia,hora_inicio,hora_fin,id_especialidad)
-		VALUES (@pLEGAJO,LOWER(@pDIA),@pHORA_INICIO,@pHORA_FIN,@pID_ESPECIALIDAD)
-	END
-END
-GO
 
 -- ELIMINAR HORARIOS A TRABAJADOR
 CREATE PROCEDURE sp_Eliminar_Horario(
@@ -620,14 +596,14 @@ END
 GO
 
 
--- CAMBIAR CONTRASE�A
+-- CAMBIAR CONTRASEï¿½A
 CREATE PROCEDURE sp_Cambiar_Contrasena(
     @Usuario VARCHAR(50),
     @NuevaContrasena VARCHAR(50)
 )
 AS
 BEGIN
-    -- Actualizar la contrase�a del usuario
+    -- Actualizar la contraseï¿½a del usuario
     UPDATE Usuarios
     SET Pass = @NuevaContrasena
     WHERE Usuario = @Usuario;
@@ -664,7 +640,7 @@ BEGIN
         DECLARE @ErrorLine INT = ERROR_LINE();
 
         RAISERROR (
-            'Error al intentar crear una especialidad. Error %d en la línea %d: %s', 
+            'Error al intentar crear una especialidad. Error %d en la lÃ­nea %d: %s', 
             16, 1, @ErrorNumber, @ErrorLine, @ErrorMessage
         )
     END CATCH
@@ -674,7 +650,7 @@ GO
 --EXEC sp_crear_especialidad Clinica
 
 
--- REALIZO LA RELACION DE LA ESPECIALIDAD CON EL MEDICO - FUNCIÓN DE ADMIN O RECEPCIONISTA
+-- REALIZO LA RELACION DE LA ESPECIALIDAD CON EL MEDICO - FUNCIÃ“N DE ADMIN O RECEPCIONISTA
 CREATE PROCEDURE sp_asignar_especialidad_Medico(
     @pLEG_MEDICO VARCHAR(100),
     @pID_ESPECIALIDAD INT
@@ -700,14 +676,14 @@ BEGIN
               AND id_especialidad = @pID_ESPECIALIDAD
         )
         BEGIN
-            RAISERROR ('Ya existe una relación entre el médico y esta especialidad', 16, 1);
+            RAISERROR ('Ya existe una relaciÃ³n entre el mÃ©dico y esta especialidad', 16, 1);
             ROLLBACK TRANSACTION
             RETURN;
         END
         INSERT INTO Medico_x_especialidad (legajo, id_especialidad)
         VALUES (@pLEG_MEDICO, @pID_ESPECIALIDAD)
         COMMIT TRANSACTION
-        PRINT 'Relación médico-especialidad creada exitosamente.'
+        PRINT 'RelaciÃ³n mÃ©dico-especialidad creada exitosamente.'
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
@@ -715,49 +691,67 @@ BEGIN
         DECLARE @ErrorNumber INT = ERROR_NUMBER();
         DECLARE @ErrorLine INT = ERROR_LINE();
         RAISERROR (
-            'Error al intentar asignar una especialidad al médico. Error %d en la línea %d: %s', 
+            'Error al intentar asignar una especialidad al mÃ©dico. Error %d en la lÃ­nea %d: %s', 
             16, 1, @ErrorNumber, @ErrorLine, @ErrorMessage
         );
     END CATCH
 END
 GO
--- ELIMINAR ESPECIALIDAD
-CREATE PROCEDURE sp_eliminar_especialidad(
-    @pID_ESPECIALIDAD INT,
-    @pResultado INT OUTPUT
-)
+
+
+CREATE PROCEDURE sp_baja_alta_especialidad(
+    @pID_ESPECIALIDAD INT,       
+    @pESTADO BIT  
+	)
 AS
 BEGIN
     BEGIN TRY
-        BEGIN TRANSACTION
-        IF EXISTS (
-            SELECT 1 
-            FROM Medico_x_especialidad
-            WHERE id_especialidad = @pID_ESPECIALIDAD
-        )
+        BEGIN TRANSACTION;
+
+        UPDATE Especialidades
+        SET estado = @pESTADO
+        WHERE id_especialidad = @pID_ESPECIALIDAD
+
+        IF @pESTADO = 1
         BEGIN
-            SET @pResultado = 0
-            PRINT 'No se puede eliminar la especialidad porque está asignada a un médico.'
-            ROLLBACK TRANSACTION
-            RETURN
+            UPDATE Horarios_Trabajador
+            SET id_especialidad = @pID_ESPECIALIDAD
+            WHERE id_especialidad IS NULL;
+
+            INSERT INTO Medico_x_especialidad (legajo, id_especialidad)
+            SELECT legajo, @pID_ESPECIALIDAD
+            FROM (SELECT DISTINCT legajo FROM Horarios_Trabajador WHERE id_especialidad = @pID_ESPECIALIDAD) AS MedicosRelacionados
+            WHERE NOT EXISTS (
+                SELECT 1 FROM Medico_x_especialidad WHERE legajo = MedicosRelacionados.legajo AND id_especialidad = @pID_ESPECIALIDAD
+            );
+
+            UPDATE Turnos
+            SET estado = 'pendiente', motivo = NULL
+            WHERE id_especialidad = @pID_ESPECIALIDAD AND estado = 'cancelado';
         END
 
-        -- Eliminar la especialidad
-        DELETE FROM Especialidades
-        WHERE id_especialidad = @pID_ESPECIALIDAD
-        SET @pResultado = 1
-        PRINT 'La especialidad fue eliminada correctamente'
-        
+        IF @pESTADO = 0
+        BEGIN
+            UPDATE Horarios_Trabajador
+            SET id_especialidad = NULL
+            WHERE id_especialidad = @pID_ESPECIALIDAD
+
+            DELETE FROM Medico_x_especialidad
+            WHERE id_especialidad = @pID_ESPECIALIDAD
+
+            UPDATE Turnos
+            SET estado = 'cancelado', motivo = 'Especialidad dada de baja'
+            WHERE id_especialidad = @pID_ESPECIALIDAD
+        END
         COMMIT TRANSACTION
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION
-        SET @pResultado = -1
-        PRINT 'Error al intentar eliminar la especialidad.'
     END CATCH
 END
 GO
-
+--EXEC sp_baja_alta_especialidad 101, 1
+--SELECT * FROM Especialidades WHERE id_especialidad =101
 
 CREATE PROCEDURE GenerarHorariosDisponibles(
     @legajo VARCHAR(100)
@@ -790,7 +784,7 @@ BEGIN
 
         WHILE @fecha_actual <= @fecha_fin
         BEGIN
-            -- Verificar si la fecha actual corresponde al día de la semana
+            -- Verificar si la fecha actual corresponde al dÃ­a de la semana
             IF UPPER(DATENAME(WEEKDAY, @fecha_actual)) = UPPER(@dia)
             BEGIN
                 -- Generar turnos por cada hora en el rango de horario
@@ -811,19 +805,15 @@ BEGIN
                         INSERT INTO Turnos(legajo,dia, id_especialidad, Fecha, hora, estado)
                         VALUES (@legajo,@dia, @id_especialidad,  @fecha_actual, @hora_actual, 'sin asignar');
                     END
-
                     -- Incrementar la hora actual en 1 hora
                     SET @hora_actual = DATEADD(HOUR, 1, @hora_actual);
                 END
             END
-
-            -- Avanzar al día siguiente
+            -- Avanzar al dÃ­a siguiente
             SET @fecha_actual = DATEADD(DAY, 1, @fecha_actual);
         END
-
         FETCH NEXT FROM horarios_cursor INTO @dia, @id_especialidad, @hora_inicio, @hora_fin;
     END
-
     CLOSE horarios_cursor;
     DEALLOCATE horarios_cursor;
 END;
@@ -856,8 +846,6 @@ BEGIN
 END
 GO
 
-USE CLINICA_DB
-
 CREATE PROCEDURE sp_buscar_gmail(
 	@pUSUARIO VARCHAR(50)
 )
@@ -876,23 +864,6 @@ BEGIN
 END
 GO
 
-
---exec sp_buscar_gmail 66666666
-
-
-  -- traer todos los turnos del usuario
-CREATE PROCEDURE sp_ObtenerTurnosUsuario
-    @Usuario VARCHAR(50)
-AS
-BEGIN
-    -- Seleccionar todos los turnos asociados al usuario proporcionado
-    SELECT id_turno, num_afiliado, Fecha as FechaTurno, Descripcion
-    FROM Turnos 
-    WHERE Usuario = @Usuario
-    ORDER BY FechaTurno; -- Ordenar por fecha de turno (opcional)
-END;
-GO
-SELECT * FROM Turnos
 
 
 CREATE FUNCTION obtenerFechasDisponibles(@LEGAJO VARCHAR(100), @DIA VARCHAR(100))
@@ -941,7 +912,7 @@ BEGIN
 END
 select* from Turnos
 
-create VIEW vwTodosTurnos
+CREATE VIEW vwTodosTurnos
 AS
 SELECT Tu.id_turno,Tu.num_afiliado,p.apellido,Tu.id_especialidad,E.especialidad,Tu.Fecha,Tu.hora,tu.estado FROM Turnos Tu
 INNER JOIN Trabajadores T ON Tu.legajo = T.legajo
@@ -973,7 +944,7 @@ EXEC sp_Crear_Paciente '11111111', 'Juan Carlos','Martinez','1985-03-15','114567
 EXEC sp_Crear_Paciente '66666666', 'Aylin Daiana','Paniagua','1985-03-15','1145678901','dai83r2@gmail.com','AV Santa Fe','1234','Buenos Aires','1059',1
 
 --Creo Recepcionista
-EXEC sp_Crear_Empleado '22222222','Mar�a Elena','Gomez','1990-07-22','2617891234','maria.gomez90@hotmail.com','Calle 50','789','La Plata','1900',2
+EXEC sp_Crear_Empleado '22222222','Marï¿½a Elena','Gomez','1990-07-22','2617891234','maria.gomez90@hotmail.com','Calle 50','789','La Plata','1900',2
 
 --Creo Medico
 EXEC sp_Crear_Empleado '33333333','Marcos','Gomez','2000-07-22','1559381788','marcos@hotmail.com','Calle 5','7890','Mar del Plata','1100',3

@@ -22,16 +22,19 @@
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
-                                <asp:Repeater ID="rptEspecialidades" runat="server">
-                                    <ItemTemplate>
-                                        <tr>
-                                            <td><%# Eval("Nombre") %></td>
-                                            <td>
-                                                <asp:Button CssClass="btn btn-danger btn-sm" Text="Eliminar"  CommandArgument='<%# Eval("Id") %>'  OnClick="btnEliminar_Click" runat="server" />
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                    <asp:Repeater ID="rptEspecialidades" runat="server">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td><%# Eval("Nombre") %></td>
+                                                <td>
+                                                    <asp:Button CssClass="btn btn-danger btn-sm" Text="Desactivar" CommandArgument='<%# Eval("Id") %>' OnClick="btnDesactivar_Click" runat="server" Visible='<%# (bool)Eval("Estado") %>' />
+                
+                                                    <asp:Button CssClass="btn btn-success btn-sm" Text="Reactivar" CommandArgument='<%# Eval("Id") %>' OnClick="btnReactivar_Click" runat="server" Visible='<%# !(bool)Eval("Estado") %>' />
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+
                             </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>

@@ -61,7 +61,7 @@ namespace TPO_Cuatrimetral_Grupo3B
                 Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
             }
 
-            Response.Write("<script>alert('Turno Generado con Exito!" + "');</script>");
+            Response.Redirect("Exito.aspx");
 
             ddlDias.Items.Clear();
             ddlFechas.Items.Clear();

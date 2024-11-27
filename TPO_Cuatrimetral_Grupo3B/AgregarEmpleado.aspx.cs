@@ -6,6 +6,7 @@ using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Security.Permissions;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -32,6 +33,17 @@ namespace TPO_Cuatrimetral_Grupo3B
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            lblErrores.Visible = false; // Ocultar errores previos
+            lblErrores.Text = "";       // Limpiar texto previo
+
+            string mensajeError;
+            if (!ValidarCampos(out mensajeError))
+            {
+                lblErrores.Text = mensajeError;
+                lblErrores.Visible = true; // Mostrar el mensaje de error
+                return;
+            }
+
             EmpleadoManager manager = new EmpleadoManager();
             Empleado nuevoEmpleado = new Empleado();
 
@@ -64,10 +76,16 @@ namespace TPO_Cuatrimetral_Grupo3B
 
                 LimpiarTextBox();
 
+                lblErrores.Text = "Empleado registrado correctamente.";
+                lblErrores.CssClass = "text-success"; 
+                lblErrores.Visible = true;
+
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+                lblErrores.Text = "Error: " + ex.Message;
+                lblErrores.CssClass = "text-danger"; 
+                lblErrores.Visible = true;
             }
 
             WindowsMessege("Empleado Registrado Correctaemnte!!");
@@ -320,5 +338,46 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
             Response.Write("<script>alert('" + msg + "');</script>");
         }
+
+        private bool ValidarCampos(out string mensajeError)
+        {
+            StringBuilder errores = new StringBuilder();
+
+            DateTime fechaNacimiento;
+            if (!DateTime.TryParse(txtFechaNacimiento.Text, out fechaNacimiento) || fechaNacimiento > DateTime.Now)
+            {
+                errores.AppendLine("• La fecha de nacimiento es inválida o está en el futuro.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                errores.AppendLine("• El nombre y el apellido son obligatorios.");
+            }
+
+            if (txtDni.Text.Length != 8 || !txtDni.Text.All(char.IsDigit))
+            {
+                errores.AppendLine("• El DNI debe contener 8 dígitos.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text) || !txtTelefono.Text.All(char.IsDigit))
+            {
+                errores.AppendLine("• El teléfono debe contener solo números.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtEmail.Text) || !txtEmail.Text.Contains("@"))
+            {
+                errores.AppendLine("• El email ingresado no es válido.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCalle.Text) || string.IsNullOrWhiteSpace(txtNumero.Text) ||
+                string.IsNullOrWhiteSpace(txtLocalidad.Text) || string.IsNullOrWhiteSpace(txtCodigoPostal.Text))
+            {
+                errores.AppendLine("• Todos los campos de dirección son obligatorios.");
+            }
+
+            mensajeError = errores.ToString();
+            return string.IsNullOrEmpty(mensajeError);
+        }
+
     }
 }

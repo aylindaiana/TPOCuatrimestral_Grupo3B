@@ -19,7 +19,7 @@ namespace Manager
 
             try
             {
-                datos.SetearConsulta("SELECT id_especialidad,especialidad FROM Especialidades");
+                datos.SetearConsulta("SELECT id_especialidad, especialidad, estado FROM Especialidades");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
@@ -28,6 +28,7 @@ namespace Manager
 
                     aux.Id = (int)datos.Lector["id_especialidad"];
                     aux.Nombre = datos.Lector["especialidad"].ToString();
+                    aux.Estado = (bool)datos.Lector["estado"];
 
                     lista.Add(aux);
                 }
@@ -85,26 +86,23 @@ namespace Manager
             }
         }
 
-        public void EliminarEspecialidad(Especialidades esp, out int resultado)
+        public void BajaAltaEsp(Especialidades aux)
         {
             AccesoDatos datos = new AccesoDatos();
+
             try
             {
-                datos.SetearConsulta("EXEC sp_eliminar_especialidad @ID_ESPECIALIDAD, @pResultado OUTPUT");
-                datos.SetearParametro("@ID_ESPECIALIDAD", esp.Id);
-                SqlParameter pResultado = new SqlParameter("@pResultado", SqlDbType.Int)
-                {
-                    Direction = ParameterDirection.Output
-                };
-                datos.Comando.Parameters.Add(pResultado);
+
+                datos.SetearConsulta("EXEC sp_baja_alta_especialidad @ID_ESPECIALIDAD, @ESTADOS_ACTUAL");
+                datos.SetearParametro("@ID_ESPECIALIDAD", aux.Id);
+                datos.SetearParametro("@ESTADOS_ACTUAL", aux.Estado);
                 datos.ejecutarAccion();
-                resultado = (int)pResultado.Value;
             }
             catch (Exception ex)
             {
-                resultado = -1;
                 throw ex;
             }
+
             finally
             {
                 datos.CerrarConeccion();

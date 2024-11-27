@@ -15,6 +15,15 @@ namespace TPO_Cuatrimetral_Grupo3B
     {
 
         /// <summary>
+        /// Control lblErrores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrores;
+
+        /// <summary>
         /// Control txtIdPlan.
         /// </summary>
         /// <remarks>

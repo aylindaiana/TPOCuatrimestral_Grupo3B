@@ -7,6 +7,7 @@
     <div class="container">
 
         <h2>Agregar Plan:</h2>
+         <asp:Label ID="lblErrores" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
 
         <!-- Información usuario -->
 

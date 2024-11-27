@@ -8,6 +8,8 @@
 
         <h2>Agregar Empleado:</h2>
 
+        <asp:Label ID="lblErrores" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
+
         <!-- Información usuario -->
 
         <div class="row">
