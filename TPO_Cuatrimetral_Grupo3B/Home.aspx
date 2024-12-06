@@ -78,7 +78,9 @@
         <div class="pantalla-opcciones">
             <div class="row justify-content-center">
                 <a href="NuevoTurno.aspx" class="btn btn-outline-danger btn-atajos">Nuevo turno</a>
+                <% if (Session["TipoUsuario"] != null && Session["TipoUsuario"].ToString() != "PACIENTE") {  %>
                 <a href="#" class="btn btn-outline-primary btn-atajos">Agregar Paciente</a>
+                <% } %>
             </div>
         </div>
     </div>

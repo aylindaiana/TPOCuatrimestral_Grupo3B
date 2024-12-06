@@ -16,6 +16,21 @@ namespace TPO_Cuatrimetral_Grupo3B
             {
                 Response.Redirect("Login.aspx",false);
             }
+            if (!IsPostBack)
+            {
+                Usuario usuario = (Usuario)Session["User"];
+                if (usuario != null && usuario.Tipo == UserType.PACIENTE)
+                {
+                    liInfoPlan.Visible = false;
+                    liDivider1.Visible = false;
+                    liConfigTurnos.Visible = false;
+                    liDivider2.Visible = false;
+                    liConfigPacientes.Visible = false;
+                    liConfigEmpleados.Visible = false;
+                    liConfigEspecialidades.Visible = false;
+                    liAgregarPlanes.Visible = false;
+                }
+            }
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)

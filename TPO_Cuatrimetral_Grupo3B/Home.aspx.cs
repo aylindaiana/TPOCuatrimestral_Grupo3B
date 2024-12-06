@@ -15,6 +15,7 @@ namespace TPO_Cuatrimetral_Grupo3B
             if (!IsPostBack) 
             {
                 Persona persona;
+                Usuario usuario = (Usuario)Session["User"];
 
                 if (Seguridad.NivelAcceso() == UserType.PACIENTE)
                 {
@@ -23,6 +24,10 @@ namespace TPO_Cuatrimetral_Grupo3B
                 else 
                 {
                     persona = (Persona)Session["Empleado"];
+                }
+                if (Session["User"] != null)
+                {
+                    Session["TipoUsuario"] = usuario.Tipo; // Supongamos que "Tipo" es un atributo de Usuario.
                 }
 
 

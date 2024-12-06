@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\miperfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\miperfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\manager\\especialiadadesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\especialiadadesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\manager\\personamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\personamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\cambiocontrase\u00F1a.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\cambiocontrase\u00F1a.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\cambiocontrase\u00F1a.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\cambiocontrase\u00F1a.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9591A576-B149-4439-8718-D63490C6E7CC}|Dominio\\Dominio.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\dominio\\especialidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9591A576-B149-4439-8718-D63490C6E7CC}|Dominio\\Dominio.csproj|solutionrelative:dominio\\especialidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\miperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\miperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\manager\\pacientemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\pacientemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9591A576-B149-4439-8718-D63490C6E7CC}|Dominio\\Dominio.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\dominio\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9591A576-B149-4439-8718-D63490C6E7CC}|Dominio\\Dominio.csproj|solutionrelative:dominio\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,53 +50,106 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Especialidades.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Dominio\\Especialidades.cs",
-              "RelativeDocumentMoniker": "Dominio\\Especialidades.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Dominio\\Especialidades.cs",
-              "RelativeToolTip": "Dominio\\Especialidades.cs",
+              "DocumentIndex": 2,
+              "Title": "CambioContrase\u00F1a.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T13:36:54.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EspecialiadadesManager.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\EspecialiadadesManager.cs",
-              "RelativeDocumentMoniker": "Manager\\EspecialiadadesManager.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\EspecialiadadesManager.cs",
-              "RelativeToolTip": "Manager\\EspecialiadadesManager.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAwwHAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T00:46:58.342Z",
+              "WhenOpened": "2024-12-06T03:21:03.349Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "CambioContrase\u00F1a.aspx",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\CambioContrase\u00F1a.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-06T03:21:00.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Configuracion-Especialidades.aspx.cs",
               "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx.cs",
               "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx.cs",
               "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx.cs",
               "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAIwE8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T00:46:14.721Z",
+              "WhenOpened": "2024-12-06T03:20:47.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Persona.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Dominio\\Persona.cs",
+              "RelativeDocumentMoniker": "Dominio\\Persona.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Dominio\\Persona.cs",
+              "RelativeToolTip": "Dominio\\Persona.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T03:05:45.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PacienteManager.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\PacienteManager.cs",
+              "RelativeDocumentMoniker": "Manager\\PacienteManager.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\PacienteManager.cs",
+              "RelativeToolTip": "Manager\\PacienteManager.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAmwN8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T01:30:49.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PersonaManager.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\PersonaManager.cs",
+              "RelativeDocumentMoniker": "Manager\\PersonaManager.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\PersonaManager.cs",
+              "RelativeToolTip": "Manager\\PersonaManager.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAcwFkAAABxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T01:30:19.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MiPerfil.aspx",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-06T01:11:49.046Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Configuracion-Especialidades.aspx",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx*",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx*",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-27T00:45:26.799Z",
+              "Title": "MiPerfil.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs*",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs*",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwGoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T01:24:44.914Z",
               "EditorCaption": ""
             }
           ]

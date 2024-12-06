@@ -72,14 +72,15 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="CambioContraseña.aspx">Cambiar contraseña</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="Configuracion-Planes.aspx">Info plan</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="Configuracion-Turnos.aspx">Configuracion Turnos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="Configuracion-Paciente.aspx">Configuracion Pacientes</a></li>
-                                    <li><a class="dropdown-item" href="Configuracion-Empleado.aspx">Configuracion Empleados</a></li>
-                                    <li><a class="dropdown-item" href="Configuracion-Especialidades.aspx">Agregar Especialidades</a></li>
-                                    <li><a class="dropdown-item" href="Configuracion-Planes.aspx">Agregar Planes</a></li>
+                                    <li id="liInfoPlan" runat="server"><a class="dropdown-item" href="Configuracion-Planes.aspx">Info plan</a></li>
+                                    <li id="liDivider1" runat="server"><hr class="dropdown-divider"></li>
+                                    <li id="liConfigTurnos" runat="server"><a class="dropdown-item" href="Configuracion-Turnos.aspx">Configuración Turnos</a></li>
+                                    <li id="liDivider2" runat="server"><hr class="dropdown-divider"></li>
+                                    <li id="liConfigPacientes" runat="server"><a class="dropdown-item" href="Configuracion-Paciente.aspx">Configuración Pacientes</a></li>
+                                    <li id="liConfigEmpleados" runat="server"><a class="dropdown-item" href="Configuracion-Empleado.aspx">Configuración Empleados</a></li>
+                                    <li id="liConfigEspecialidades" runat="server"><a class="dropdown-item" href="Configuracion-Especialidades.aspx">Agregar Especialidades</a></li>
+                                    <li id="liAgregarPlanes" runat="server"><a class="dropdown-item" href="Configuracion-Planes.aspx">Agregar Planes</a></li>
+
                                 </ul>
                             </li>
                         </ul>

@@ -7,20 +7,16 @@
       "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\script_db\\clinica_db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\miperfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\miperfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\manager\\especialiadadesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\especialiadadesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\miperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\miperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\configuracion-especialidades.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9591A576-B149-4439-8718-D63490C6E7CC}|Dominio\\Dominio.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\dominio\\especialidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9591A576-B149-4439-8718-D63490C6E7CC}|Dominio\\Dominio.csproj|solutionrelative:dominio\\especialidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\manager\\pacientemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\pacientemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\manager\\script_db\\clinica_db.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
@@ -34,8 +30,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -45,62 +45,46 @@
               "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\script_DB\\CLINICA_DB.sql",
               "RelativeToolTip": "Manager\\script_DB\\CLINICA_DB.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-11-27T16:33:22.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Especialidades.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Dominio\\Especialidades.cs",
-              "RelativeDocumentMoniker": "Dominio\\Especialidades.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Dominio\\Especialidades.cs",
-              "RelativeToolTip": "Dominio\\Especialidades.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T13:36:54.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EspecialiadadesManager.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\EspecialiadadesManager.cs",
-              "RelativeDocumentMoniker": "Manager\\EspecialiadadesManager.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\EspecialiadadesManager.cs",
-              "RelativeToolTip": "Manager\\EspecialiadadesManager.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAwwHAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T00:46:58.342Z",
+              "WhenOpened": "2024-12-06T03:22:40.147Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Configuracion-Especialidades.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx.cs",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx.cs",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAIwE8AAAAAAAAAAAAAAA==",
+              "Title": "PacienteManager.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\PacienteManager.cs",
+              "RelativeDocumentMoniker": "Manager\\PacienteManager.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\PacienteManager.cs",
+              "RelativeToolTip": "Manager\\PacienteManager.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAmwN8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T00:46:14.721Z",
+              "WhenOpened": "2024-12-06T01:30:49.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MiPerfil.aspx",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-06T01:11:49.046Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Configuracion-Especialidades.aspx",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Especialidades.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-27T00:45:26.799Z",
+              "Title": "MiPerfil.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\MiPerfil.aspx.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAIwHEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T01:24:44.914Z",
               "EditorCaption": ""
             }
           ]

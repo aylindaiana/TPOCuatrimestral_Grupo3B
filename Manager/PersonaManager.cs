@@ -78,5 +78,48 @@ namespace Manager
             }
         }
 
+        public void ActualizarPersona(Persona persona)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                if (string.IsNullOrEmpty(persona.Dni))
+                {
+                    throw new ArgumentException("El DNI no puede ser nulo o vacío.");
+                }
+                datos.SetearConsulta("EXEC sp_Actualizar_Persona @dni, @nombre, @apellido, @fecha_nac, @telefono, @email, @calle, @numero, @localidad, @codigo_postal"); 
+                datos.SetearParametro("@dni", persona.Dni);
+                datos.SetearParametro("@nombre", persona.Nombre);
+                datos.SetearParametro("@apellido", persona.Apellido);
+                datos.SetearParametro("@fecha_nac", persona.Fecha_Nac);
+                datos.SetearParametro("@telefono", persona.Telefono);
+                datos.SetearParametro("@email", persona.Email);
+                if (persona.Direccion != null)
+                {
+                    datos.SetearParametro("@calle", persona.Direccion.Calle ?? string.Empty);
+                    datos.SetearParametro("@numero", persona.Direccion.Numero ?? string.Empty);
+                    datos.SetearParametro("@localidad", persona.Direccion.Localidad ?? string.Empty);
+                    datos.SetearParametro("@codigo_postal", persona.Direccion.CodigoPostal ?? string.Empty);
+                }
+                else
+                {
+                    datos.SetearParametro("@calle", string.Empty);
+                    datos.SetearParametro("@numero", string.Empty);
+                    datos.SetearParametro("@localidad", string.Empty);
+                    datos.SetearParametro("@codigo_postal", string.Empty);
+                }
+
+                datos.ejecutarAccion(); 
+            }
+            catch (Exception ex)
+            {
+                throw ex; 
+            }
+            finally
+            {
+                datos.CerrarConeccion(); 
+            }
+        }
+
     }
 }

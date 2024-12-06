@@ -499,37 +499,61 @@ BEGIN
 
 END
 GO
-
+select * from Personas
 --Modificar Paciente
-CREATE PROCEDURE sp_Modificar_Paciente(
-	@pDNI VARCHAR(20),
-	@pNOMBRE VARCHAR(100),
-	@pAPELLIDO VARCHAR(100),
-	@pFECHA_NAC DATE,
-	@pTELEFONO VARCHAR(20),
-	@pEMAIL VARCHAR(100),
-	@pID_DIRECCION INT,
-	@pCALLE VARCHAR(100),
-	@pNUMERO VARCHAR(10),
-	@pLOCALIDAD VARCHAR(100),
-	@pCOD_POSTAL VARCHAR(10),
-	@pID_PLAN INT
-	)AS
+CREATE PROCEDURE sp_Actualizar_Persona(
+    @dni VARCHAR(20),    
+    @nombre VARCHAR(100), 
+    @apellido VARCHAR(100),  
+    @fecha_nac DATE,         
+    @telefono VARCHAR(20), 
+    @email VARCHAR(100),      
+    @id_direccion INT,
+    @calle VARCHAR(100),       
+    @numero VARCHAR(10),     
+    @localidad VARCHAR(100),   
+    @codigo_postal VARCHAR(10),
+    @id_plan INT
+)
+AS
 BEGIN
-	UPDATE Direcciones SET calle = @pCALLE,numero = @pNUMERO,localidad = @pLOCALIDAD, codigo_postal = @pCOD_POSTAL
-	WHERE id_direccion = @pID_DIRECCION
-	
-	UPDATE Personas SET nombre = @pNOMBRE,apellido = @pAPELLIDO,fecha_nac = @pFECHA_NAC,telefono = @pTELEFONO,
-		   email = @pEMAIL,id_direccion = @pID_DIRECCION, id_acceso = '1'
-	WHERE dni = @pDNI
+    BEGIN TRANSACTION; 
+    BEGIN TRY
+        UPDATE Direcciones
+        SET 
+            calle = @calle,
+            numero = @numero,
+            localidad = @localidad,
+            codigo_postal = @codigo_postal
+        WHERE id_direccion = @id_direccion;
 
-	UPDATE Pacientes SET id_plan = @pID_PLAN
-	WHERE dni = @pDNI
+        UPDATE Personas
+        SET 
+            nombre = @nombre,
+            apellido = @apellido,
+            fecha_nac = @fecha_nac,
+            telefono = @telefono,
+            email = @email,
+            id_direccion = @id_direccion 
+        WHERE dni = @dni;
 
-	UPDATE Usuarios SET id_acceso = '1'
-	WHERE Usuario = @pDNI
-END
+        UPDATE Pacientes
+        SET id_plan = @id_plan
+        WHERE dni = @dni;
+
+        UPDATE Usuarios
+        SET id_acceso = '1' 
+        WHERE Usuario = @dni;
+
+        COMMIT TRANSACTION; 
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH
+END;
 GO
+
 
 --ASIGANAR ESPECIALIDADES A EMPLEADOS
 CREATE PROCEDURE sp_Asignar_Especialidades(
@@ -922,6 +946,63 @@ GO
 
 --SELECT id_turno,num_afiliado,apellido,id_especialidad,especialidad,Fecha,hora,estado FROM vwTodosTurnos
 --SELECT*FROM vwTodosTurnos
+--use CLINICA_DB
+-- Modificar persona
+CREATE PROCEDURE sp_Actualizar_Persona (
+    @dni VARCHAR(20),    
+    @nombre VARCHAR(100), 
+    @apellido VARCHAR(100),  
+    @fecha_nac DATE,         
+    @telefono VARCHAR(20), 
+    @email VARCHAR(100),      
+    @calle VARCHAR(100),       
+    @numero VARCHAR(10),     
+    @localidad VARCHAR(100),   
+    @codigo_postal VARCHAR(10) 
+)
+AS
+BEGIN
+    DECLARE @id_direccion INT;
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        SELECT @id_direccion = id_direccion 
+        FROM Personas 
+        WHERE dni = @dni;
+
+        IF @id_direccion IS NULL
+        BEGIN
+            RAISERROR('No se encontró la dirección para la persona con dni: %s', 16, 1, @dni);
+            ROLLBACK TRANSACTION
+            RETURN;
+        END
+        UPDATE Personas
+        SET 
+            nombre = @nombre,
+            apellido = @apellido,
+            fecha_nac = @fecha_nac,
+            telefono = @telefono,
+            email = @email
+        WHERE dni = @dni;
+
+        UPDATE Direcciones
+        SET 
+            calle = @calle,
+            numero = @numero,
+            localidad = @localidad,
+            codigo_postal = @codigo_postal
+        WHERE id_direccion = @id_direccion;
+
+        COMMIT TRANSACTION;
+
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH
+END;
+GO
+--EXEC sp_Actualizar_Persona @dni, @nombre, @apellido, @fecha_nac, @telefono, @email, @email, @calle, @numero, @localidad, @codigo_postal
 
 --------------------------------------------------------- INSERT DATOS ----------------------------------
 

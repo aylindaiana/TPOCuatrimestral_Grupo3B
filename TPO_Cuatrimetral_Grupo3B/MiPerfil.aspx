@@ -123,10 +123,12 @@
                 </form>
             </div>
 
-            <div class="col-md-2 d-flex flex-column align-items-end"">
-                <button class="btn btn-success mb-2">Guardar</button>
-                <button class="btn btn-secondary mb-2">Cancelar</button>
+            <div class="col-md-2 d-flex flex-column align-items-end">
+                <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary mb-2" Text="Editar" OnClick="btnEditar_Click" />
+                <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-success mb-2" Text="Guardar" OnClick="btnGuardar_Click" Enabled="false" />
+                <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-secondary mb-2" Text="Cancelar" OnClick="btnCancelar_Click" Enabled="false" />
             </div>
+
         </div>
 
     </div>
