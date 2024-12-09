@@ -87,7 +87,7 @@ namespace Manager
                 {
                     throw new ArgumentException("El DNI no puede ser nulo o vacío.");
                 }
-                datos.SetearConsulta("EXEC sp_Actualizar_Persona @dni, @nombre, @apellido, @fecha_nac, @telefono, @email, @calle, @numero, @localidad, @codigo_postal"); 
+                datos.SetearConsulta("EXEC sp_Modificar_Persona @dni, @nombre, @apellido, @fecha_nac, @telefono, @email, @calle, @numero, @localidad, @codigo_postal"); 
                 datos.SetearParametro("@dni", persona.Dni);
                 datos.SetearParametro("@nombre", persona.Nombre);
                 datos.SetearParametro("@apellido", persona.Apellido);

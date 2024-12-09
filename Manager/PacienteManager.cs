@@ -224,7 +224,7 @@ namespace Manager
 
             try
             {
-                datos.SetearConsulta("EXEC sp_Modificar_Paciente @DNI,@NOMBRE,@APELLIDO,@FECHA_NAC,@TELEFONO,@EMAIL,@ID_DIRECCION,@CALLE,@NUMERO,@LOCALIDAD,@COD_POSTAL,@ID_PLAN");
+                datos.SetearConsulta("EXEC sp_Actualizar_Persona @DNI,@NOMBRE,@APELLIDO,@FECHA_NAC,@TELEFONO,@EMAIL,@ID_DIRECCION,@CALLE,@NUMERO,@LOCALIDAD,@COD_POSTAL,@ID_PLAN");
                 datos.SetearParametro("@DNI", paciente.Dni);
                 datos.SetearParametro("@NOMBRE", paciente.Nombre);
                 datos.SetearParametro("@APELLIDO", paciente.Apellido);

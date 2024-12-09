@@ -216,7 +216,7 @@ namespace Manager
 
             try
             {
-                datos.SetearConsulta("select id_turno,legajo,num_afiliado,dia,Fecha,hora,motivo,observaciones,estado from Turnos where num_afiliado = @NUM_AFIL");
+                datos.SetearConsulta("select id_turno,legajo,num_afiliado,dia,Fecha,hora,motivo,observaciones,estado from Turnos where id_turno = @ID_TUR");
                 datos.SetearParametro("@ID_TUR", id_turno);
                 datos.EjecutarLectura();
 
@@ -249,6 +249,73 @@ namespace Manager
                 datos.CerrarConeccion();
             }
         }
+        public void ModificarTurno(TurnoMedico turno)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("EXEC sp_Modificar_Turno @ID_TURNO, @LEGAJO, @NUM_AFILIADO, @DIA, @ID_ESPECIALIDAD, @FECHA, @HORA, @ESTADO, @MOTIVO, @OBSERVACIONES");
+                datos.SetearParametro("@ID_TURNO", turno.Id);
+                datos.SetearParametro("@LEGAJO", turno.Legajo);
+                datos.SetearParametro("@NUM_AFILIADO", turno.NumAfiliado);
+                datos.SetearParametro("@DIA", turno.dia);
+                datos.SetearParametro("@ID_ESPECIALIDAD", turno.Id_Especialidad);
+                datos.SetearParametro("@FECHA", turno.Fecha);
+                datos.SetearParametro("@HORA", turno.Hora);
+                datos.SetearParametro("@ESTADO", turno.estado);
+                datos.SetearParametro("@MOTIVO", turno.Motivo);
+                datos.SetearParametro("@OBSERVACIONES", turno.Observaciones);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al modificar el turno.", ex);
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+        public TurnoMedico ObtenerTurnoPorId(int turnoId)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            TurnoMedico turno = null;
+
+            try
+            {
+                datos.SetearConsulta("EXEC ObtenerTurnoPorId @ID_TURNO");
+                datos.SetearParametro("@ID_TURNO", turnoId);
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    turno = new TurnoMedico();
+
+                    turno.Id = (int)datos.Lector["id_turno"];
+                    turno.Legajo = (string)datos.Lector["legajo"];
+                    turno.NumAfiliado = !(datos.Lector["num_afiliado"] is DBNull) ? (string)datos.Lector["num_afiliado"] : "";
+                    turno.dia = (string)datos.Lector["dia"];
+                    turno.Fecha = (DateTime)datos.Lector["Fecha"];
+                    turno.Hora = (TimeSpan)datos.Lector["hora"];
+                    turno.estado = (string)datos.Lector["estado"];
+                    turno.Motivo = !(datos.Lector["motivo"] is DBNull) ? (string)datos.Lector["motivo"] : "";
+                    turno.Observaciones = !(datos.Lector["observaciones"] is DBNull) ? (string)datos.Lector["observaciones"] : "";
+                }
+
+                return turno;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el turno por ID.", ex);
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+
+
 
     }
 }

@@ -499,7 +499,7 @@ BEGIN
 
 END
 GO
-select * from Personas
+
 --Modificar Paciente
 CREATE PROCEDURE sp_Actualizar_Persona(
     @dni VARCHAR(20),    
@@ -554,6 +554,52 @@ BEGIN
 END;
 GO
 
+--PARA EDITAR TURNO
+CREATE PROCEDURE sp_Modificar_Turno(
+    @ID_TURNO INT,               
+    @LEGAJO NVARCHAR(100),       
+    @NUM_AFILIADO VARCHAR(100),   
+    @DIA VARCHAR(20),             
+    @ID_ESPECIALIDAD INT,        
+    @FECHA DATE,                  
+    @HORA TIME,                   
+    @ESTADO VARCHAR(20),          
+    @MOTIVO VARCHAR(255),         
+    @OBSERVACIONES TEXT        
+	)
+AS
+BEGIN
+    BEGIN TRANSACTION
+
+    BEGIN TRY
+        IF EXISTS (SELECT 1 FROM Turnos WHERE id_turno = @ID_TURNO AND estado IN ('sin asignar', 'pendiente'))
+        BEGIN
+            UPDATE Turnos
+            SET
+                legajo = @LEGAJO,                  
+                num_afiliado = @NUM_AFILIADO,      
+                dia = @DIA,                        
+                id_especialidad = @ID_ESPECIALIDAD, 
+                Fecha = @FECHA,                    
+                hora = @HORA,                     
+                estado = @ESTADO,                
+                motivo = @MOTIVO,                  
+                observaciones = @OBSERVACIONES     
+            WHERE id_turno = @ID_TURNO;
+        END
+        ELSE
+        BEGIN
+            RAISERROR('No se puede modificar un turno con el estado actual.', 16, 1);
+            RETURN;
+        END
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH
+END;
+GO
 
 --ASIGANAR ESPECIALIDADES A EMPLEADOS
 CREATE PROCEDURE sp_Asignar_Especialidades(
@@ -870,6 +916,36 @@ BEGIN
 END
 GO
 
+--Traer el turno 
+CREATE PROCEDURE ObtenerTurnoPorID
+    @id_turno INT
+AS
+BEGIN
+    SELECT 
+        t.id_turno,
+        t.id_sanatorio,
+        t.legajo,
+        t.num_afiliado,
+        t.dia,
+        t.id_especialidad,
+        t.Fecha,
+        t.hora,
+        t.estado,
+        t.motivo,
+        t.observaciones,
+        e.especialidad,
+        p.nombre + ' ' + p.apellido AS medico_nombre,
+        s.nombre AS sanatorio_nombre
+    FROM Turnos t
+    INNER JOIN Trabajadores tr ON t.legajo = tr.legajo
+    INNER JOIN Especialidades e ON t.id_especialidad = e.id_especialidad
+    INNER JOIN Personas p ON tr.dni = p.dni
+    LEFT JOIN Sanatorios s ON t.id_sanatorio = s.id_sanatorio
+    WHERE t.id_turno = @id_turno;
+END
+GO
+--EXEC ObtenerTurnoPorID @id_turno = 1000;
+
 CREATE PROCEDURE sp_buscar_gmail(
 	@pUSUARIO VARCHAR(50)
 )
@@ -909,17 +985,37 @@ RETURN(
 	WHERE Fecha = @FECHA AND estado = 'sin asignar' AND legajo = @LEGAJO
 );
 GO
+--SELECT * FROM obtenerHorariosDisponibles('2024-12-09', 'E7002');
+--SELECT * FROM Turnos WHERE estado = 'sin asignar' AND Fecha = '2024-12-09' AND legajo = 'E7002';
 
 --aSIGNACION DE TURNO AL PACIENTE
+
 CREATE PROCEDURE asignarTurno(
-	@pID_TURNO INT,
-	@pNUM_AFIL VARCHAR(100),
-	@pMOTIVO VARCHAR(255),
-	@pID_SANATORIO INT
-	)AS
+    @pID_TURNO INT,
+    @pNUM_AFIL VARCHAR(100),
+    @pMOTIVO VARCHAR(255),
+    @pID_SANATORIO INT
+)
+AS
 BEGIN
-	UPDATE Turnos SET num_afiliado = @pNUM_AFIL, motivo = @pMOTIVO, id_sanatorio = @pID_SANATORIO
-	WHERE id_turno = @pID_TURNO
+    -- Verificar si el turno ya está ocupado
+    IF EXISTS (
+        SELECT 1 
+        FROM Turnos 
+        WHERE id_turno = @pID_TURNO AND num_afiliado IS NOT NULL
+    )
+    BEGIN
+        RAISERROR('El turno ya está ocupado.', 16, 1);
+        RETURN;
+    END
+
+    -- Asignar el turno si está disponible
+    UPDATE Turnos 
+    SET 
+        num_afiliado = @pNUM_AFIL, 
+        motivo = @pMOTIVO, 
+        id_sanatorio = @pID_SANATORIO
+    WHERE id_turno = @pID_TURNO;
 END
 GO
 
@@ -934,8 +1030,9 @@ BEGIN
 	UPDATE	Turnos SET estado = @pESTADO, observaciones = @pOBS
 	WHERE id_turno = @pID_TURNO
 END
-select* from Turnos
-
+GO
+--select* from Turnos
+--USE CLINICA_DB
 CREATE VIEW vwTodosTurnos
 AS
 SELECT Tu.id_turno,Tu.num_afiliado,p.apellido,Tu.id_especialidad,E.especialidad,Tu.Fecha,Tu.hora,tu.estado FROM Turnos Tu
@@ -948,7 +1045,7 @@ GO
 --SELECT*FROM vwTodosTurnos
 --use CLINICA_DB
 -- Modificar persona
-CREATE PROCEDURE sp_Actualizar_Persona (
+CREATE PROCEDURE sp_Modificar_Persona (
     @dni VARCHAR(20),    
     @nombre VARCHAR(100), 
     @apellido VARCHAR(100),  

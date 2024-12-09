@@ -38,7 +38,7 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id_esp = int.Parse(ddlEspecialidad.SelectedValue);
-            listaTurnos = (List<TurnoMedico>)Session["ListaTur"];
+            listaTurnos = (List<TurnoMedico>)Session["ListaTur"]; 
             List<TurnoMedico> aux = new List<TurnoMedico>();
 
             if (id_esp == 0)

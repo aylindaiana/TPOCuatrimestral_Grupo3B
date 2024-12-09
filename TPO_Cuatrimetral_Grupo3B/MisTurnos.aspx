@@ -4,7 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <<div class="container">
+    <div class="container">
 
         <div class="row justify-content-center" style="padding-top: 30px">
             <div class="container-fluid">
