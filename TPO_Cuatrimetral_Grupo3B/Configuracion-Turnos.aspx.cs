@@ -51,10 +51,25 @@ namespace TPO_Cuatrimetral_Grupo3B
                     return;
                 }
 
+                // Validar y obtener los días seleccionados
+                var diasSeleccionados = chkDias.Items.Cast<ListItem>()
+                    .Where(item => item.Selected)
+                    .Select(item => item.Value)
+                    .ToList();
+
+                if (!diasSeleccionados.All(d => new[] { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" }.Contains(d)))
+                {
+                    lblMensaje.Text = "Uno o más días seleccionados no son válidos.";
+                    lblMensaje.CssClass = "error-message";
+                    lblMensaje.Visible = true;
+                    return;
+                }
+
+                // Crear y guardar el nuevo horario
                 Horarios nuevoHorario = new Horarios(
                     horarioInicio,
                     horarioFin,
-                    string.Join(",", chkDias.Items.Cast<ListItem>().Where(li => li.Selected).Select(li => li.Value)),
+                    string.Join(",", diasSeleccionados),
                     new Especialidades
                     {
                         Id = int.Parse(ddlEspecialidades.SelectedValue),
@@ -77,6 +92,7 @@ namespace TPO_Cuatrimetral_Grupo3B
                 lblMensaje.Visible = true;
             }
         }
+
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             ddlProfesionales.SelectedIndex = 0;
@@ -172,8 +188,10 @@ namespace TPO_Cuatrimetral_Grupo3B
                 "Sábado",
                 "Domingo"
             };
-           // horariosManager.ObtenerTodos(legajo);
-                
+
+
+            // horariosManager.ObtenerTodos(legajo);
+
             chkDias.DataSource = diasSemana;
             chkDias.DataBind();
         }

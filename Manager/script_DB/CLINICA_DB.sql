@@ -945,7 +945,37 @@ BEGIN
 END
 GO
 --EXEC ObtenerTurnoPorID @id_turno = 1000;
+--USE CLINICA_DB
 
+CREATE PROCEDURE ObtenerTurnosPorAfiliado
+    @num_afiliado NVARCHAR(50)
+AS
+BEGIN
+    SELECT 
+        t.id_turno,
+        t.id_sanatorio,
+        t.legajo,
+        t.num_afiliado,
+        t.dia,
+        t.id_especialidad,
+        t.Fecha,
+        t.hora,
+        t.estado,
+        t.motivo,
+        t.observaciones,
+        e.especialidad,
+        p.nombre + ' ' + p.apellido AS medico_nombre,
+        s.nombre AS sanatorio_nombre
+    FROM Turnos t
+    INNER JOIN Trabajadores tr ON t.legajo = tr.legajo
+    INNER JOIN Especialidades e ON t.id_especialidad = e.id_especialidad
+    INNER JOIN Personas p ON tr.dni = p.dni
+    LEFT JOIN Sanatorios s ON t.id_sanatorio = s.id_sanatorio
+    WHERE t.num_afiliado = @num_afiliado;
+END
+GO
+--EXEC ObtenerTurnosPorAfiliado P10002;
+--select * from Turnos
 CREATE PROCEDURE sp_buscar_gmail(
 	@pUSUARIO VARCHAR(50)
 )

@@ -18,7 +18,36 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
             if (!IsPostBack)
             {
-                CargarLista();
+               // CargarLista();
+                if (Session["User"] != null)
+                {
+                    Usuario usuario = (Usuario)Session["User"];
+
+                    if (usuario.Tipo == UserType.ADMIN)
+                    {
+
+                        CargarLista();
+                    }
+                    else if (usuario.Tipo == UserType.RECEPCIONISTA)
+                    {
+                        CargarLista();
+                    }
+                    else if (usuario.Tipo == UserType.MEDICO)
+                    {
+                        CargarLista();
+                    }
+
+                    else if (usuario.Tipo == UserType.PACIENTE)
+                    {
+                        CargarListaPaciente();
+                    }
+
+                }
+                else
+                {
+                    Session.Add("error", "Usted no tiene permiso para acceder");
+                    Response.Redirect("DenegarPermiso.aspx", false);
+                }
             }
         }
 
@@ -33,6 +62,11 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected void btnBuscarId_Click(object sender, EventArgs e)
         {
 
+            List<TurnoMedico> lista = (List<TurnoMedico>)Session["listarTurnos"];
+            List<TurnoMedico> listaFiltroAfiliado = lista.FindAll(x => x.NumAfiliado.ToUpper().Contains(txtIdFiltro.Text.ToUpper()));
+            repeaterTurnos.DataSource = listaFiltroAfiliado;
+            repeaterTurnos.DataBind();
+            txtIdFiltro.Text = string.Empty;
         }
 
         protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,6 +134,36 @@ namespace TPO_Cuatrimetral_Grupo3B
             Session["ListaTur"] = listaTurnos;
 
         }
+        private void CargarListaPaciente()
+        {
+            TurnoMedicoManager manager = new TurnoMedicoManager();
+            Paciente paciente;
+
+            try
+            {
+                if (Session["Paciente"] == null)
+                {
+                    Response.Redirect("Login.aspx"); 
+                    return;
+                }
+
+                paciente = (Paciente)Session["Paciente"];
+
+                listaTurnos = manager.ObtenerTurnosPorAfiliado(paciente.Numero_afiliado);
+
+                repeaterTurnos.DataSource = listaTurnos;
+                repeaterTurnos.DataBind();
+
+                CargarEspecialidades();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error " + ex.Message + "');</script>");
+            }
+
+            Session["ListaTur"] = listaTurnos;
+        }
+
 
         private void CargarEspecialidades() 
         {

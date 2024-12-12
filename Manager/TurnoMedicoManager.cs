@@ -315,6 +315,45 @@ namespace Manager
             }
         }
 
+        public List<TurnoMedico> ObtenerTurnosPorAfiliado(string numAfiliado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<TurnoMedico> listaTurnos = new List<TurnoMedico>();
+
+            try
+            {
+                datos.SetearConsulta("EXEC ObtenerTurnosPorAfiliado @NUM_AFILIADO");
+                datos.SetearParametro("@NUM_AFILIADO", numAfiliado);
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    TurnoMedico turno = new TurnoMedico
+                    {
+                        Id = (int)datos.Lector["id_turno"],
+                        Legajo = (string)datos.Lector["legajo"],
+                        NumAfiliado = !(datos.Lector["num_afiliado"] is DBNull) ? (string)datos.Lector["num_afiliado"] : "",
+                        dia = (string)datos.Lector["dia"],
+                        Fecha = (DateTime)datos.Lector["Fecha"],
+                        Hora = (TimeSpan)datos.Lector["hora"],
+                        estado = (string)datos.Lector["estado"],
+                        Motivo = !(datos.Lector["motivo"] is DBNull) ? (string)datos.Lector["motivo"] : "",
+                        Observaciones = !(datos.Lector["observaciones"] is DBNull) ? (string)datos.Lector["observaciones"] : ""
+                    };
+                    listaTurnos.Add(turno);
+                }
+
+                return listaTurnos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener turnos por número de afiliado.", ex);
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
 
 
     }
