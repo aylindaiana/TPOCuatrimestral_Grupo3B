@@ -13,27 +13,31 @@ namespace TPO_Cuatrimetral_Grupo3B
 {
     public partial class EditarTurnos : System.Web.UI.Page
     {
-        //static int id_turno;
+        static int id_turno;
+        static string legajo;
+        private TurnoMedico turno;
         List<Especialidades> listaEspecialidades = new List<Especialidades>();
         List<Sanatorios> listaSanatorios = new List<Sanatorios>();
         List<Empleado> listaMedicos = new List<Empleado>();
-        static int id_turno;
-        static string legajo;
+        
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack && Request.QueryString["id_turno"] != null)
+            if (!IsPostBack)
             {
-                id_turno = int.Parse(Request.QueryString["id_turno"]);
-                lblTitulo.Text = "Turno: " + id_turno.ToString();
-                CargarTurno(id_turno);
-                CargarSanatorios();
-                CargarEspecialidades();
+                if ( Request.QueryString["id_turno"] != null)
+                {
+                    id_turno = int.Parse(Request.QueryString["id_turno"]);
+                    lblTitulo.Text = "Turno: " + id_turno.ToString();
+                    CargarTurno(id_turno);
+                    CargarSanatorios();
+                    CargarEspecialidades();
+                }
+                else
+                {
+                    Response.Redirect("DenegarPermiso.aspx");
+                }
             }
-            else
-            {
-                Response.Redirect("DenegarPermiso.aspx");
-            }
-
         }
 
         protected void txtAfiliado_TextChanged(object sender, EventArgs e)
@@ -54,8 +58,8 @@ namespace TPO_Cuatrimetral_Grupo3B
                     txtNombre.Text = aux.Nombre;
                     txtApellido.Text = aux.Apellido;
 
-                   // txtNombre.Enabled = false;
-                    //txtApellido.Enabled = false;
+                    txtNombre.Enabled = false;
+                    txtApellido.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -76,22 +80,6 @@ namespace TPO_Cuatrimetral_Grupo3B
 
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                legajo = ddlMedicos.SelectedValue;
-
-                if (string.Compare(legajo, "0") != 0)
-                    CargarDiasDisponibles(legajo);
-
-                ddlFechas.Items.Clear();
-                ddlHorarios.Items.Clear();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex ;
-            }
-
         }
 
         protected void ddlDias_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,30 +129,36 @@ namespace TPO_Cuatrimetral_Grupo3B
         {
             try
             {
-                TurnoMedico turno = new TurnoMedico();
+                if (id_turno == 0)
+                {
+                    throw new Exception("El ID del turno no es válido.");
+                }
 
+                TurnoMedico turno = new TurnoMedico();
                 turno.Id = id_turno;
+                turno.Legajo = ddlMedicos.SelectedValue;
                 turno.NumAfiliado = txtAfiliado.Text;
                 turno.Motivo = txtMotivo.Text;
                 turno.Observaciones = txtObservaciones.Text;
                 turno.Id_Sanatorio = int.Parse(ddlSanatorio.SelectedValue);
                 turno.Id_Especialidad = int.Parse(ddlEspecialidad.SelectedValue);
-                turno.Legajo = ddlMedicos.SelectedValue;
                 turno.Fecha = DateTime.Parse(ddlFechas.SelectedValue);
-                turno.Hora = TimeSpan.Parse(ddlHorarios.SelectedValue);
                 turno.dia = ddlDias.SelectedValue;
-             //   turno.estado = "Pendiente";
-
+                turno.Hora = TimeSpan.Parse(ddlHorarios.SelectedValue);
+                turno.estado = "Pendiente";
 
                 TurnoMedicoManager manager = new TurnoMedicoManager();
                 manager.ModificarTurno(turno);
+
+                Response.Write("<script>alert('Turno modificado exitosamente.');</script>");
                 Response.Redirect("MisTurnos.aspx", false);
             }
             catch (Exception ex)
             {
-                Response.Redirect("DenegarPermiso.aspx");
+                Response.Write("<script>alert('Error al guardar el turno: " + ex.ToString() + "');</script>");
             }
         }
+
 
         protected void btnCacelar_Click(object sender, EventArgs e)
         {
@@ -227,34 +221,76 @@ namespace TPO_Cuatrimetral_Grupo3B
             ddlMedicos.DataBind();
         }
 
+       
         private void CargarTurno(int idTurno)
         {
             TurnoMedicoManager manager = new TurnoMedicoManager();
-            TurnoMedico turno = manager.ObtenerTurnoPorId(idTurno);
+            turno = manager.ObtenerTurnoPorId(idTurno);
 
             if (turno != null)
             {
-                txtAfiliado.Text = turno.NumAfiliado;
-                txtMotivo.Text = turno.Motivo;
-                txtObservaciones.Text = turno.Observaciones;
+                try
+                {
+                    txtAfiliado.Text = turno.NumAfiliado;
+                    txtMotivo.Text = turno.Motivo;
+                    txtObservaciones.Text = turno.Observaciones;
 
-                ddlSanatorio.SelectedValue = turno.Id_Sanatorio.ToString();
-                ddlEspecialidad.SelectedValue = turno.Id_Especialidad.ToString();
-                ddlMedicos.SelectedValue = turno.Legajo;
-                ddlDias.SelectedValue = turno.dia;
-                ddlFechas.SelectedValue = turno.Fecha.ToString("yyyy-MM-dd");
-                ddlHorarios.SelectedValue = turno.Hora.ToString(@"hh\:mm");
+                    txtAfiliado.Enabled = false;
+                    //txtObservaciones.Enabled = false;
+
+                    ddlSanatorio.SelectedValue = turno.Id_Sanatorio.ToString();
+                    ddlEspecialidad.SelectedValue = turno.Id_Especialidad.ToString();
+
+                    CargarMedicosAsignados(turno.Id_Especialidad);
+                    ddlMedicos.SelectedValue = turno.Legajo;
+
+                    // Cargar Datos del Paciente
+                    CargarDatosAfiliado(turno.NumAfiliado);
+
+                    CargarDiasDisponibles(turno.Legajo);
+                    ddlDias.SelectedValue = turno.dia;
+
+                    CargarFechas(turno.Legajo, turno.dia);
+                    ddlFechas.SelectedValue = turno.Fecha.ToString("yyyy-MM-dd");
+
+                    CargarHorarios(turno.Fecha, turno.Legajo);
+                    ddlHorarios.SelectedValue = turno.Hora.ToString(@"hh\:mm");
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('Error al cargar los datos del turno: " + ex.Message + "');</script>");
+                }
             }
             else
             {
                 Response.Redirect("DenegarPermiso.aspx");
             }
         }
+        private void CargarDatosAfiliado(string numAfiliado)
+        {
+            PacienteManager manager = new PacienteManager();
+            Paciente paciente = manager.ObtenerPorNumeroAfiliado(numAfiliado);
+
+            if (paciente != null)
+            {
+                txtNombre.Text = paciente.Nombre;
+                txtApellido.Text = paciente.Apellido;
+
+                txtNombre.Enabled = false;
+                txtApellido.Enabled = false;
+            }
+            else
+            {
+                Response.Write("<script>alert('No se encontró el paciente.');</script>");
+            }
+        }
+
 
         private void CargarDiasDisponibles(string legajo)
         {
             HorariosManager manager = new HorariosManager();
-            List<Horarios> listaHorarios = new List<Horarios>();
+            List<Horarios> listaHorarios;
             try
             {
                 listaHorarios = manager.ObtenerTodos(legajo);
@@ -268,6 +304,41 @@ namespace TPO_Cuatrimetral_Grupo3B
                 Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
             }
         }
+        private void CargarHorarios(DateTime fecha, string legajo)
+        {
+            TurnoMedicoManager manager = new TurnoMedicoManager();
+            List<TurnoMedico> listaHorarios;
+
+            try
+            {
+                listaHorarios = manager.ObtenerHorarios(fecha, legajo);
+                ddlHorarios.DataSource = listaHorarios;
+                ddlHorarios.DataTextField = "Hora";
+                ddlHorarios.DataValueField = "Hora";
+                ddlHorarios.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error al cargar horarios: " + ex.Message + "');</script>");
+            }
+        }
+        private void CargarFechas(string legajo, string dia)
+        {
+            TurnoMedicoManager manager = new TurnoMedicoManager();
+            List<string> listaFechas;
+
+            try
+            {
+                listaFechas = manager.ObtenerFechas(legajo, dia).Select(f => f.ToString("yyyy-MM-dd")).ToList();
+                ddlFechas.DataSource = listaFechas;
+                ddlFechas.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error al cargar fechas: " + ex.Message + "');</script>");
+            }
+        }
+
 
     }
 }

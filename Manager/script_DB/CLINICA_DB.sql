@@ -653,6 +653,7 @@ BEGIN
 END
 GO
 
+
 --RESTABLECER CONTRASENIA
 CREATE PROCEDURE sp_Restablecer_Pass(
 	@pDNI VARCHAR(20)
@@ -1074,6 +1075,7 @@ GO
 --SELECT id_turno,num_afiliado,apellido,id_especialidad,especialidad,Fecha,hora,estado FROM vwTodosTurnos
 --SELECT*FROM vwTodosTurnos
 --use CLINICA_DB
+
 -- Modificar persona
 CREATE PROCEDURE sp_Modificar_Persona (
     @dni VARCHAR(20),    
@@ -1130,6 +1132,21 @@ BEGIN
 END;
 GO
 --EXEC sp_Actualizar_Persona @dni, @nombre, @apellido, @fecha_nac, @telefono, @email, @email, @calle, @numero, @localidad, @codigo_postal
+
+--FILTRO PARA PACIENTE
+CREATE PROCEDURE ObtenerPacientePorAfiliado(
+    @NUM_AFILIADO NVARCHAR(50)
+)
+AS
+BEGIN
+    SELECT P.numero_afiliado, PP.nombre, PP.apellido
+    FROM Pacientes P
+    INNER JOIN Personas PP ON P.dni = PP.dni
+    WHERE P.numero_afiliado = @NUM_AFILIADO;
+END
+GO
+
+--EXEC ObtenerPacientePorAfiliado @NUM_AFILIADO = 'P10002';
 
 --------------------------------------------------------- INSERT DATOS ----------------------------------
 

@@ -251,5 +251,36 @@ namespace Manager
             }
 
         }
+        public Paciente ObtenerPorNumeroAfiliado(string numeroAfiliado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Paciente paciente = new Paciente();
+
+            try
+            {
+                datos.SetearConsulta("EXEC ObtenerPacientePorAfiliado @NUM_AFILIADO;");
+                datos.SetearParametro("@NUM_AFILIADO", numeroAfiliado);
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    paciente.Numero_afiliado = (string)datos.Lector["numero_afiliado"];
+                    paciente.Nombre = (string)datos.Lector["nombre"];
+                    paciente.Apellido = (string)datos.Lector["apellido"];
+                }
+
+                return paciente;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+
+
     }
 }
