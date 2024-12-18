@@ -14,8 +14,7 @@ namespace TPO_Cuatrimetral_Grupo3B
         private EmpleadoManager empleadoManager = new EmpleadoManager();
         private EspecialiadadesManager especialidadesManager = new EspecialiadadesManager();
         private HorariosManager horariosManager = new HorariosManager();
-        List<Horarios> listaHorarios = new List<Horarios>();
-        static string legajo;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -51,12 +50,11 @@ namespace TPO_Cuatrimetral_Grupo3B
                     return;
                 }
 
-                // Validar y obtener los días seleccionados
                 var diasSeleccionados = chkDias.Items.Cast<ListItem>()
                     .Where(item => item.Selected)
                     .Select(item => item.Value)
                     .ToList();
-
+                
                 if (!diasSeleccionados.All(d => new[] { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" }.Contains(d)))
                 {
                     lblMensaje.Text = "Uno o más días seleccionados no son válidos.";
@@ -64,8 +62,29 @@ namespace TPO_Cuatrimetral_Grupo3B
                     lblMensaje.Visible = true;
                     return;
                 }
+                if (!diasSeleccionados.Any())
+                {
+                    lblMensaje.Text = "Debe seleccionar al menos un día.";
+                    return;
+                }
+                /*
+                foreach (var dia in diasSeleccionados)
+                {
+                    Horarios nuevoHorario = new Horarios(
+                        horarioInicio,
+                        horarioFin,
+                        dia, // Aquí se envía un solo día
+                        new Especialidades
+                        {
+                            Id = int.Parse(ddlEspecialidades.SelectedValue),
+                            Nombre = ddlEspecialidades.SelectedItem.Text
+                        }
+                    );
 
-                // Crear y guardar el nuevo horario
+                    horariosManager.Agregar(nuevoHorario, ddlProfesionales.SelectedValue);
+                }*/
+
+                
                 Horarios nuevoHorario = new Horarios(
                     horarioInicio,
                     horarioFin,
@@ -78,12 +97,13 @@ namespace TPO_Cuatrimetral_Grupo3B
                 );
 
                 horariosManager.Agregar(nuevoHorario, ddlProfesionales.SelectedValue);
+                
 
                 lblMensaje.Text = "Configuración guardada exitosamente.";
                 lblMensaje.CssClass = "success-message";
                 lblMensaje.Visible = true;
 
-                CargarHorarios();
+                //CargarHorarios();
             }
             catch (Exception ex)
             {
@@ -104,21 +124,12 @@ namespace TPO_Cuatrimetral_Grupo3B
             {
                 item.Selected = false;
             }
-            txtDuracionTurno.Text = "";
 
             lblMensaje.Text = "";
             lblMensaje.Visible = false;
         }
 
-        protected void gvConfiguraciones_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "Eliminar")
-            {
-            }
-            else if (e.CommandName == "Editar")
-            {
-            }
-        }
+
         protected void ddlSanatorio_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -126,7 +137,7 @@ namespace TPO_Cuatrimetral_Grupo3B
 
         protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int idEspecialidad = int.Parse(ddlEspecialidades.SelectedValue);
         }
 
         protected void ddlProfesionales_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,28 +147,64 @@ namespace TPO_Cuatrimetral_Grupo3B
 
 
         //Funciones:
+        protected void ddlEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddlEstado = (DropDownList)sender;
+            GridViewRow row = (GridViewRow)ddlEstado.NamingContainer;
+            HiddenField hfTurnoId = (HiddenField)row.FindControl("hfTurnoId");
+
+            int turnoId = int.Parse(hfTurnoId.Value);
+            string nuevoEstado = ddlEstado.SelectedValue;
+
+            // Actualizar el estado del turno en la base de datos
+            ActualizarEstadoTurno(turnoId, nuevoEstado);
+
+        }
+
+        private void ActualizarEstadoTurno(int turnoId, string estado)
+        {
+            try
+            {
+                TurnoMedicoManager manager = new TurnoMedicoManager();
+
+                TurnoMedico turno = new TurnoMedico();
+                turno.Id = turnoId;
+                turno.estado = estado;
+                turno.Observaciones = "Actualizado desde la interfaz"; 
+
+                manager.ActaulizarTurno(turno);
+
+                lblMensaje.Text = "El estado del turno ha sido actualizado correctamente.";
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Error al actualizar el estado del turno: " + ex.Message;
+            }
+        }
+
         private void CargarProfesionales()
         {
-            var listaProfesionales = empleadoManager.ObtenerTodos(); // Método en EmpleadoManager
+            var listaProfesionales = empleadoManager.ObtenerTodos(); 
             ddlProfesionales.DataSource = listaProfesionales;
-            ddlProfesionales.DataTextField = "NombreCompleto"; // Propiedad a mostrar
-            ddlProfesionales.DataValueField = "Legajo"; // Valor seleccionado
+            ddlProfesionales.DataTextField = "NombreCompleto"; 
+            ddlProfesionales.DataValueField = "Legajo"; 
             ddlProfesionales.DataBind();
             ddlProfesionales.Items.Insert(0, new ListItem("Seleccione un profesional", "0"));
         }
+        /*
         private void CargarHorarios()
         {
             var horarios = horariosManager.ObtenerTodos(ddlProfesionales.SelectedValue);
             gvConfiguraciones.DataSource = horarios;
             gvConfiguraciones.DataBind();
-        }
+        }*/
 
         private void CargarEspecialidades()
         {
             var listaEspecialidades = especialidadesManager.ObtenerTodos();
             ddlEspecialidades.DataSource = listaEspecialidades;
-            ddlEspecialidades.DataTextField = "Nombre"; // Propiedad a mostrar
-            ddlEspecialidades.DataValueField = "Id"; // Valor seleccionado
+            ddlEspecialidades.DataTextField = "Nombre"; 
+            ddlEspecialidades.DataValueField = "Id";
             ddlEspecialidades.DataBind();
             ddlEspecialidades.Items.Insert(0, new ListItem("Seleccione una especialidad", "0"));
         }
@@ -178,6 +225,7 @@ namespace TPO_Cuatrimetral_Grupo3B
 
         private void CargarDias()
         {
+            /*
             List<string> diasSemana = new List<string>
             {
                 "Lunes",
@@ -189,10 +237,9 @@ namespace TPO_Cuatrimetral_Grupo3B
                 "Domingo"
             };
 
-
-            // horariosManager.ObtenerTodos(legajo);
-
             chkDias.DataSource = diasSemana;
+            chkDias.DataBind();*/
+            chkDias.DataSource = new[] { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" };
             chkDias.DataBind();
         }
 

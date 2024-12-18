@@ -60,13 +60,13 @@ namespace TPO_Cuatrimetral_Grupo3B
         protected global::System.Web.UI.WebControls.DropDownList ddlHorarioFin;
 
         /// <summary>
-        /// Control txtDuracionTurno.
+        /// Control DropDownList1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDuracionTurno;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
         /// Control btnGuardar.
@@ -94,14 +94,5 @@ namespace TPO_Cuatrimetral_Grupo3B
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensaje;
-
-        /// <summary>
-        /// Control gvConfiguraciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvConfiguraciones;
     }
 }

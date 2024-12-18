@@ -3,43 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\editarturnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\editarturnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\turnogeneral.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\turnogeneral.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\manager\\turnomedicomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\turnomedicomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\turnogeneral.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\turnogeneral.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\editarturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\editarturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\manager\\horariosmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\horariosmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9591A576-B149-4439-8718-D63490C6E7CC}|Dominio\\Dominio.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\dominio\\turnomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9591A576-B149-4439-8718-D63490C6E7CC}|Dominio\\Dominio.csproj|solutionrelative:dominio\\turnomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\manager\\sanatoriomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\sanatoriomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\nuevoturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\nuevoturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\nuevoturno.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\nuevoturno.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\configuracion-paciente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\configuracion-paciente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\configuracion-turnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\configuracion-turnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\configuracion-turnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\tpo_cuatrimetral_grupo3b\\detallesturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\nuevoturno.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\nuevoturno.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\nuevoturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\nuevoturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\manager\\turnomedicomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F412F60-D94E-48C6-B86E-4A3A91D71576}|Manager\\Manager.csproj|solutionrelative:manager\\turnomedicomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\configuracion-turnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\configuracion-turnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|c:\\users\\aapan\\downloads\\tpocuatrimestral_grupo3b\\tpo_cuatrimetral_grupo3b\\detallesturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFD0E97-3FA3-417C-93E0-70FE7FA31EE0}|TPO_Cuatrimetral_Grupo3B\\TPO_Cuatrimetral_Grupo3B.csproj|solutionrelative:tpo_cuatrimetral_grupo3b\\detallesturno.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -50,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,46 +54,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TurnoMedico.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Dominio\\TurnoMedico.cs",
-              "RelativeDocumentMoniker": "Dominio\\TurnoMedico.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Dominio\\TurnoMedico.cs",
-              "RelativeToolTip": "Dominio\\TurnoMedico.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "HorariosManager.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\HorariosManager.cs",
+              "RelativeDocumentMoniker": "Manager\\HorariosManager.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\HorariosManager.cs",
+              "RelativeToolTip": "Manager\\HorariosManager.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T01:37:48.002Z",
+              "WhenOpened": "2024-12-17T01:54:46.991Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EditarTurnos.aspx",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx",
+              "DocumentIndex": 3,
+              "Title": "Configuracion-Turnos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAAAGMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T01:51:37.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TurnoGeneral.aspx",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\TurnoGeneral.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\TurnoGeneral.aspx",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\TurnoGeneral.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\TurnoGeneral.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-06T04:06:52.343Z",
+              "WhenOpened": "2024-12-16T22:16:13.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EditarTurnos.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx.cs",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx.cs",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\EditarTurnos.aspx.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIMAAAAiAAAAAAAAAA==",
+              "Title": "TurnoGeneral.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\TurnoGeneral.aspx.cs",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\TurnoGeneral.aspx.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\TurnoGeneral.aspx.cs",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\TurnoGeneral.aspx.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEMAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T04:06:54.849Z",
+              "WhenOpened": "2024-12-16T22:17:12.455Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "NuevoTurno.aspx",
               "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\NuevoTurno.aspx",
               "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\NuevoTurno.aspx",
@@ -105,33 +114,7 @@
               "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\NuevoTurno.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-07T23:28:28.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TurnoMedicoManager.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\TurnoMedicoManager.cs",
-              "RelativeDocumentMoniker": "Manager\\TurnoMedicoManager.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\TurnoMedicoManager.cs",
-              "RelativeToolTip": "Manager\\TurnoMedicoManager.cs",
-              "ViewState": "AgIAAOsAAAAAAAAAAAAAAAABAACrAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T04:21:22.483Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SanatorioManager.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\SanatorioManager.cs",
-              "RelativeDocumentMoniker": "Manager\\SanatorioManager.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\SanatorioManager.cs",
-              "RelativeToolTip": "Manager\\SanatorioManager.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAgwDQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T00:43:31.788Z",
+              "WhenOpened": "2024-12-17T04:17:26.748Z",
               "EditorCaption": ""
             },
             {
@@ -142,38 +125,40 @@
               "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\NuevoTurno.aspx.cs",
               "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\NuevoTurno.aspx.cs",
               "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\NuevoTurno.aspx.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAuwKIAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAANoAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T02:07:46.244Z",
+              "WhenOpened": "2024-12-17T04:17:29.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TurnoMedicoManager.cs",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\TurnoMedicoManager.cs",
+              "RelativeDocumentMoniker": "Manager\\TurnoMedicoManager.cs",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\Manager\\TurnoMedicoManager.cs",
+              "RelativeToolTip": "Manager\\TurnoMedicoManager.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAswEYBAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T22:51:59.552Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Configuracion-Paciente.aspx",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Paciente.aspx",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Paciente.aspx",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Paciente.aspx",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Paciente.aspx",
+              "Title": "Configuracion-Turnos.aspx",
+              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx",
+              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx",
+              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx",
+              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-12T21:24:56.444Z"
+              "WhenOpened": "2024-12-16T19:46:06.915Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Configuracion-Turnos.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx.cs",
-              "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx.cs",
-              "ToolTip": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx.cs",
-              "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\Configuracion-Turnos.aspx.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAF4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T14:32:29.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "DetallesTurno.aspx.cs",
               "DocumentMoniker": "C:\\Users\\aapan\\Downloads\\TPOCuatrimestral_Grupo3B\\TPO_Cuatrimetral_Grupo3B\\DetallesTurno.aspx.cs",
               "RelativeDocumentMoniker": "TPO_Cuatrimetral_Grupo3B\\DetallesTurno.aspx.cs",
@@ -181,7 +166,8 @@
               "RelativeToolTip": "TPO_Cuatrimetral_Grupo3B\\DetallesTurno.aspx.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T04:06:24.605Z"
+              "WhenOpened": "2024-12-06T04:06:24.605Z",
+              "EditorCaption": ""
             }
           ]
         }

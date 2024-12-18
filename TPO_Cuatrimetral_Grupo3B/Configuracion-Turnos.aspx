@@ -39,11 +39,14 @@
                 <asp:DropDownList ID="ddlHorarioFin" runat="server" CssClass="form-select">
                 </asp:DropDownList>
             </div>
-
             <div class="col-md-4">
-                <label for="txtDuracionTurno" class="form-label">Duración del Turno (HORAS REDONDEADAS):</label>
-                <asp:TextBox ID="txtDuracionTurno" runat="server" CssClass="form-control" placeholder="Duración"></asp:TextBox>
+                <label for="ddlEstado" class="form-label">Estado del Turno:</label>
+                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-select">
+                    <asp:ListItem Text="Confirmado" Value="Confirmado"></asp:ListItem>
+                    <asp:ListItem Text="Cancelado" Value="Cancelado"></asp:ListItem>
+                </asp:DropDownList>
             </div>
+
         </div>
 
         <div class="row mt-4">
@@ -57,22 +60,5 @@
 
         <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger mt-3" Text="" Visible="false"></asp:Label>
 
-        <div class="table-responsive mt-5">
-            <asp:GridView ID="gvConfiguraciones" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="false" 
-                OnRowCommand="gvConfiguraciones_RowCommand">
-                <Columns>
-                    <asp:BoundField DataField="NombreProfesional" HeaderText="Profesional" />
-                    <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" />
-                    <asp:BoundField DataField="DiasDisponibles" HeaderText="Días" />
-                    <asp:BoundField DataField="Horario" HeaderText="Horario" />
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-sm btn-warning" Text="Editar" CommandName="Editar" CommandArgument='<%# Eval("Id") %>' />
-                            <asp:Button ID="btnEliminar" runat="server" CssClass="btn btn-sm btn-danger" Text="Eliminar" CommandName="Eliminar" CommandArgument='<%# Eval("Id") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
-        </div>
     </div>
 </asp:Content>

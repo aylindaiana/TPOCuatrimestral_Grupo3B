@@ -50,7 +50,7 @@ namespace Manager
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearConsulta("EXEC sp_Cargar_Horario @LEGAJO,@DIA,@HORA_INICIO,@HORA_FIN,@ID_ESPECIALIDAD");
+                datos.SetearConsulta("EXEC SP_Agregar_Horario_Trabajador @LEGAJO,@DIA,@HORA_INICIO,@HORA_FIN,@ID_ESPECIALIDAD");
                 datos.SetearParametro("@LEGAJO", legajo);
                 datos.SetearParametro("@DIA", nuevo.Dia);
                 datos.SetearParametro("@HORA_INICIO", nuevo.HoraInicio);

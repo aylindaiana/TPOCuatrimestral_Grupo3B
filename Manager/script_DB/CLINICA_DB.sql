@@ -917,6 +917,80 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SP_Agregar_Horario_Trabajador(
+    @legajo VARCHAR(100),
+    @id_especialidad INT,
+    @dia VARCHAR(20),
+    @hora_inicio TIME,
+    @hora_fin TIME
+	)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF NOT EXISTS (SELECT 1 FROM Trabajadores WHERE legajo = @legajo)
+    BEGIN
+        RAISERROR ('El legajo del trabajador no existe.', 16, 1);
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM Especialidades WHERE id_especialidad = @id_especialidad)
+    BEGIN
+        RAISERROR ('La especialidad no existe.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (
+        SELECT 1 
+        FROM Horarios_Trabajador
+        WHERE legajo = @legajo 
+          AND dia = @dia
+          AND (
+              (@hora_inicio BETWEEN hora_inicio AND hora_fin) OR
+              (@hora_fin BETWEEN hora_inicio AND hora_fin) OR
+              (hora_inicio BETWEEN @hora_inicio AND @hora_fin)
+          )
+    )
+    BEGIN
+        RAISERROR ('Existe un horario solapado para este trabajador en el mismo día.', 16, 1);
+        RETURN;
+    END
+
+    INSERT INTO Horarios_Trabajador (legajo, id_especialidad, dia, hora_inicio, hora_fin)
+    VALUES (@legajo, @id_especialidad, @dia, @hora_inicio, @hora_fin);
+
+    IF NOT EXISTS (
+        SELECT 1
+        FROM Medico_X_Especialidad
+        WHERE legajo = @legajo AND id_especialidad = @id_especialidad
+    )
+    BEGIN
+        INSERT INTO Medico_X_Especialidad (legajo, id_especialidad)
+        VALUES (@legajo, @id_especialidad);
+        
+        PRINT 'Asociación agregada en Medico_X_Especialidad.';
+    END
+
+    PRINT 'Horario insertado correctamente.';
+END;
+GO
+
+
+--USE CLINICA_DB
+--EXEC SP_Agregar_Horario_Trabajador
+--    @legajo = E7003,
+--    @id_especialidad = 100,
+--    @dia = 'Martes',
+--    @hora_inicio = '13:00',
+--    @hora_fin = '17:00';
+--SELECT * FROM Trabajadores
+--SELECT * FROM Especialidades
+--SELECT * FROM Horarios_Trabajador;
+--select * from Horarios_Disponibles
+--select * from vwTodosTurnos
+--select * from Turnos
+--select * from Medico_x_especialidad
+
 --Traer el turno 
 CREATE PROCEDURE ObtenerTurnoPorID
     @id_turno INT

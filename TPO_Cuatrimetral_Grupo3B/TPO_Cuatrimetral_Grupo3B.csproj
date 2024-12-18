@@ -90,6 +90,7 @@
     <Content Include="ModificarPaciente.aspx" />
     <Content Include="ModificarPlan.aspx" />
     <Content Include="NuevoTurno.aspx" />
+    <Content Include="TurnoGeneral.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +258,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TurnoGeneral.aspx.cs">
+      <DependentUpon>TurnoGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TurnoGeneral.aspx.designer.cs">
+      <DependentUpon>TurnoGeneral.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
