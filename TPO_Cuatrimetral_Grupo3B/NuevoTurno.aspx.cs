@@ -48,6 +48,8 @@ namespace TPO_Cuatrimetral_Grupo3B
             TurnoMedico turno = new TurnoMedico();
 
             turno.NumAfiliado = txtAfiliado.Text;
+            turno.Legajo = ddlMedicos.SelectedValue;
+            turno.Id_Especialidad = int.Parse(ddlEspecialidad.SelectedValue);
             turno.Motivo = txtMotivo.Text;
             turno.Id = int.Parse(ddlHorarios.SelectedValue);
             turno.Id_Sanatorio = id_sanatorio;
